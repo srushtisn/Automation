@@ -5,10 +5,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>634,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_05_DownloadInvoiceFromEmail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="40">
+    <scg:List x:TypeArguments="x:String" Capacity="41">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -49,10 +49,11 @@
       <x:String>UiPath.Mail.Activities.Business.ForEachMail</x:String>
       <x:String>UiPath.Shared.Activities.Business</x:String>
       <x:String>System.ComponentModel</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -99,12 +100,12 @@
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="OutMailMsg" />
       <Variable x:TypeArguments="x:String" Name="MailAccount" />
       <Variable x:TypeArguments="x:String" Name="MailFolder" />
-      <Variable x:TypeArguments="x:String" Name="FilterEmail" />
       <Variable x:TypeArguments="x:String" Name="ImportFolder" />
       <Variable x:TypeArguments="x:String" Name="MailMoveFolder" />
       <Variable x:TypeArguments="x:String" Name="MailFilterFrom" />
       <Variable x:TypeArguments="x:String" Name="SAPInvFolder" />
       <Variable x:TypeArguments="x:String" Name="OtherInvFolder" />
+      <Variable x:TypeArguments="x:String" Name="AttachmentFilter" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -117,19 +118,19 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID3</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID3">
+    <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,103.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">200,130 100,130 100,163.666666666667</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,156.333333333334 300,189</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:MultipleAssign DisplayName="Mail Variables Assignment" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
         <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[MailAccount]</OutArgument>
@@ -146,20 +147,12 @@
                 <InArgument x:TypeArguments="x:String">[in_config.Item("MailFolder")]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="x:String">[FilterEmail]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[in_config.Item("MailFilterFrom")]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
               <ui:AssignOperation.To>
                 <OutArgument x:TypeArguments="x:String">[ImportFolder]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[in_config.Item("ImportFolder")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_config.Item("BasePath") + "\" + in_config.Item("ImportFolder")]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
@@ -183,7 +176,7 @@
                 <OutArgument x:TypeArguments="x:String">[SAPInvFolder]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[in_config.item("SAPInvFolder")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_config.Item("BasePath") + "\" + in_config.item("SAPInvFolder")]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
@@ -191,7 +184,15 @@
                 <OutArgument x:TypeArguments="x:String">[OtherInvFolder]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[in_config.item("OtherInvFolder")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_config.Item("BasePath") + "\" + in_config.item("OtherInvFolder")]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[AttachmentFilter]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[in_config("AttachmentFilter")]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
           </scg:List>
@@ -204,97 +205,77 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID2">
+        <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">0,163.666666666667</av:Point>
-              <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">100,216.333333333333 100,230 200,230</av:PointCollection>
+              <av:Point x:Key="ShapeLocation">200,189</av:Point>
+              <av:Size x:Key="ShapeSize">200,22</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,211 300,243.666666666667</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="LogMessage_GetOutlookMsg" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[string.format(in_config(&quot;LogMessage_GetOutlookMsg&quot;), MailAccount)]">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:LogMessage>
+          <ui:GetOutlookMailMessages FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[MailAccount]" DisplayName="Get Outlook Mail Messages" Filter="[From] = 'Saranya Samuel'" GetAttachements="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_11" MailFolder="[MailFolder]" MarkAsRead="False" Messages="[OutMailMsg]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="30" />
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID0">
+            <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">200,219</av:Point>
-                  <av:Size x:Key="ShapeSize">200,22</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">300,241 300,283.666666666667</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">200,243.666666666667</av:Point>
+                  <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[MailAccount]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_11" MailFolder="[MailFolder]" MarkAsRead="False" Messages="[OutMailMsg]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="30" />
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID1">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">200,283.666666666667</av:Point>
-                      <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Mail in mail box" sap:VirtualizedContainerService.HintSize="512.666666666667,2268.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_15" Values="[OutMailMsg]">
-                    <ui:ForEach.Body>
-                      <ActivityAction x:TypeArguments="snm:MailMessage">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="item" />
-                        </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,2140.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_63">
-                          <Sequence.Variables>
-                            <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="Attachments" />
-                          </Sequence.Variables>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Read email for invoice attachments" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[string.format(in_config(&quot;LogMessage_ReadEmail&quot;), item.Sender, item.DateAsDateTime)]">
+              <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Mail in mail box" sap:VirtualizedContainerService.HintSize="670,2871.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_15" Values="[OutMailMsg]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="snm:MailMessage">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="item" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="633.333333333333,2743.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="Attachments" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If Condition="[item.Attachments.Any]" DisplayName="Check if email has attachments" sap:VirtualizedContainerService.HintSize="591.333333333333,2651.33333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Save attachment process" sap:VirtualizedContainerService.HintSize="554.666666666667,2456.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:Int32" Name="SlashLastIndex" />
+                              <Variable x:TypeArguments="x:String" Name="PDFFileName" />
+                            </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                          </ui:LogMessage>
-                          <ui:SaveMailAttachments Attachments="[Attachments]" DisplayName="Save Attachments" ExcludeInlineAttachments="False" Filter=".pdf" FolderPath="[ImportFolder]" sap:VirtualizedContainerService.HintSize="434,93.3333333333333" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_11" Message="[item]" OverwriteExisting="False">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:SaveMailAttachments>
-                          <ui:LogMessage DisplayName="Saved all attachments" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[String.format(in_config(&quot;LogMessage_SaveAttachment&quot;), item.Attachments.Count.ToString, ImportFolder)]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:LogMessage>
-                          <ui:LogMessage DisplayName="Loop to check invoice" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[String.format(in_config(&quot;LogMessage_TotalAttachments&quot;), Attachments.Count().ToString)]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:LogMessage>
-                          <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,961.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_14" Values="[Attachments]">
-                            <ui:ForEach.Body>
-                              <ActivityAction x:TypeArguments="x:Object">
-                                <ActivityAction.Argument>
-                                  <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
-                                </ActivityAction.Argument>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,833.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                            <ui:SaveMailAttachments Attachments="[Attachments]" DisplayName="Save Attachments" ExcludeInlineAttachments="False" Filter="[AttachmentFilter]" FolderPath="[ImportFolder]" sap:VirtualizedContainerService.HintSize="512.666666666667,93.3333333333333" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_12" Message="[item]" OverwriteExisting="False">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:SaveMailAttachments>
+                            <If Condition="[Attachments.Count() &gt; 0]" DisplayName="check any attachment saved in folder" sap:VirtualizedContainerService.HintSize="512.666666666667,2231.33333333333" sap2010:WorkflowViewState.IdRef="If_3">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="476,2036.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_81">
                                   <Sequence.Variables>
-                                    <Variable x:TypeArguments="x:Boolean" Name="MatchedStatus" />
-                                    <Variable x:TypeArguments="x:Int32" Name="SlashLastIndex" />
-                                    <Variable x:TypeArguments="x:String" Name="PDFFileName" />
+                                    <Variable x:TypeArguments="x:String" Name="FileName" />
+                                    <Variable x:TypeArguments="x:String" Name="FileFolderName" />
                                   </Sequence.Variables>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -302,23 +283,7 @@
                                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:Int32">[SlashLastIndex]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:Int32">[(item.ToString).LastIndexOf("\")]</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
-                                  <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_2">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:String">[PDFFileName]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:String">[right(item.ToString, len(item.ToString) - (SlashLastIndex + 1))]</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
-                                  <ui:LogMessage DisplayName="Checking invoice" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[String.format(in_config(&quot;LogMessage_Loop&quot;), PDFFileName)]">
+                                  <ui:LogMessage DisplayName="Read email for invoice attachments" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[string.format(in_config(&quot;LogMessage_ReadEmail&quot;), item.DateAsDateTime)]">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -326,55 +291,143 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:LogMessage>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Check for SAP Invoice" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Framework\CheckValidPOInvoice.xaml">
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLastFolderFileName Workflow " sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Framework\GetLastFolderFileName.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_FileName">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="item.ToString" />
-                                      </InArgument>
-                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_MatchStatus">
-                                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="MatchedStatus" />
-                                      </OutArgument>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
-                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_config" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_PDFFileName">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PDFFileName" />
-                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_Path">[ImportFolder]</InArgument>
+                                      <OutArgument x:TypeArguments="x:String" x:Key="out_FName">[FileName]</OutArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:InvokeWorkflowFile>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Move Inv to Target Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
-                                    <ui:InvokeWorkflowFile.Arguments>
-                                      <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSAPInv">
-                                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="MatchedStatus" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_SAPInvFolder">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SAPInvFolder" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_OtherInvFolder">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="OtherInvFolder" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_SourceFile">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="item.ToString" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
-                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_config" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="in_PDFFileName">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="PDFFileName" />
-                                      </InArgument>
-                                    </ui:InvokeWorkflowFile.Arguments>
+                                  <ui:LogMessage DisplayName="Saved all attachments" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[String.format(in_config(&quot;LogMessage_SaveAttachment&quot;), item.Attachments.Count.ToString, FileName)]">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                  </ui:InvokeWorkflowFile>
-                                  <ui:LogMessage DisplayName="Read invoice process completed" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[String.format(in_config(&quot;LogMessage_End&quot;), PDFFileName)]">
+                                  </ui:LogMessage>
+                                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Check valid SAP Inv and Move to target folder" sap:VirtualizedContainerService.HintSize="434,796" sap2010:WorkflowViewState.IdRef="ForEach`1_16" Values="[Attachments]">
+                                    <ui:ForEach.Body>
+                                      <ActivityAction x:TypeArguments="x:Object">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                                        </ActivityAction.Argument>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,668" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                                          <Sequence.Variables>
+                                            <Variable x:TypeArguments="x:Boolean" Name="MatchedStatus" />
+                                          </Sequence.Variables>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLastFolderFileName Workflow " sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework\GetLastFolderFileName.xaml">
+                                            <ui:InvokeWorkflowFile.Arguments>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_Path">[item.ToString]</InArgument>
+                                              <OutArgument x:TypeArguments="x:String" x:Key="out_FName">[FileName]</OutArgument>
+                                            </ui:InvokeWorkflowFile.Arguments>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:InvokeWorkflowFile>
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Check for SAP Invoice" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Framework\CheckValidPOInvoice.xaml">
+                                            <ui:InvokeWorkflowFile.Arguments>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[item.ToString]</InArgument>
+                                              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_MatchStatus">[MatchedStatus]</OutArgument>
+                                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[in_config]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[FileName]</InArgument>
+                                            </ui:InvokeWorkflowFile.Arguments>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:InvokeWorkflowFile>
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Move Inv to Target Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
+                                            <ui:InvokeWorkflowFile.Arguments>
+                                              <InArgument x:TypeArguments="x:Boolean" x:Key="in_isSAPInv">[MatchedStatus]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SAPInvFolder">[SAPInvFolder]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_OtherInvFolder">[OtherInvFolder]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_SourceFile">[item.ToString]</InArgument>
+                                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[in_config]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_PDFFileName">[FileName]</InArgument>
+                                            </ui:InvokeWorkflowFile.Arguments>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:InvokeWorkflowFile>
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
+                                            <ui:InvokeWorkflowFile.Arguments>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_LogMessage">
+                                                <Literal x:TypeArguments="x:String">{0} Invoice is {1} and saved in {2} folder</Literal>
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_LogType">
+                                                <Literal x:TypeArguments="x:String">Info</Literal>
+                                              </InArgument>
+                                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
+                                                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_config" />
+                                              </InArgument>
+                                            </ui:InvokeWorkflowFile.Arguments>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:InvokeWorkflowFile>
+                                        </Sequence>
+                                      </ActivityAction>
+                                    </ui:ForEach.Body>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:ForEach>
+                                  <ui:MarkOutlookMailAsRead DisplayName="Mark Mail As Read" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="MarkOutlookMailAsRead_18" MailMessage="[item]" MarkAs="Read">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:MarkOutlookMailAsRead>
+                                  <ui:LogMessage DisplayName="Mark mail as read" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[String.format(in_config(&quot;LogMessage_MarkAsRead&quot;), item.Date)]">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:LogMessage>
+                                  <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="434,93.3333333333333" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_14" MailFolder="[MailMoveFolder]" MailMessage="[item]">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:MoveOutlookMessage>
+                                  <ui:LogMessage DisplayName="Move mail to folder" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[String.format(in_config(&quot;LogMessage_MoveMailToFolder&quot;), item.Date, MailMoveFolder)]">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:LogMessage>
+                                  <ui:LogMessage DisplayName="Read invoice process completed" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[in_config(&quot;LogMessage_End&quot;)]">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -383,59 +436,39 @@
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:LogMessage>
                                 </Sequence>
-                              </ActivityAction>
-                            </ui:ForEach.Body>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:ForEach>
-                          <ui:MarkOutlookMailAsRead DisplayName="Mark Outlook Mail As Read/Unread" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="MarkOutlookMailAsRead_17" MailMessage="[item]" MarkAs="Read">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MarkOutlookMailAsRead>
-                          <ui:LogMessage DisplayName="Mark mail as read" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[String.format(in_config(&quot;LogMessage_MarkAsRead&quot;), item.Date)]">
+                              </If.Then>
+                              <If.Else>
+                                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_82">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_66">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                          </ui:LogMessage>
-                          <ui:MoveOutlookMessage Account="{x:Null}" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="434,52.6666666666667" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_13" MailFolder="[MailMoveFolder]" MailMessage="[item]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveOutlookMessage>
-                          <ui:LogMessage DisplayName="Move mail to folder" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[String.format(in_config(&quot;LogMessage_MoveMailToFolder&quot;), item.Date, MailMoveFolder)]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:LogMessage>
-                        </Sequence>
-                      </ActivityAction>
-                    </ui:ForEach.Body>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:ForEach>
-                </FlowStep>
-              </FlowStep.Next>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEach>
             </FlowStep>
           </FlowStep.Next>
         </FlowStep>
@@ -443,6 +476,5 @@
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
-    <x:Reference>__ReferenceID2</x:Reference>
   </Flowchart>
 </Activity>

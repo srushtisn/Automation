@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>654.666666666667,929.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>898,1104</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MoveInvToFolder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -43,7 +43,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -72,9 +72,10 @@
       <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap:VirtualizedContainerService.HintSize="664.666666666667,864.666666666667" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap:VirtualizedContainerService.HintSize="692.666666666667,1039.33333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isSAPInv" />
       <Variable x:TypeArguments="x:String" Name="SAPInvFolder" />
@@ -82,6 +83,7 @@
       <Variable x:TypeArguments="x:String" Name="SourceFolder" />
       <Variable x:TypeArguments="x:String" Name="TargetFolder" />
       <Variable x:TypeArguments="x:Boolean" Name="isFolderExist" />
+      <Variable x:TypeArguments="x:String" Name="FileName" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -90,14 +92,14 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,107.166666666667 290,107.166666666667 290,113.666666666667</av:PointCollection>
-        <x:Double x:Key="Width">630.66666666666652</x:Double>
-        <x:Double x:Key="Height">828.66666666666663</x:Double>
+        <x:Double x:Key="Width">658.66666666666652</x:Double>
+        <x:Double x:Key="Height">1003.3333333333333</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID8</x:Reference>
+      <x:Reference>__ReferenceID9</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID8">
+    <FlowStep x:Name="__ReferenceID9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">190,113.666666666667</av:Point>
@@ -175,7 +177,7 @@
                   <OutArgument x:TypeArguments="x:String">[TargetFolder]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[SAPInvFolder + "\"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[SAPInvFolder]</InArgument>
                 </Assign.Value>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -200,10 +202,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:FolderExistsX>
                   <FlowStep.Next>
-                    <FlowDecision x:Name="__ReferenceID6" DisplayName="is TargetFolder exist?" sap:VirtualizedContainerService.HintSize="114.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                      <FlowDecision.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="isFolderExist" />
-                      </FlowDecision.Condition>
+                    <FlowDecision x:Name="__ReferenceID6" Condition="[isFolderExist]" DisplayName="is TargetFolder exist?" sap:VirtualizedContainerService.HintSize="114.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -219,10 +218,10 @@
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">210,613.666666666667</av:Point>
                               <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">310,666.333333333333 310,696.333333333333 280,696.333333333333 280,703.666666666667</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">310,666.333333333334 310,696.333333333334 490,696.333333333334 490,733.666666666667</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[TargetFolder]" DisplayName="Move File to SAP Inv Folder" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="False" Path="[SourceFolder]">
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[TargetFolder]" DisplayName="Move File to SAP Inv Folder" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[SourceFolder]">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
@@ -230,21 +229,48 @@
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:MoveFile>
                           <FlowStep.Next>
-                            <FlowStep x:Name="__ReferenceID5">
+                            <FlowStep x:Name="__ReferenceID8">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">180,703.666666666667</av:Point>
+                                  <av:Point x:Key="ShapeLocation">390,733.666666666667</av:Point>
                                   <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">490,786.333333333333 490,816.333333333333 310,816.333333333333 310,853.666666666667</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Move invoice to folder" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.format(in_config(&quot;LogMessage_MoveSAPInvFolder&quot;), in_PDFFileName, TargetFolder)]">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLastFolderFileName Workflow " sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework\GetLastFolderFileName.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_Path">
+                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="TargetFolder" />
+                                  </InArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_FName">
+                                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="FileName" />
+                                  </OutArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                              </ui:LogMessage>
+                              </ui:InvokeWorkflowFile>
+                              <FlowStep.Next>
+                                <FlowStep x:Name="__ReferenceID5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">210,853.666666666667</av:Point>
+                                      <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Move invoice to folder" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.format(in_config(&quot;LogMessage_MoveSAPInvFolder&quot;), FileName)]">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:LogMessage>
+                                </FlowStep>
+                              </FlowStep.Next>
                             </FlowStep>
                           </FlowStep.Next>
                         </FlowStep>
@@ -290,7 +316,7 @@
                   <OutArgument x:TypeArguments="x:String">[TargetFolder]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[OtherInvFolder + "\"]</InArgument>
+                  <InArgument x:TypeArguments="x:String">[OtherInvFolder]</InArgument>
                 </Assign.Value>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -314,5 +340,6 @@
     <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
+    <x:Reference>__ReferenceID8</x:Reference>
   </Flowchart>
 </Activity>

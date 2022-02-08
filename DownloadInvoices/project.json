@@ -3,19 +3,16 @@
   "description": "Download Invoices from email",
   "main": "DownloadInvoice.xaml",
   "dependencies": {
-    "UiPath.DocumentUnderstanding.ML.Activities": "[1.9.1]",
     "UiPath.Excel.Activities": "[2.11.4]",
-    "UiPath.IntelligentOCR.Activities": "[5.0.2]",
     "UiPath.Mail.Activities": "[1.13.1-preview]",
     "UiPath.PDF.Activities": "[3.4.1]",
-    "UiPath.System.Activities": "[21.10.2]",
-    "UiPath.UIAutomation.Activities": "[21.10.3]"
+    "UiPath.System.Activities": "[21.10.2]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.6-alpha.8",
+  "projectVersion": "1.0.6-alpha.14",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
