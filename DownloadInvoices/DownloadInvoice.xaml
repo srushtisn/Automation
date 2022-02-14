@@ -79,7 +79,6 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap:VirtualizedContainerService.HintSize="648.666666666667,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -102,7 +101,7 @@
           <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Download Invoice from email" sap:VirtualizedContainerService.HintSize="476,392.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence DisplayName="Download Invoice from email" sap:VirtualizedContainerService.HintSize="608.666666666667,2075.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="ConfigFilePath" />
           <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
@@ -113,7 +112,7 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,194" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="566.666666666667,1983.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
           <TryCatch.Variables>
             <Variable x:TypeArguments="x:String" Name="LogMessage" />
             <Variable x:TypeArguments="x:String" Name="LogType" />
@@ -150,7 +149,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="ConfigFilePath" DisplayName="Get Asset - Config File Path" sap:VirtualizedContainerService.HintSize="444,140.666666666667" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+                <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="ConfigFilePath_DownloadInv" DisplayName="Get Asset - Config File Path" sap:VirtualizedContainerService.HintSize="444,140.666666666667" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
                   <ui:GetRobotAsset.Value>
                     <OutArgument x:TypeArguments="x:String">[ConfigFilePath]</OutArgument>
                   </ui:GetRobotAsset.Value>
@@ -161,7 +160,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:GetRobotAsset>
-                <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="ConfigFileSheetNames" DisplayName="Get Asset - Config File Sheet Names" sap:VirtualizedContainerService.HintSize="444,140.666666666667" sap2010:WorkflowViewState.IdRef="GetRobotAsset_4">
+                <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="ConfigSheet_DownloadInv" DisplayName="Get Asset - Config File Sheet Names" sap:VirtualizedContainerService.HintSize="444,140.666666666667" sap2010:WorkflowViewState.IdRef="GetRobotAsset_4">
                   <ui:GetRobotAsset.Value>
                     <OutArgument x:TypeArguments="x:String">[ConfigFileSheetNames]</OutArgument>
                   </ui:GetRobotAsset.Value>
