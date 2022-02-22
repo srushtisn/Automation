@@ -1,2 +1,0 @@
-# Automation
-All automation projects
