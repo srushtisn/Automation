@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>804,1104</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>818,1104</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MoveInvToFolder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -78,7 +78,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap:VirtualizedContainerService.HintSize="692.666666666667,1039.33333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap:VirtualizedContainerService.HintSize="694,1039.33333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="isSAPInv" />
       <Variable x:TypeArguments="x:String" Name="SAPInvFolder" />
@@ -97,7 +97,7 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,107.166666666667 290,107.166666666667 290,113.666666666667</av:PointCollection>
-        <x:Double x:Key="Width">658.66666666666652</x:Double>
+        <x:Double x:Key="Width">660</x:Double>
         <x:Double x:Key="Height">1003.3333333333333</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
@@ -172,7 +172,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID6">
+        <FlowStep x:Name="__ReferenceID5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">180,223.666666666667</av:Point>
@@ -270,7 +270,7 @@
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">170,573.666666666667</av:Point>
                           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">270,626.333333333333 270,656.333333333333 260,656.333333333333 260,683.666666666667</av:PointCollection>
+                          <av:PointCollection x:Key="ConnectorLocation">270,626.333333333334 270,656.333333333334 280,656.333333333334 280,679</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:MoveFile ContinueOnError="{x:Null}" Destination="[TargetFolder]" DisplayName="Move File to SAP Inv Folder" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[SourceFolder]">
@@ -281,26 +281,22 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:MoveFile>
                       <FlowStep.Next>
-                        <FlowStep x:Name="__ReferenceID5">
+                        <FlowStep x:Name="__ReferenceID7">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">160,683.666666666667</av:Point>
-                              <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">260,736.333333333333 260,766.333333333333 270,766.333333333333 270,803.666666666667</av:PointCollection>
+                              <av:Point x:Key="ShapeLocation">149,679</av:Point>
+                              <av:Size x:Key="ShapeSize">262,62</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">280,741 280,771 270,771 270,803.666666666667</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetLastFolderFileName Workflow " sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Framework\GetLastFolderFileName.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:String" x:Key="in_Path">[TargetFolder]</InArgument>
-                              <OutArgument x:TypeArguments="x:String" x:Key="out_FName">[FileName]</OutArgument>
-                            </ui:InvokeWorkflowFile.Arguments>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:InvokeWorkflowFile>
+                          <Assign DisplayName="Get file name from path" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_8">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[FileName]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Path.GetFileName(TargetFolder)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
                           <FlowStep.Next>
                             <FlowStep x:Name="__ReferenceID1">
                               <sap:WorkflowViewStateService.ViewState>
@@ -319,7 +315,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:LogMessage>
                               <FlowStep.Next>
-                                <FlowStep x:Name="__ReferenceID7">
+                                <FlowStep x:Name="__ReferenceID6">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">138.895,906.333333333333</av:Point>
