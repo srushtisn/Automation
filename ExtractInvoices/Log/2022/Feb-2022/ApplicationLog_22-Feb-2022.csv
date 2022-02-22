@@ -1,0 +1,10 @@
+﻿Date,Invoice File Name,Log Type,Message,Target Folder,Status
+22-02-2022 11:23:33,34904_20220120112047.508_X.pdf,Info,Invoice Processed Successfully,Data\Success,Success
+22-02-2022 05:07:20,15052_20220120104902.482_X.pdf,Info,Invoice Processed Successfully,Data\Success,Success
+22-02-2022 05:07:47,34904_20220120112047.508_X.pdf,Info,Invoice Processed Successfully,Data\Success,Success
+22-02-2022 05:07:53,1-116924877-0001_20220120102152.706_X.pdf,Info,Invoice Processed Successfully,Data\Success,Success
+22-02-2022 05:07:57,14575_20220120113044.478_X.pdf,Error,One or more of the mandatory were missing!,Data\Failed,Failed
+22-02-2022 05:08:18,1963_20220120112903.426_X.pdf,Error,One or more of the mandatory were missing!,Data\Failed,Failed
+22-02-2022 05:08:26,1C8001035_20220120104803.576_X.pdf,Info,Invoice Processed Successfully,Data\Success,Success
+22-02-2022 05:12:34,34904_20220120112047.508_X.pdf,Info,Invoice Processed Successfully,Data\Success,Success
+22-02-2022 05:12:37,15052_20220120104902.482_X.pdf,Info,Invoice Processed Successfully,Data\Success,Success

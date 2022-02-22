@@ -1,0 +1,78 @@
+{
+  "name": "ExtractInvoices",
+  "description": "Process to extract data from invoices",
+  "main": "Main-ExtractInvoice.xaml",
+  "dependencies": {
+    "UiPath.DocumentUnderstanding.ML.Activities": "[1.9.1]",
+    "UiPath.Excel.Activities": "[2.11.4]",
+    "UiPath.IntelligentOCR.Activities": "[5.0.2]",
+    "UiPath.OmniPage.Activities": "[1.8.0]",
+    "UiPath.System.Activities": "[21.10.2]",
+    "UiPath.UIAutomation.Activities": "[21.10.3]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "21.10.4.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": false,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": [
+        "Framework/30_Classify.xaml",
+        "Framework/35_ClassificationBussinessRuleValidation.xaml",
+        "Framework/40_TrainClassifiers.xaml",
+        "Framework/60_TrainExtractors.xaml",
+        "Framework/55_ExtractionBussinessRuleValidation.xaml"
+      ]
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main-Attended.xaml",
+      "uniqueId": "415c130d-0b5c-4f61-8b90-ac71d12b09b9",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Main-ExtractInvoice.xaml",
+      "uniqueId": "5f43347f-9851-4df6-8309-8aa2c0f476ef",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "FileTriggerTest.xaml",
+      "uniqueId": "2be24456-53a7-4f2c-82bb-ce031a59b72c",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}
