@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,2114.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>877.333333333333,2114.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>InvoicePostProcessing_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="66">
@@ -86,10 +86,9 @@
       <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Default post-processing rules &amp; steps: &#xA;• Verify that all Mandatory Fields and Columns are extracted &#xA;• Verify that all table rows match the rule: Quantity * Unit Price = Line Amount &#xA;• Verify that the sum of all Line Amounts = Net Amount &#xA;• Sum up Net Amount with all the values defined as Config &quot;SubTotalAdditions&quot;. Verify that the sum of Net Amount + &quot;SubTotalAdditions&quot; = Total &#xA;• Verify the extraction confidence of all defined &quot;ConfidenceFields&quot; against their individual confidence thresholds &#xA;• Verify the extraction confidence of all the other fields against the &quot;other-Confidence&quot; threshold &#xA;&#xA;This should NOT be used as-is, except for demo purposes. For a real implementation, the post-processing &amp; validation should be tailored to the specifics of the business process. &#xA;The default implementation uses EN-US culture information. This means '.' is the decimal separator and &quot;,&quot; is the thousand separator. (e.g.: 10,000.00) " DisplayName="InvoiceRuleValidation" sap:VirtualizedContainerService.HintSize="568,2050" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Default post-processing rules &amp; steps: &#xA;• Verify that all Mandatory Fields and Columns are extracted &#xA;• Verify that all table rows match the rule: Quantity * Unit Price = Line Amount &#xA;• Verify that the sum of all Line Amounts = Net Amount &#xA;• Sum up Net Amount with all the values defined as Config &quot;SubTotalAdditions&quot;. Verify that the sum of Net Amount + &quot;SubTotalAdditions&quot; = Total &#xA;• Verify the extraction confidence of all defined &quot;ConfidenceFields&quot; against their individual confidence thresholds &#xA;• Verify the extraction confidence of all the other fields against the &quot;other-Confidence&quot; threshold &#xA;&#xA;This should NOT be used as-is, except for demo purposes. For a real implementation, the post-processing &amp; validation should be tailored to the specifics of the business process. &#xA;The default implementation uses EN-US culture information. This means '.' is the decimal separator and &quot;,&quot; is the thousand separator. (e.g.: 10,000.00) " DisplayName="InvoiceRuleValidation" sap:VirtualizedContainerService.HintSize="568,1957.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataSet" sap2010:Annotation.AnnotationText="Used to store the extracted data from the ExtractionResults in the Export Extraction Results activity." Name="extractedDataSet" />
       <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="DataTable generated from the extractedDataSet." Name="itemTable" />
@@ -185,7 +184,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <Sequence sap2010:Annotation.AnnotationText="In the config file we have set seveal fields as must have under MandatoryFields and MandatoryColumns. Here, we try to see if they are present, starting with the date. &#xA;&#xA;- If the date is not present, or not parsable, the process will fail and manual validation will be required.&#xA;- If any of the fields in MandatoryFields or itemTable (which contains the MandatoryColumns) are missing, manual validation will be required." DisplayName="Check Mandatory Extracted Values" sap:VirtualizedContainerService.HintSize="526,929.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence sap2010:Annotation.AnnotationText="In the config file we have set seveal fields as must have under MandatoryFields and MandatoryColumns. Here, we try to see if they are present, starting with the date. &#xA;&#xA;- If the date is not present, or not parsable, the process will fail and manual validation will be required.&#xA;- If any of the fields in MandatoryFields or itemTable (which contains the MandatoryColumns) are missing, manual validation will be required." DisplayName="Check Mandatory Extracted Values" sap:VirtualizedContainerService.HintSize="526,836.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -193,72 +192,6 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-        <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,144.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch | Setting the Date" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_4">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <TryCatch.Try>
-                <Assign DisplayName="Try to parse the invoice date" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_14">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="s:DateTime">[invoiceDate]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="s:DateTime">[if(documentFields("InvoiceDate") is nothing, DateTime.MinValue, Date.Parse(documentFields("InvoiceDate")))]</InArgument>
-                  </Assign.Value>
-                </Assign>
-              </TryCatch.Try>
-              <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ActivityAction x:TypeArguments="s:Exception">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Set Date Failure" sap:VirtualizedContainerService.HintSize="376,288.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Setting the Date Failure" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Error" Message="[in_Config(&quot;LogMessage_InvoicePostProcessing_DateFailure&quot;) +  Environment.NewLine + in_Config(&quot;logKey&quot;)]" />
-                      <Assign DisplayName="Set AutoExtraction to False" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_17">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:Boolean">[out_AutoExtractionSuccess]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </ActivityAction>
-                </Catch>
-              </TryCatch.Catches>
-            </TryCatch>
-          </Sequence>
-        </ui:CommentOut.Body>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:CommentOut>
       <If sap2010:Annotation.AnnotationText="" Condition="[mandatoryFields.Any(Function(field) documentFields(field) is Nothing)]" DisplayName="Mandatory Field Check" sap:VirtualizedContainerService.HintSize="484,616" sap2010:WorkflowViewState.IdRef="If_7">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">

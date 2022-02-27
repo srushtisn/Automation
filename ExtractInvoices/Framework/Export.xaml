@@ -3,11 +3,12 @@
     <x:Property sap2010:Annotation.AnnotationText="The results of the data extraction process." Name="in_ExtractionResults" Type="InArgument(p:ExtractionResult)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="in_DocumentPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_AutoExtractionSuccess" Type="InArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,1391.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>774,1749.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_70_Export_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -81,10 +82,11 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Post-extraction &amp; Data Export&#xA;&#xA;Post extraction - any logic that must be executed after data extraction and prior to the data export belongs here (eg: format the data according to an export schema)&#xA;&#xA;Data Export - output the data to make it usable by the Business users or by subsequent processes. We recommend using UiPath's DataService." DisplayName="Export" sap:VirtualizedContainerService.HintSize="518,1326.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Post-extraction &amp; Data Export&#xA;&#xA;Post extraction - any logic that must be executed after data extraction and prior to the data export belongs here (eg: format the data according to an export schema)&#xA;&#xA;Data Export - output the data to make it usable by the Business users or by subsequent processes. We recommend using UiPath's DataService." DisplayName="Export" sap:VirtualizedContainerService.HintSize="696,1684.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Used to store the path to the file where the extracted data will be saved." Name="outputPath" />
       <Variable x:TypeArguments="sd:DataSet" sap2010:Annotation.AnnotationText="Used to store the exported data from the ExtractionResults in the Export Extraction Results activity." Name="exportDataSet" />
+      <Variable x:TypeArguments="x:String" Name="ExportFilePath" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -92,15 +94,51 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Start Data Export" sap:VirtualizedContainerService.HintSize="476,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_Config(&quot;LogMessage_DataExportStart&quot;) + &quot; &quot; + in_ExtractionResults.ResultsDocument.DocumentTypeId + &quot; (pag &quot; +  (in_ExtractionResults.ResultsDocument.Bounds.StartPage + 1).ToString + &quot;-&quot; + (in_ExtractionResults.ResultsDocument.Bounds.StartPage + in_ExtractionResults.ResultsDocument.Bounds.PageCount).ToString + &quot;)&quot; + Environment.NewLine + in_Config(&quot;logKey&quot;)]" />
-    <p1:ExportExtractionResults sap2010:Annotation.AnnotationText="in_ExtractionResults.AsDataSet() method can also be used" DataSet="[exportDataSet]" DisplayName="Export Extraction Results - Export" ExtractionResult="[in_ExtractionResults]" sap:VirtualizedContainerService.HintSize="476,226" sap2010:WorkflowViewState.IdRef="ExportExtractionResults_1" IncludeConfidence="True" IncludeOCRConfidence="False">
+    <ui:LogMessage DisplayName="Log Message - Start Data Export" sap:VirtualizedContainerService.HintSize="654,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_Config(&quot;LogMessage_DataExportStart&quot;) + &quot; &quot; + in_ExtractionResults.ResultsDocument.DocumentTypeId + &quot; (pag &quot; +  (in_ExtractionResults.ResultsDocument.Bounds.StartPage + 1).ToString + &quot;-&quot; + (in_ExtractionResults.ResultsDocument.Bounds.StartPage + in_ExtractionResults.ResultsDocument.Bounds.PageCount).ToString + &quot;)&quot; + Environment.NewLine + in_Config(&quot;logKey&quot;)]" />
+    <p1:ExportExtractionResults sap2010:Annotation.AnnotationText="in_ExtractionResults.AsDataSet() method can also be used" DataSet="[exportDataSet]" DisplayName="Export Extraction Results - Export" ExtractionResult="[in_ExtractionResults]" sap:VirtualizedContainerService.HintSize="654,226" sap2010:WorkflowViewState.IdRef="ExportExtractionResults_1" IncludeConfidence="True" IncludeOCRConfidence="False">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </p1:ExportExtractionResults>
-    <ui:RetryScope sap2010:Annotation.AnnotationText="Exports could be stored in a shared location. The retry mechanism is used to compensate for minor fluctuatios in network stability and other recoverable issues." DisplayName="Retry Scope - Export Data" sap:VirtualizedContainerService.HintSize="476,705.333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:30">
+    <If Condition="[in_AutoExtractionSuccess]" DisplayName="Check AutoExtractionSuccess flag" sap:VirtualizedContainerService.HintSize="654,318" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Extract Success Sequence" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assigned Extract success Folder Path" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[ExportFilePath]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_config("BasePath")  + "\" + in_config("InvoiceExtractSuccessFolder")]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Extract Failed Sequence" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assigned  Extract Failed Folder Path" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[ExportFilePath]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_config("BasePath")  + "\" + in_config("InvoiceExtractFailedFolder")]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:RetryScope sap2010:Annotation.AnnotationText="Exports could be stored in a shared location. The retry mechanism is used to compensate for minor fluctuatios in network stability and other recoverable issues." DisplayName="Retry Scope - Export Data" sap:VirtualizedContainerService.HintSize="654,705.333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:30">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
           <ui:ForEach x:TypeArguments="sd:DataTable" CurrentIndex="{x:Null}" DisplayName="For Each Exported Table" sap:VirtualizedContainerService.HintSize="434,466" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[exportDataSet.Tables]">
@@ -116,7 +154,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message - DataTable Name" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[path.GetFileName(in_DocumentPath) + &quot; Table Name - &quot; + ExtractionDataTable.ToString]" />
-                  <ui:WriteRange AddHeaders="True" DataTable="[ExtractionDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[ExtractionDataTable.TableName]" StartingCell="A1" WorkbookPath="[&quot;Data\Exports\&quot; + path.GetFileName(in_DocumentPath) + &quot; - OutputData.xlsx&quot;]" />
+                  <ui:WriteRange AddHeaders="True" DataTable="[ExtractionDataTable]" DisplayName="Create output invoice file" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[ExtractionDataTable.TableName]" StartingCell="A1" WorkbookPath="[ExportFilePath + &quot;\&quot; + path.GetFileName(in_DocumentPath) + &quot; - OutputData.xlsx&quot;]" />
                 </Sequence>
               </ActivityAction>
             </ui:ForEach.Body>

@@ -14,7 +14,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1-alpha.3",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -44,7 +44,9 @@
         "Framework/35_ClassificationBussinessRuleValidation.xaml",
         "Framework/40_TrainClassifiers.xaml",
         "Framework/60_TrainExtractors.xaml",
-        "Framework/55_ExtractionBussinessRuleValidation.xaml"
+        "Framework/55_ExtractionBussinessRuleValidation.xaml",
+        "ExtractInvoice.xaml",
+        "Data/Config.xlsx"
       ]
     },
     "fileInfoCollection": [],
@@ -60,19 +62,15 @@
     },
     {
       "filePath": "Main-ExtractInvoice.xaml",
-      "uniqueId": "5f43347f-9851-4df6-8309-8aa2c0f476ef",
-      "input": [],
-      "output": []
-    },
-    {
-      "filePath": "FileTriggerTest.xaml",
-      "uniqueId": "2be24456-53a7-4f2c-82bb-ce031a59b72c",
+      "uniqueId": "98f7edae-80d0-4171-8045-d78f2e941df2",
       "input": [],
       "output": []
     }
   ],
   "isTemplate": false,
   "templateProjectData": {},
-  "publishData": {},
+  "publishData": {
+    "iconUrl": ".package/Extract.JPG"
+  },
   "targetFramework": "Legacy"
 }
