@@ -2,12 +2,12 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Path to the configuration file that defines settings, constants and assets." Name="in_ConfigFile" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Names of the sheets corresponding to settings and constants in the configuration file." Name="in_ConfigSheets" Type="InArgument(s:String[])" />
-    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="out_Config" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="out_Config" Type="OutArgument(scg:Dictionary(x:String, x:String))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>628.666666666667,1336.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>958,1336.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetAllSettings_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -77,6 +77,7 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
@@ -90,10 +91,10 @@
     <ui:LogMessage DisplayName="Log Message (Initialize All Settings)" sap:VirtualizedContainerService.HintSize="596.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Initializing settings...&quot;]" />
     <Assign DisplayName="Assing out_Config (initialization)" sap:VirtualizedContainerService.HintSize="596.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
-        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[out_Config]</OutArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[out_Config]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(of String, Object)]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[New Dictionary(of String, String)]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each configuration sheet" sap:VirtualizedContainerService.HintSize="596.666666666667,788.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_ConfigSheets]">
@@ -131,10 +132,10 @@
                     <If.Then>
                       <Assign DisplayName="Add Config key/value pair" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_15">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="x:Object">[out_Config(Row("Name").ToString.Trim)]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String">[out_Config(Row("Name").ToString.Trim)]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="x:Object">[Row("Value")]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[Row("Value").ToString]</InArgument>
                         </Assign.Value>
                       </Assign>
                     </If.Then>
