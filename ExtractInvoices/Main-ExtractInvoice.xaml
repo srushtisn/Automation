@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1153.33333333333,2268.66666666667" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:p1="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1153.33333333333,1653.33333333333" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:p1="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p3="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
       <x:String>System.Activities</x:String>
@@ -56,7 +56,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="43">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -196,20 +196,20 @@
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                <av:Point x:Key="ShapeLocation">290,2.66666666666666</av:Point>
+                <av:Point x:Key="ShapeLocation">170,0</av:Point>
                 <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
-                <av:PointCollection x:Key="ConnectorLocation">320,77.3333333333333 320,107.333333333333 300,107.333333333333 300,123.666666666667</av:PointCollection>
+                <av:PointCollection x:Key="ConnectorLocation">200,74.6666666666667 200,125</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Flowchart.StartNode>
-              <x:Reference>__ReferenceID10</x:Reference>
+              <x:Reference>__ReferenceID16</x:Reference>
             </Flowchart.StartNode>
-            <FlowStep x:Name="__ReferenceID10">
+            <FlowStep x:Name="__ReferenceID16">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">200,123.666666666667</av:Point>
+                  <av:Point x:Key="ShapeLocation">100,125</av:Point>
                   <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">300,176.333333333333 300,215.333333333333</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">200,177.666666666667 200,207.666666666667 201,207.666666666667 201,228</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Loads Orchestrator assets and executes logic for process-specific &amp; Document Understanding Initialization" DisplayName="Initialize Process" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_142" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\InitializeProcess.xaml">
@@ -225,21 +225,21 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
               <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID9">
+                <FlowStep x:Name="__ReferenceID15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">200,215.333333333333</av:Point>
+                      <av:Point x:Key="ShapeLocation">101,228</av:Point>
                       <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">300,284.666666666667 300,310 430,310 430,250 400,250</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">201,297.333333333333 201,322.666666666667 331,322.666666666667 331,262.666666666667 301,262.666666666667</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Process Document" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_162">
+                  <Sequence DisplayName="Process Document" sap:VirtualizedContainerService.HintSize="966.666666666667,1614" sap2010:WorkflowViewState.IdRef="Sequence_162">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign DisplayName="Assign - Invoice Folder Path" sap:VirtualizedContainerService.HintSize="828.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_59">
+                    <Assign DisplayName="Assign - Invoice Folder Path" sap:VirtualizedContainerService.HintSize="924.666666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_59">
                       <Assign.To>
                         <OutArgument x:TypeArguments="s:String[]">[DocumentPath]</OutArgument>
                       </Assign.To>
@@ -247,13 +247,13 @@
                         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(config("BasePath") + "\" + config("InvoiceFolder"))]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Invoice Doc in folder" sap:VirtualizedContainerService.HintSize="828.666666666667,1120.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_18" Values="[DocumentPath]">
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Invoice Doc in folder" sap:VirtualizedContainerService.HintSize="924.666666666667,1420.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_18" Values="[DocumentPath]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="x:String">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:String" Name="DocItem" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body - Process Document" sap:VirtualizedContainerService.HintSize="792,992.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_161">
+                          <Sequence DisplayName="Body - Process Document" sap:VirtualizedContainerService.HintSize="888,1294" sap2010:WorkflowViewState.IdRef="Sequence_161">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="AppMsg" />
                             </Sequence.Variables>
@@ -263,7 +263,16 @@
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Flowchart DisplayName="Process Document" sap:VirtualizedContainerService.HintSize="750,900.666666666667" sap2010:WorkflowViewState.IdRef="Flowchart_14">
+                            <Flowchart DisplayName="Process Document" sap:VirtualizedContainerService.HintSize="846,1202" sap2010:WorkflowViewState.IdRef="Flowchart_14">
+                              <Flowchart.Variables>
+                                <Variable x:TypeArguments="p2:ExtractionResult" sap2010:Annotation.AnnotationText="Human validated extraction results used for training." Name="validatedExtractionResults" />
+                                <Variable x:TypeArguments="x:Boolean" Name="ValidatedFlag" />
+                                <Variable x:TypeArguments="x:String" Name="LogStatus">
+                                  <Variable.Default>
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </Variable.Default>
+                                </Variable>
+                              </Flowchart.Variables>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -271,22 +280,22 @@
                                   <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
                                   <av:PointCollection x:Key="ConnectorLocation">270,39.8333333333333 140,39.8333333333333 140,93.6666666666667</av:PointCollection>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  <x:Double x:Key="Width">715.99999999999966</x:Double>
-                                  <x:Double x:Key="Height">864.346666666738</x:Double>
+                                  <x:Double x:Key="Width">812</x:Double>
+                                  <x:Double x:Key="Height">1166</x:Double>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <Flowchart.StartNode>
-                                <x:Reference>__ReferenceID8</x:Reference>
+                                <x:Reference>__ReferenceID14</x:Reference>
                               </Flowchart.StartNode>
-                              <FlowStep x:Name="__ReferenceID8">
+                              <FlowStep x:Name="__ReferenceID14">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">40,93.6666666666667</av:Point>
-                                    <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+                                    <av:Size x:Key="ShapeSize">200,52</av:Size>
                                     <av:PointCollection x:Key="ConnectorLocation">140,146.333333333333 140,170 280,170</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Pre-digitization &amp; digitization " DisplayName="Digitize" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_157" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Digitize.xaml">
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Pre-digitization &amp; digitization " DisplayName="Digitize" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_157" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Digitize.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
                                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
                                     <OutArgument x:TypeArguments="p1:Document" x:Key="out_DOM">[dom]</OutArgument>
@@ -302,15 +311,15 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:InvokeWorkflowFile>
                                 <FlowStep.Next>
-                                  <FlowStep x:Name="__ReferenceID0">
+                                  <FlowStep x:Name="__ReferenceID1">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">280,143.666666666667</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+                                        <av:Size x:Key="ShapeSize">200,52</av:Size>
                                         <av:PointCollection x:Key="ConnectorLocation">380,196.333333333333 380,260 291,260</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Pre-extraction &amp;&#xA;Data Extraction" DisplayName="Extract" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_158" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Extract.xaml">
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Pre-extraction &amp;&#xA;Data Extraction" DisplayName="Extract" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_158" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Extract.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
                                         <InArgument x:TypeArguments="p:DocumentTaxonomy" x:Key="in_DocTaxonomy">[docTaxonomy]</InArgument>
                                         <InArgument x:TypeArguments="p1:Document" x:Key="in_DOM">[dom]</InArgument>
@@ -328,15 +337,15 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:InvokeWorkflowFile>
                                     <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID1">
+                                      <FlowStep x:Name="__ReferenceID2">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <av:Point x:Key="ShapeLocation">29,229</av:Point>
-                                            <av:Size x:Key="ShapeSize">262,62</av:Size>
-                                            <av:PointCollection x:Key="ConnectorLocation">160,291 160,344.666666666666 310,344.666666666666</av:PointCollection>
+                                            <av:Size x:Key="ShapeSize">262,61.3333333333333</av:Size>
+                                            <av:PointCollection x:Key="ConnectorLocation">160,291 160,320 320,320</av:PointCollection>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <Assign DisplayName="Initialize AutoExecutionSuccess flag" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_66">
+                                        <Assign DisplayName="Initialize AutoExecutionSuccess flag" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_66">
                                           <Assign.To>
                                             <OutArgument x:TypeArguments="x:Boolean">[AutoExtractionSuccess]</OutArgument>
                                           </Assign.To>
@@ -351,23 +360,23 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                         </Assign>
                                         <FlowStep.Next>
-                                          <FlowStep x:Name="__ReferenceID2">
+                                          <FlowStep x:Name="__ReferenceID3">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <av:Point x:Key="ShapeLocation">310,318.333333333333</av:Point>
-                                                <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                                                <av:PointCollection x:Key="ConnectorLocation">410,371 410,413.666666666667</av:PointCollection>
+                                                <av:Point x:Key="ShapeLocation">320,293.666666666667</av:Point>
+                                                <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                                <av:PointCollection x:Key="ConnectorLocation">420,346.333333333333 420,376.333333333333 300,376.333333333333 300,386.666666666667</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Invoice Business Rule Validation" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_159" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\InvoiceBussinessRuleValidation.xaml">
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Invoice Business Rule Validation" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_159" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\InvoiceBussinessRuleValidation.xaml">
                                               <ui:InvokeWorkflowFile.Arguments>
                                                 <InArgument x:TypeArguments="p:DocumentTaxonomy" x:Key="in_DocTaxonomy">[docTaxonomy]</InArgument>
                                                 <InArgument x:TypeArguments="x:String" x:Key="in_DocumentType">[config("InvoiceDocumentID")]</InArgument>
                                                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
-                                                <InOutArgument x:TypeArguments="p2:ExtractionResult" x:Key="io_ExtractionResults">[AutomationExtractionResult]</InOutArgument>
                                                 <OutArgument x:TypeArguments="x:Boolean" x:Key="out_AutoExtractionSuccess">[AutoExtractionSuccess]</OutArgument>
                                                 <InArgument x:TypeArguments="x:String" x:Key="in_DocumentPath">[DocItem]</InArgument>
                                                 <OutArgument x:TypeArguments="x:String" x:Key="out_ApplicationExceptionMsg">[ApplicationExceptionMsg]</OutArgument>
+                                                <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ExtractionResults">[AutomationExtractionResult]</InArgument>
                                               </ui:InvokeWorkflowFile.Arguments>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -378,72 +387,438 @@
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InvokeWorkflowFile>
                                             <FlowStep.Next>
-                                              <FlowStep x:Name="__ReferenceID6">
+                                              <FlowDecision x:Name="__ReferenceID7" Condition="[AutoExtractionSuccess]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <av:Point x:Key="ShapeLocation">310,413.666666666667</av:Point>
-                                                    <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                                                    <av:PointCollection x:Key="ConnectorLocation">410,466.333333333333 410,520 270,520</av:PointCollection>
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    <av:Point x:Key="ShapeLocation">260.666666666667,386.666666666667</av:Point>
+                                                    <av:Size x:Key="ShapeSize">78.6666666666667,86.6666666666667</av:Size>
+                                                    <av:PointCollection x:Key="TrueConnector">260.666666666667,430 110,430 110,483.666666666667</av:PointCollection>
+                                                    <av:PointCollection x:Key="FalseConnector">339.333333333333,430 369.333333333333,430 369.333333333333,470 429,470</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Export" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_164" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Export.xaml">
-                                                  <ui:InvokeWorkflowFile.Arguments>
-                                                    <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ExtractionResults">[AutomationExtractionResult]</InArgument>
-                                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_DocumentPath">[DocItem]</InArgument>
-                                                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_AutoExtractionSuccess">[AutoExtractionSuccess]</InArgument>
-                                                  </ui:InvokeWorkflowFile.Arguments>
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                </ui:InvokeWorkflowFile>
-                                                <FlowStep.Next>
-                                                  <FlowStep x:Name="__ReferenceID3">
+                                                <FlowDecision.True>
+                                                  <FlowStep x:Name="__ReferenceID9">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <av:Point x:Key="ShapeLocation">70,493.666666666667</av:Point>
-                                                        <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                                                        <av:PointCollection x:Key="ConnectorLocation">170,546.333333333333 170,610 289,610</av:PointCollection>
+                                                        <av:Point x:Key="ShapeLocation">10,483.666666666667</av:Point>
+                                                        <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                                        <av:PointCollection x:Key="ConnectorLocation">110,535.666666666667 110,790 250,790</av:PointCollection>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <If Condition="[AutoExtractionSuccess]" DisplayName="Check the AutuoExtractionSuccess " sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_22">
+                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Export" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_168" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Export.xaml">
+                                                      <ui:InvokeWorkflowFile.Arguments>
+                                                        <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ExtractionResults">[AutomationExtractionResult]</InArgument>
+                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="in_DocumentPath">[DocItem]</InArgument>
+                                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_AutoExtractionSuccess">[AutoExtractionSuccess]</InArgument>
+                                                      </ui:InvokeWorkflowFile.Arguments>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <If.Then>
-                                                        <Sequence DisplayName="Export Invoice" sap:VirtualizedContainerService.HintSize="376,400.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_167">
+                                                    </ui:InvokeWorkflowFile>
+                                                    <FlowStep.Next>
+                                                      <FlowStep x:Name="__ReferenceID0">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <av:Point x:Key="ShapeLocation">250,764</av:Point>
+                                                            <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                                            <av:PointCollection x:Key="ConnectorLocation">350,816 350,880 430,880</av:PointCollection>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <If Condition="[AutoExtractionSuccess]" DisplayName="Check the AutuoExtractionSuccess " sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="If_22">
                                                           <sap:WorkflowViewStateService.ViewState>
                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                                          <If.Then>
+                                                            <Sequence DisplayName="Export Invoice" sap:VirtualizedContainerService.HintSize="376,400.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_167">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                                                <ui:CommentOut.Body>
+                                                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,206" sap2010:WorkflowViewState.IdRef="Sequence_168">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Export" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_160" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Export.xaml">
+                                                                      <ui:InvokeWorkflowFile.Arguments>
+                                                                        <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ExtractionResults">[AutomationExtractionResult]</InArgument>
+                                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="in_DocumentPath">[DocItem]</InArgument>
+                                                                      </ui:InvokeWorkflowFile.Arguments>
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                    </ui:InvokeWorkflowFile>
+                                                                  </Sequence>
+                                                                </ui:CommentOut.Body>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </ui:CommentOut>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move Inv to Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_161" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_SuccessFlag">[AutoExtractionSuccess]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[DocItem]</InArgument>
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_TargetFolder">[TargetFolder]</OutArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </ui:InvokeWorkflowFile>
+                                                              <Assign DisplayName="Application Message - Success " sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_67">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[ApplicationExceptionMsg]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:String">[config("LogMessage_InvoiceSuccessMsg")]</InArgument>
+                                                                </Assign.Value>
+                                                              </Assign>
+                                                            </Sequence>
+                                                          </If.Then>
+                                                          <If.Else>
+                                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move Inv to Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_162" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
+                                                              <ui:InvokeWorkflowFile.Arguments>
+                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
+                                                                <InArgument x:TypeArguments="x:Boolean" x:Key="in_SuccessFlag">[AutoExtractionSuccess]</InArgument>
+                                                                <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[DocItem]</InArgument>
+                                                                <OutArgument x:TypeArguments="x:String" x:Key="out_TargetFolder">[TargetFolder]</OutArgument>
+                                                              </ui:InvokeWorkflowFile.Arguments>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </ui:InvokeWorkflowFile>
+                                                          </If.Else>
+                                                        </If>
+                                                        <FlowStep.Next>
+                                                          <FlowStep x:Name="__ReferenceID13">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <av:Point x:Key="ShapeLocation">430,846</av:Point>
+                                                                <av:Size x:Key="ShapeSize">200,68</av:Size>
+                                                                <av:PointCollection x:Key="ConnectorLocation">530,914 530,1000 481,1000</av:PointCollection>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <Sequence DisplayName="Set logStatus" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_174">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <If Condition="[ValidatedFlag]" DisplayName="Check Present validation used ?" sap:VirtualizedContainerService.HintSize="484,345.333333333333" sap2010:WorkflowViewState.IdRef="If_25">
+                                                                <If.Then>
+                                                                  <Sequence sap:VirtualizedContainerService.HintSize="304,153.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_177">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_78">
+                                                                      <Assign.To>
+                                                                        <OutArgument x:TypeArguments="x:String">[LogStatus]</OutArgument>
+                                                                      </Assign.To>
+                                                                      <Assign.Value>
+                                                                        <InArgument x:TypeArguments="x:String">Validated</InArgument>
+                                                                      </Assign.Value>
+                                                                    </Assign>
+                                                                  </Sequence>
+                                                                </If.Then>
+                                                                <If.Else>
+                                                                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_176">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                  </Sequence>
+                                                                </If.Else>
+                                                              </If>
+                                                              <If Condition="[len(LogStatus) = 0]" DisplayName="Check autoextraction status" sap:VirtualizedContainerService.HintSize="484,336" sap2010:WorkflowViewState.IdRef="If_26">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <If.Then>
+                                                                  <Sequence DisplayName="AutoExtration check sequence" sap:VirtualizedContainerService.HintSize="242,144" sap2010:WorkflowViewState.IdRef="Sequence_182">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <If Condition="[AutoExtractionSuccess]" DisplayName="Check autoextractionsuccess flag" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="If_27">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                      <If.Then>
+                                                                        <Sequence DisplayName="Logstatus Sucess Sequence" sap:VirtualizedContainerService.HintSize="304,153.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_180">
+                                                                          <sap:WorkflowViewStateService.ViewState>
+                                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                            </scg:Dictionary>
+                                                                          </sap:WorkflowViewStateService.ViewState>
+                                                                          <Assign DisplayName="Assign lofstatus = success" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_81">
+                                                                            <Assign.To>
+                                                                              <OutArgument x:TypeArguments="x:String">[LogStatus]</OutArgument>
+                                                                            </Assign.To>
+                                                                            <Assign.Value>
+                                                                              <InArgument x:TypeArguments="x:String">Success</InArgument>
+                                                                            </Assign.Value>
+                                                                          </Assign>
+                                                                        </Sequence>
+                                                                      </If.Then>
+                                                                      <If.Else>
+                                                                        <Sequence DisplayName="Log status falied Sequence" sap:VirtualizedContainerService.HintSize="304,153.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_181">
+                                                                          <sap:WorkflowViewStateService.ViewState>
+                                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                            </scg:Dictionary>
+                                                                          </sap:WorkflowViewStateService.ViewState>
+                                                                          <Assign DisplayName="Assign logstatus = failed" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_80">
+                                                                            <Assign.To>
+                                                                              <OutArgument x:TypeArguments="x:String">[LogStatus]</OutArgument>
+                                                                            </Assign.To>
+                                                                            <Assign.Value>
+                                                                              <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                                                            </Assign.Value>
+                                                                          </Assign>
+                                                                        </Sequence>
+                                                                      </If.Else>
+                                                                    </If>
+                                                                  </Sequence>
+                                                                </If.Then>
+                                                                <If.Else>
+                                                                  <Sequence sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_179">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                  </Sequence>
+                                                                </If.Else>
+                                                              </If>
+                                                            </Sequence>
+                                                            <FlowStep.Next>
+                                                              <FlowStep x:Name="__ReferenceID4">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <av:Point x:Key="ShapeLocation">219,969.333333333333</av:Point>
+                                                                    <av:Size x:Key="ShapeSize">262,61.3333333333333</av:Size>
+                                                                    <av:PointCollection x:Key="ConnectorLocation">219,1000 170,1000 170,1054</av:PointCollection>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign DisplayName="Assign - Log Message" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_68">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[path.GetFileName(DocItem) + "," + if(AutoExtractionSuccess, "Info","Error") + "," + ApplicationExceptionMsg + "," + TargetFolder +  ","  + LogStatus]</InArgument>
+                                                                  </Assign.Value>
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                </Assign>
+                                                                <FlowStep.Next>
+                                                                  <FlowStep x:Name="__ReferenceID5">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <av:Point x:Key="ShapeLocation">70,1054</av:Point>
+                                                                        <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                                                        <av:PointCollection x:Key="ConnectorLocation">270,1080 390,1080 390,1114</av:PointCollection>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_163" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
+                                                                      <ui:InvokeWorkflowFile.Arguments>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="in_LogMessage">[AppMsg]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" x:Key="in_LogType">Info</InArgument>
+                                                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
+                                                                      </ui:InvokeWorkflowFile.Arguments>
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                    </ui:InvokeWorkflowFile>
+                                                                    <FlowStep.Next>
+                                                                      <FlowStep x:Name="__ReferenceID6">
+                                                                        <sap:WorkflowViewStateService.ViewState>
+                                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                            <av:Point x:Key="ShapeLocation">290,1114</av:Point>
+                                                                            <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                                                          </scg:Dictionary>
+                                                                        </sap:WorkflowViewStateService.ViewState>
+                                                                        <ui:LogMessage DisplayName="Log Message - End Of Inv Post Processing" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[string.Format(Config(&quot;LogMessage_EndOfProcessDocument&quot;) , path.GetFileName(DocItem))]">
+                                                                          <sap:WorkflowViewStateService.ViewState>
+                                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                            </scg:Dictionary>
+                                                                          </sap:WorkflowViewStateService.ViewState>
+                                                                        </ui:LogMessage>
+                                                                      </FlowStep>
+                                                                    </FlowStep.Next>
+                                                                  </FlowStep>
+                                                                </FlowStep.Next>
+                                                              </FlowStep>
+                                                            </FlowStep.Next>
+                                                          </FlowStep>
+                                                        </FlowStep.Next>
+                                                      </FlowStep>
+                                                    </FlowStep.Next>
+                                                  </FlowStep>
+                                                </FlowDecision.True>
+                                                <FlowDecision.False>
+                                                  <FlowStep x:Name="__ReferenceID12">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <av:Point x:Key="ShapeLocation">429,439</av:Point>
+                                                        <av:Size x:Key="ShapeSize">262,61.3333333333333</av:Size>
+                                                        <av:PointCollection x:Key="ConnectorLocation">560,501 560,531 550,531 550,536</av:PointCollection>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Assign DisplayName="Set Validation Flag" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_75">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:Boolean">[ValidatedFlag]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <FlowStep.Next>
+                                                      <FlowStep x:Name="__ReferenceID8">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <av:Point x:Key="ShapeLocation">450,536</av:Point>
+                                                            <av:Size x:Key="ShapeSize">200,68</av:Size>
+                                                            <av:PointCollection x:Key="ConnectorLocation">450,570 380,570 380,639.333333333333</av:PointCollection>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Sequence sap2010:Annotation.AnnotationText="Extraction Validation &amp; Extractor training" DisplayName="Validate &amp; Train Extractors" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_173">
+                                                          <Sequence.Variables>
+                                                            <Variable x:TypeArguments="p2:ExtractionResult" Name="extractionResults" />
+                                                          </Sequence.Variables>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <p3:PresentValidationStation sap2010:Annotation.AnnotationText="Note that, in case of user rejection, a DocumentRejectedByUserException is thrown here." AutomaticExtractionResults="[AutomationExtractionResult]" DisplayName="Present Validation Station - Main" DocumentObjectModel="[dom]" DocumentPath="[DocItem]" DocumentText="[doctext]" sap:VirtualizedContainerService.HintSize="484,419.333333333333" sap2010:WorkflowViewState.IdRef="PresentValidationStation_1" ShowOnlyRelevantPageRange="True" Taxonomy="[DocTaxonomy]" ValidatedExtractionResults="[validatedExtractionResults]">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </p3:PresentValidationStation>
+                                                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,276" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                                                             <ui:CommentOut.Body>
-                                                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,206" sap2010:WorkflowViewState.IdRef="Sequence_168">
+                                                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,197.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_171">
                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                   </scg:Dictionary>
                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Export" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_160" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Export.xaml">
-                                                                  <ui:InvokeWorkflowFile.Arguments>
-                                                                    <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ExtractionResults">[AutomationExtractionResult]</InArgument>
-                                                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
-                                                                    <InArgument x:TypeArguments="x:String" x:Key="in_DocumentPath">[DocItem]</InArgument>
-                                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                                <Assign sap2010:Annotation.AnnotationText="DocumentId coming from the Validation Station is missing the file extension" DisplayName="Assign - Workaround for missing extension" sap:VirtualizedContainerService.HintSize="262,105.333333333333" sap2010:WorkflowViewState.IdRef="Assign_70">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="x:String">[validatedExtractionResults.DocumentId]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="x:String">[in_ExtractionResults.DocumentId]</InArgument>
+                                                                  </Assign.Value>
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                                                     </scg:Dictionary>
                                                                   </sap:WorkflowViewStateService.ViewState>
-                                                                </ui:InvokeWorkflowFile>
+                                                                </Assign>
+                                                              </Sequence>
+                                                            </ui:CommentOut.Body>
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </ui:CommentOut>
+                                                          <If Condition="[not CBool(config(&quot;SkipExtractorTraining&quot;))]" DisplayName="If - Train Extractors?" sap:VirtualizedContainerService.HintSize="484,305.333333333333" sap2010:WorkflowViewState.IdRef="If_24">
+                                                            <If.Then>
+                                                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="TrainExtractors" sap:VirtualizedContainerService.HintSize="334,113.333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_167" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\60_TrainExtractors.xaml">
+                                                                <ui:InvokeWorkflowFile.Arguments>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_TargetDocument">[DocItem]</InArgument>
+                                                                  <InArgument x:TypeArguments="p:DocumentTaxonomy" x:Key="in_DocTaxonomy">[DocTaxonomy]</InArgument>
+                                                                  <InArgument x:TypeArguments="p1:Document" x:Key="in_DOM">[dom]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_DocText">[doctext]</InArgument>
+                                                                  <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ValidatedExtractionResults">[validatedExtractionResults]</InArgument>
+                                                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[Config]</InArgument>
+                                                                </ui:InvokeWorkflowFile.Arguments>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </ui:InvokeWorkflowFile>
+                                                            </If.Then>
+                                                          </If>
+                                                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                                                            <ui:CommentOut.Body>
+                                                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,254.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_172">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <Assign DisplayName="Assign Extraction Result" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_71">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="p2:ExtractionResult">[extractionResults]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="p2:ExtractionResult">[validatedExtractionResults]</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
+                                                                <Assign DisplayName="Assign Extraction Result" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_72">
+                                                                  <Assign.To>
+                                                                    <OutArgument x:TypeArguments="p2:ExtractionResult">[out_ValidatedExtractionResult]</OutArgument>
+                                                                  </Assign.To>
+                                                                  <Assign.Value>
+                                                                    <InArgument x:TypeArguments="p2:ExtractionResult">[validatedExtractionResults]</InArgument>
+                                                                  </Assign.Value>
+                                                                </Assign>
                                                               </Sequence>
                                                             </ui:CommentOut.Body>
                                                             <sap:WorkflowViewStateService.ViewState>
@@ -453,108 +828,58 @@
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
                                                           </ui:CommentOut>
-                                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move Inv to Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_161" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
-                                                            <ui:InvokeWorkflowFile.Arguments>
-                                                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
-                                                              <InArgument x:TypeArguments="x:Boolean" x:Key="in_SuccessFlag">[AutoExtractionSuccess]</InArgument>
-                                                              <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[DocItem]</InArgument>
-                                                              <OutArgument x:TypeArguments="x:String" x:Key="out_TargetFolder">[TargetFolder]</OutArgument>
-                                                            </ui:InvokeWorkflowFile.Arguments>
-                                                            <sap:WorkflowViewStateService.ViewState>
-                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                                                              </scg:Dictionary>
-                                                            </sap:WorkflowViewStateService.ViewState>
-                                                          </ui:InvokeWorkflowFile>
-                                                          <Assign DisplayName="Application Message - Success " sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_67">
+                                                          <Assign DisplayName="Set Validation Flag" sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_77">
                                                             <Assign.To>
-                                                              <OutArgument x:TypeArguments="x:String">[ApplicationExceptionMsg]</OutArgument>
+                                                              <OutArgument x:TypeArguments="x:Boolean">[ValidatedFlag]</OutArgument>
                                                             </Assign.To>
                                                             <Assign.Value>
-                                                              <InArgument x:TypeArguments="x:String">[config("LogMessage_InvoiceSuccessMsg")]</InArgument>
+                                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                                                             </Assign.Value>
                                                           </Assign>
                                                         </Sequence>
-                                                      </If.Then>
-                                                      <If.Else>
-                                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move Inv to Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_162" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
-                                                          <ui:InvokeWorkflowFile.Arguments>
-                                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
-                                                            <InArgument x:TypeArguments="x:Boolean" x:Key="in_SuccessFlag">[AutoExtractionSuccess]</InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[DocItem]</InArgument>
-                                                            <OutArgument x:TypeArguments="x:String" x:Key="out_TargetFolder">[TargetFolder]</OutArgument>
-                                                          </ui:InvokeWorkflowFile.Arguments>
-                                                          <sap:WorkflowViewStateService.ViewState>
-                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                                                            </scg:Dictionary>
-                                                          </sap:WorkflowViewStateService.ViewState>
-                                                        </ui:InvokeWorkflowFile>
-                                                      </If.Else>
-                                                    </If>
-                                                    <FlowStep.Next>
-                                                      <FlowStep x:Name="__ReferenceID4">
-                                                        <sap:WorkflowViewStateService.ViewState>
-                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                            <av:Point x:Key="ShapeLocation">289,579</av:Point>
-                                                            <av:Size x:Key="ShapeSize">262,62</av:Size>
-                                                            <av:PointCollection x:Key="ConnectorLocation">420,641 420,710 250,710</av:PointCollection>
-                                                          </scg:Dictionary>
-                                                        </sap:WorkflowViewStateService.ViewState>
-                                                        <Assign DisplayName="Assign - Log Message" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_68">
-                                                          <Assign.To>
-                                                            <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
-                                                          </Assign.To>
-                                                          <Assign.Value>
-                                                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[path.GetFileName(DocItem) + "," + if(AutoExtractionSuccess, "Info","Error") + "," + ApplicationExceptionMsg + "," + TargetFolder +  ","  + if(AutoExtractionSuccess, "Success","Failed")]</InArgument>
-                                                          </Assign.Value>
-                                                          <sap:WorkflowViewStateService.ViewState>
-                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                            </scg:Dictionary>
-                                                          </sap:WorkflowViewStateService.ViewState>
-                                                        </Assign>
                                                         <FlowStep.Next>
-                                                          <FlowStep x:Name="__ReferenceID5">
+                                                          <FlowStep x:Name="__ReferenceID11">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <av:Point x:Key="ShapeLocation">50,683.666666666667</av:Point>
-                                                                <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                                                                <av:PointCollection x:Key="ConnectorLocation">150,736.333333333333 150,810 320,810</av:PointCollection>
+                                                                <av:Point x:Key="ShapeLocation">249,639.333333333333</av:Point>
+                                                                <av:Size x:Key="ShapeSize">262,61.3333333333333</av:Size>
+                                                                <av:PointCollection x:Key="ConnectorLocation">511,670 630,670 630,724</av:PointCollection>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_163" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
-                                                              <ui:InvokeWorkflowFile.Arguments>
-                                                                <InArgument x:TypeArguments="x:String" x:Key="in_LogMessage">[AppMsg]</InArgument>
-                                                                <InArgument x:TypeArguments="x:String" x:Key="in_LogType">Info</InArgument>
-                                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
-                                                              </ui:InvokeWorkflowFile.Arguments>
-                                                              <sap:WorkflowViewStateService.ViewState>
-                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                </scg:Dictionary>
-                                                              </sap:WorkflowViewStateService.ViewState>
-                                                            </ui:InvokeWorkflowFile>
+                                                            <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_74">
+                                                              <Assign.To>
+                                                                <OutArgument x:TypeArguments="x:Boolean">[AutoExtractionSuccess]</OutArgument>
+                                                              </Assign.To>
+                                                              <Assign.Value>
+                                                                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                              </Assign.Value>
+                                                            </Assign>
                                                             <FlowStep.Next>
-                                                              <FlowStep x:Name="__ReferenceID7">
+                                                              <FlowStep x:Name="__ReferenceID10">
                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                    <av:Point x:Key="ShapeLocation">320,783.666666666667</av:Point>
-                                                                    <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+                                                                    <av:Point x:Key="ShapeLocation">530,724</av:Point>
+                                                                    <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                                                    <av:PointCollection x:Key="ConnectorLocation">630,776 630,790 450,790</av:PointCollection>
                                                                   </scg:Dictionary>
                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                <ui:LogMessage DisplayName="Log Message - End Of Inv Post Processing" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[string.Format(Config(&quot;LogMessage_EndOfProcessDocument&quot;) , path.GetFileName(DocItem))]">
+                                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Export" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_170" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\Export.xaml">
+                                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                                    <InArgument x:TypeArguments="p2:ExtractionResult" x:Key="in_ExtractionResults">[ValidatedExtractionResults]</InArgument>
+                                                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[config]</InArgument>
+                                                                    <InArgument x:TypeArguments="x:String" x:Key="in_DocumentPath">[DocItem]</InArgument>
+                                                                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_AutoExtractionSuccess">[AutoExtractionSuccess]</InArgument>
+                                                                  </ui:InvokeWorkflowFile.Arguments>
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                                                     </scg:Dictionary>
                                                                   </sap:WorkflowViewStateService.ViewState>
-                                                                </ui:LogMessage>
+                                                                </ui:InvokeWorkflowFile>
+                                                                <FlowStep.Next>
+                                                                  <x:Reference>__ReferenceID0</x:Reference>
+                                                                </FlowStep.Next>
                                                               </FlowStep>
                                                             </FlowStep.Next>
                                                           </FlowStep>
@@ -562,8 +887,8 @@
                                                       </FlowStep>
                                                     </FlowStep.Next>
                                                   </FlowStep>
-                                                </FlowStep.Next>
-                                              </FlowStep>
+                                                </FlowDecision.False>
+                                              </FlowDecision>
                                             </FlowStep.Next>
                                           </FlowStep>
                                         </FlowStep.Next>
@@ -572,14 +897,20 @@
                                   </FlowStep>
                                 </FlowStep.Next>
                               </FlowStep>
-                              <x:Reference>__ReferenceID0</x:Reference>
                               <x:Reference>__ReferenceID1</x:Reference>
                               <x:Reference>__ReferenceID2</x:Reference>
                               <x:Reference>__ReferenceID3</x:Reference>
+                              <x:Reference>__ReferenceID0</x:Reference>
                               <x:Reference>__ReferenceID4</x:Reference>
                               <x:Reference>__ReferenceID5</x:Reference>
                               <x:Reference>__ReferenceID6</x:Reference>
                               <x:Reference>__ReferenceID7</x:Reference>
+                              <x:Reference>__ReferenceID8</x:Reference>
+                              <x:Reference>__ReferenceID9</x:Reference>
+                              <x:Reference>__ReferenceID10</x:Reference>
+                              <x:Reference>__ReferenceID11</x:Reference>
+                              <x:Reference>__ReferenceID12</x:Reference>
+                              <x:Reference>__ReferenceID13</x:Reference>
                             </Flowchart>
                           </Sequence>
                         </ActivityAction>
@@ -593,12 +924,12 @@
                     </ui:ForEach>
                   </Sequence>
                   <FlowStep.Next>
-                    <x:Reference>__ReferenceID9</x:Reference>
+                    <x:Reference>__ReferenceID15</x:Reference>
                   </FlowStep.Next>
                 </FlowStep>
               </FlowStep.Next>
             </FlowStep>
-            <x:Reference>__ReferenceID9</x:Reference>
+            <x:Reference>__ReferenceID15</x:Reference>
           </Flowchart>
         </Sequence>
       </TryCatch.Try>

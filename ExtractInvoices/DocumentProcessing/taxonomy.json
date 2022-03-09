@@ -73,16 +73,6 @@
           "Metadata": []
         },
         {
-          "FieldId": "Invoices.Financial.Invoice.ShippingCharges",
-          "FieldName": "Shipping Charges",
-          "IsMultiValue": false,
-          "Type": "Number",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": []
-        },
-        {
           "FieldId": "Invoices.Financial.Invoice.TaxAmount",
           "FieldName": "Tax Amount",
           "IsMultiValue": false,
@@ -91,6 +81,21 @@
           "Components": [],
           "SetValues": [],
           "Metadata": []
+        },
+        {
+          "FieldId": "Invoices.Financial.Invoice.ShippingCharges",
+          "FieldName": "Shipping Charges",
+          "IsMultiValue": false,
+          "Type": "Number",
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": [],
+          "Metadata": [
+            {
+              "Key": "Color",
+              "Value": "#b37710"
+            }
+          ]
         },
         {
           "FieldId": "Invoices.Financial.Invoice.NetAmount",
@@ -107,16 +112,6 @@
           "FieldName": "Total",
           "IsMultiValue": false,
           "Type": "Number",
-          "DeriveFieldsFormat": "",
-          "Components": [],
-          "SetValues": [],
-          "Metadata": []
-        },
-        {
-          "FieldId": "Invoices.Financial.Invoice.Currency",
-          "FieldName": "Currency",
-          "IsMultiValue": false,
-          "Type": "Text",
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": [],
