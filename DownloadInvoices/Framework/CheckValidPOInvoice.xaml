@@ -1,14 +1,24 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CheckValidPOInvoice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CheckValidPOInvoice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_FileName" Type="InArgument(x:String)" />
     <x:Property Name="out_MatchStatus" Type="OutArgument(x:String)" />
     <x:Property Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
     <x:Property Name="in_InvFileName" Type="InArgument(x:String)" />
   </x:Members>
+  <this:CheckValidPOInvoice.in_FileName>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:CheckValidPOInvoice.in_FileName>
+  <this:CheckValidPOInvoice.in_InvFileName>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:CheckValidPOInvoice.in_InvFileName>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1500,3952</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1015.33333333333,2928</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CheckValidPOInvoice_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="41">
@@ -92,10 +102,10 @@
       <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>netstandard</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CheckValidPOInvoice" sap:VirtualizedContainerService.HintSize="1510,3887.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CheckValidPOInvoice" sap:VirtualizedContainerService.HintSize="1025.33333333333,2863.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="PDFData" />
       <Variable x:TypeArguments="x:Boolean" Name="isMatched" />
@@ -115,7 +125,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1468,160.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign - Check valid invoice" sap:VirtualizedContainerService.HintSize="983.333333333333,160.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -145,7 +155,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:LogMessage DisplayName="Checking invoice" sap:VirtualizedContainerService.HintSize="1468,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.format(in_config(&quot;LogMessage_Start&quot;), in_InvFileName)]">
+    <ui:LogMessage DisplayName="Checking invoice" sap:VirtualizedContainerService.HintSize="983.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.format(in_config(&quot;LogMessage_Start&quot;), in_InvFileName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -153,7 +163,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:LogMessage DisplayName="Read invoice PDF data" sap:VirtualizedContainerService.HintSize="1468,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[String.format(in_config(&quot;LogMessage_ReadPDF&quot;), in_InvFileName)]">
+    <ui:LogMessage DisplayName="Read invoice PDF data" sap:VirtualizedContainerService.HintSize="983.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[String.format(in_config(&quot;LogMessage_ReadPDF&quot;), in_InvFileName)]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -161,8 +171,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[FileName]" sap:VirtualizedContainerService.HintSize="1468,58.6666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[PDFData]" />
-    <If Condition="[len(PDFData.Trim) = 0]" DisplayName="Check PDF file read successfully" sap:VirtualizedContainerService.HintSize="1468,417.333333333333" sap2010:WorkflowViewState.IdRef="If_15">
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read Invoice PDF Text" FileName="[FileName]" sap:VirtualizedContainerService.HintSize="983.333333333333,58.6666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[PDFData]" />
+    <If Condition="[len(PDFData.Trim) = 0]" DisplayName="Check PDF file read successfully" sap:VirtualizedContainerService.HintSize="983.333333333333,417.333333333333" sap2010:WorkflowViewState.IdRef="If_15">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -170,19 +180,19 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,222.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_61">
+        <Sequence DisplayName="Sequence - Read Scanned PDF " sap:VirtualizedContainerService.HintSize="376,222.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_61">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadPDFWithOCR DegreeOfParallelism="-1" DisplayName="Read PDF With OCR" FileName="[FileName]" sap:VirtualizedContainerService.HintSize="334,130.666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_1" ImageDpi="150" Range="All" Text="[PDFData]">
+          <ui:ReadPDFWithOCR DegreeOfParallelism="-1" DisplayName="Read Scanned Invoice PDF With OCR" FileName="[FileName]" sap:VirtualizedContainerService.HintSize="334,130.666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_1" ImageDpi="150" Range="All" Text="[PDFData]">
             <ui:ReadPDFWithOCR.OCREngine>
               <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
                 <ActivityFunc.Argument>
                   <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
                 </ActivityFunc.Argument>
-                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Scale="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" Profile="Scan" Text="[PDFData]" />
+                <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Scale="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR - Read scanned Invoice" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" Profile="Scan" Text="[PDFData]" />
               </ActivityFunc>
             </ui:ReadPDFWithOCR.OCREngine>
             <sap:WorkflowViewStateService.ViewState>
@@ -194,7 +204,7 @@
         </Sequence>
       </If.Then>
     </If>
-    <If Condition="[len(PDFData.Trim) &gt; 0]" DisplayName="Check PDF file read successfully" sap:VirtualizedContainerService.HintSize="1468,2769.33333333333" sap2010:WorkflowViewState.IdRef="If_21">
+    <If Condition="[len(PDFData.Trim) &gt; 0]" DisplayName="Check PDF file read" sap:VirtualizedContainerService.HintSize="983.333333333333,1745.33333333333" sap2010:WorkflowViewState.IdRef="If_21">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -202,14 +212,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="1118,2605.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_73">
+        <Sequence DisplayName="Sequence - Get SAP and Non SAP PO" sap:VirtualizedContainerService.HintSize="633.333333333333,1581.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_73">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Checking invoice is SAP invoice?" sap:VirtualizedContainerService.HintSize="1076,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[String.format(in_config(&quot;LogMessage_CheckSAPInvoice&quot;), in_InvFileName, in_config(&quot;SAPPOStartNo&quot;))]">
+          <ui:LogMessage DisplayName="Checking invoice is SAP invoice?" sap:VirtualizedContainerService.HintSize="591.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[String.format(in_config(&quot;LogMessage_CheckSAPInvoice&quot;), in_InvFileName, in_config(&quot;SAPPOStartNo&quot;))]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -217,7 +227,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <Assign DisplayName="Split SAP PO No in array" sap:VirtualizedContainerService.HintSize="1076,62" sap2010:WorkflowViewState.IdRef="Assign_37">
+          <Assign DisplayName="Split SAP PO No in array" sap:VirtualizedContainerService.HintSize="591.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_37">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[arrSAPPO]</OutArgument>
             </Assign.To>
@@ -225,7 +235,7 @@
               <InArgument x:TypeArguments="s:String[]">[Split(in_config("SAPPOStartNo"), ",")]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Split Other SAP PO No in array" sap:VirtualizedContainerService.HintSize="1076,62" sap2010:WorkflowViewState.IdRef="Assign_38">
+          <Assign DisplayName="Split Other SAP PO No in array" sap:VirtualizedContainerService.HintSize="591.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_38">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[arrOtherSAPPO]</OutArgument>
             </Assign.To>
@@ -233,7 +243,7 @@
               <InArgument x:TypeArguments="s:String[]">[Split(in_config("OtherSAPPOStartNo"), ",")]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[arrSAPPO.Count() &gt; 0]" DisplayName="SAP PO Array count" sap:VirtualizedContainerService.HintSize="1076,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_23">
+          <If Condition="[arrSAPPO.Count() &gt; 0]" DisplayName="SAP PO Array count" sap:VirtualizedContainerService.HintSize="591.333333333333,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_23">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -244,7 +254,7 @@
               <Sequence DisplayName="Check SAP PO in List " sap:VirtualizedContainerService.HintSize="646.666666666667,1150" sap2010:WorkflowViewState.IdRef="Sequence_66">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -254,10 +264,11 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="568,930" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                      <Sequence DisplayName="Body - SAP PO Regex" sap:VirtualizedContainerService.HintSize="568,930" sap2010:WorkflowViewState.IdRef="Sequence_65">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <Sequence DisplayName="Build SAP PO Regex string" sap:VirtualizedContainerService.HintSize="526,838" sap2010:WorkflowViewState.IdRef="Sequence_64">
@@ -267,7 +278,7 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Build RegEx String" sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_39">
+                          <Assign DisplayName="Build SAP PORegEx String" sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_39">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[PONoString]</OutArgument>
                             </Assign.To>
@@ -275,7 +286,7 @@
                               <InArgument x:TypeArguments="x:String">[item.ToString.Trim.ToUpper + in_config("SAPPORegEx")]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:IsMatch BuilderPattern="" DisplayName="RegEx to check PO number" sap:VirtualizedContainerService.HintSize="484,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_6" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[PONoString]" RegexOption="IgnoreCase, Compiled, Singleline, RightToLeft" Result="[isMatched]">
+                          <ui:IsMatch BuilderPattern="" DisplayName="RegEx to check SAP PO number" sap:VirtualizedContainerService.HintSize="484,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_6" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[PONoString]" RegexOption="IgnoreCase, Compiled, Singleline, RightToLeft" Result="[isMatched]">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -291,13 +302,13 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="376,350.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                              <Sequence DisplayName="Sequence - Check Valid SAP Invoice" sap:VirtualizedContainerService.HintSize="376,350.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_63">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign DisplayName="Assign PO Type" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_40">
+                                <Assign DisplayName="Assign SAP PO Type" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_40">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[POType]</OutArgument>
                                   </Assign.To>
@@ -313,7 +324,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:LogMessage>
-                                <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_7" />
+                                <ui:Break DisplayName="Break - Got SAP PO" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_7" />
                               </Sequence>
                             </If.Then>
                           </If>
@@ -331,7 +342,7 @@
               </Sequence>
             </If.Then>
           </If>
-          <If Condition="[isMatched = False]" DisplayName="Other SAP Flow" sap:VirtualizedContainerService.HintSize="1076,1887.33333333333" sap2010:WorkflowViewState.IdRef="If_26">
+          <If Condition="[isMatched = False]" DisplayName="Other SAP Flow" sap:VirtualizedContainerService.HintSize="591.333333333333,770.666666666667" sap2010:WorkflowViewState.IdRef="If_26">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -339,14 +350,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="1039.33333333333,1692.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_71">
+              <Sequence DisplayName="Sequence - Check Other SAP Invoice" sap:VirtualizedContainerService.HintSize="554.666666666667,576" sap2010:WorkflowViewState.IdRef="Sequence_71">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <If Condition="[arrOtherSAPPO.Count() &gt; 0]" DisplayName="Other SAP PO Array count" sap:VirtualizedContainerService.HintSize="997.333333333333,1600.66666666667" sap2010:WorkflowViewState.IdRef="If_25">
+                <If Condition="[arrOtherSAPPO.Count() &gt; 0]" DisplayName="Other SAP PO Array count" sap:VirtualizedContainerService.HintSize="512.666666666667,484" sap2010:WorkflowViewState.IdRef="If_25">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -354,23 +365,23 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Check Other SAP PO in List " sap:VirtualizedContainerService.HintSize="960.666666666667,1406" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                    <Sequence DisplayName="Check Other SAP PO in List " sap:VirtualizedContainerService.HintSize="476,289.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_70">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Other PO no in list" sap:VirtualizedContainerService.HintSize="918.666666666667,1314" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[arrOtherSAPPO]">
+                      <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Other PO no in list" sap:VirtualizedContainerService.HintSize="434,197.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[arrOtherSAPPO]">
                         <ui:ForEach.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="882,1186" sap2010:WorkflowViewState.IdRef="Sequence_69">
+                            <Sequence DisplayName="Body - Other SAP PO Regex" sap:VirtualizedContainerService.HintSize="882,1186" sap2010:WorkflowViewState.IdRef="Sequence_69">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -389,7 +400,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Assign DisplayName="Build RegEx String" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_44">
+                                      <Assign DisplayName="Build WOT PO RegEx String" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_44">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[PONoString]</OutArgument>
                                         </Assign.To>
@@ -397,7 +408,7 @@
                                           <InArgument x:TypeArguments="x:String">[item.ToString.Trim.ToUpper + in_config("WOTPORegEx")]</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <ui:IsMatch BuilderPattern="" DisplayName="RegEx to check PO number" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_8" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[PONoString]" RegexOption="IgnoreCase, Compiled, Singleline, RightToLeft" Result="[isMatched]">
+                                      <ui:IsMatch BuilderPattern="" DisplayName="RegEx to check WOT PO number" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_8" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[PONoString]" RegexOption="IgnoreCase, Compiled, Singleline, RightToLeft" Result="[isMatched]">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -408,13 +419,13 @@
                                     </Sequence>
                                   </If.Then>
                                   <If.Else>
-                                    <Sequence DisplayName="Other POP Regex" sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_75">
+                                    <Sequence DisplayName="Other PO Regex" sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_75">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Assign DisplayName="Build RegEx String" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_41">
+                                      <Assign DisplayName="Build Other SAP PO RegEx String" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_41">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[PONoString]</OutArgument>
                                         </Assign.To>
@@ -422,7 +433,7 @@
                                           <InArgument x:TypeArguments="x:String">[item.ToString.Trim.ToUpper + in_config("OtherSAPPORegEx")]</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <ui:IsMatch BuilderPattern="" DisplayName="RegEx to check PO number" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_7" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[PONoString]" RegexOption="IgnoreCase, Compiled, Singleline, RightToLeft" Result="[isMatched]">
+                                      <ui:IsMatch BuilderPattern="" DisplayName="RegEx to check Other PO number" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_7" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[PONoString]" RegexOption="IgnoreCase, Compiled, Singleline, RightToLeft" Result="[isMatched]">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -441,13 +452,13 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <If.Then>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="376,350.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                                    <Sequence DisplayName="Sequence - Other SAP Invoice" sap:VirtualizedContainerService.HintSize="376,350.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_67">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Assign DisplayName="Assign PO Type" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_42">
+                                      <Assign DisplayName="Assign Other PO Type" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_42">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[POType]</OutArgument>
                                         </Assign.To>
@@ -455,7 +466,7 @@
                                           <InArgument x:TypeArguments="x:String">OtherSAP</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <ui:LogMessage DisplayName="valid SAP Invoice?" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[String.format(in_config(&quot;LogMessage_OtherSAPInv&quot;), InvFileName)]">
+                                      <ui:LogMessage DisplayName="valid Other SAP Invoice?" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[String.format(in_config(&quot;LogMessage_OtherSAPInv&quot;), InvFileName)]">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -463,7 +474,7 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:LogMessage>
-                                      <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_8" />
+                                      <ui:Break DisplayName="Break - Got Other SAP PO" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_8" />
                                     </Sequence>
                                   </If.Then>
                                 </If>
@@ -484,14 +495,14 @@
               </Sequence>
             </If.Then>
           </If>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[POType]" sap:VirtualizedContainerService.HintSize="762,52.6666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch- PO Type - NONSAP" Expression="[POType]" sap:VirtualizedContainerService.HintSize="591.333333333333,145.333333333333" sap2010:WorkflowViewState.IdRef="Switch`1_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence x:Key="NonSAP" sap:VirtualizedContainerService.HintSize="376,186.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_72">
+            <Sequence x:Key="NonSAP" DisplayName="Sequence - Non SAP PO Message" sap:VirtualizedContainerService.HintSize="376,186.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_72">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -507,7 +518,7 @@
               </ui:LogMessage>
             </Sequence>
           </Switch>
-          <Assign DisplayName="Return NonSAP Flag" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_43">
+          <Assign DisplayName="Return NonSAP Flag" sap:VirtualizedContainerService.HintSize="591.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_43">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_MatchStatus]</OutArgument>
             </Assign.To>
@@ -518,7 +529,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_62">
+        <Sequence DisplayName="Sequence - PO type is not matched " sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_62">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
