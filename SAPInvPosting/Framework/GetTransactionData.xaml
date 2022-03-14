@@ -5,11 +5,12 @@
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="out_TransactionItem" Type="OutArgument(ui:QueueItem)" />
     <x:Property Name="out_dtHeaderData" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="out_dtItemData" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_InvFileName" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>958,1686.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>733.333333333333,1992.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -79,9 +80,10 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="690.666666666667,1622" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="716.666666666667,1928" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -89,13 +91,13 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="648.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
-    <ui:RetryScope DisplayName="Retry Get transaction item" sap:VirtualizedContainerService.HintSize="648.666666666667,1107.33333333333" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[Cint(in_Config(&quot;RetryNumberGetTransactionItem&quot;))]">
+    <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="674.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
+    <ui:RetryScope DisplayName="Retry Get transaction item" sap:VirtualizedContainerService.HintSize="674.666666666667,1430" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[Cint(in_Config(&quot;RetryNumberGetTransactionItem&quot;))]">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
-          <TryCatch DisplayName="Try Catch Get transaction item" sap:VirtualizedContainerService.HintSize="606.666666666667,930" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch DisplayName="Try Catch Get transaction item" sap:VirtualizedContainerService.HintSize="632.666666666667,1252.66666666667" sap2010:WorkflowViewState.IdRef="TryCatch_2">
             <TryCatch.Try>
-              <Sequence DisplayName="Get transaction item" sap:VirtualizedContainerService.HintSize="568,692" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence DisplayName="Get transaction item" sap:VirtualizedContainerService.HintSize="594,1014.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
                 </Sequence.Variables>
@@ -105,14 +107,14 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap:VirtualizedContainerService.HintSize="526,414.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence sap:VirtualizedContainerService.HintSize="552,737.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get a transaction item from the specified Orchestrator queue." DisplayName="Get Item from Queue" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" TransactionItem="[TransactionItem]">
+                  <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get a transaction item from the specified Orchestrator queue." DisplayName="Get Item from Queue" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="510,22" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" TransactionItem="[TransactionItem]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -120,16 +122,16 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:GetQueueItem>
-                  <If Condition="[TransactionItem IsNot Nothing]" sap:VirtualizedContainerService.HintSize="484,260.666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If Condition="[TransactionItem IsNot Nothing]" sap:VirtualizedContainerService.HintSize="510,583.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence sap:VirtualizedContainerService.HintSize="473.333333333333,392" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign - Deserialize Header and ItemData" sap:VirtualizedContainerService.HintSize="431.333333333333,130" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                        <ui:MultipleAssign DisplayName="Multiple Assign - Deserialize Header and ItemData" sap:VirtualizedContainerService.HintSize="431.333333333333,160.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
@@ -146,6 +148,14 @@
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
                                   <InArgument x:TypeArguments="sd:DataTable">[JsonConvert.DeserializeObject(Of DataTable)(TransactionItem.SpecificContent("invoiceItems").ToString)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[out_InvFileName]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[TransactionItem.SpecificContent("InvFileName").ToString]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                             </scg:List>
@@ -178,7 +188,7 @@
                     </If.Else>
                   </If>
                 </Sequence>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="526,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="552,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="398,206" sap2010:WorkflowViewState.IdRef="Sequence_16">
                       <sap:WorkflowViewStateService.ViewState>
@@ -209,7 +219,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="526,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="552,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_4">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="526,428" sap2010:WorkflowViewState.IdRef="Sequence_17">
                       <sap:WorkflowViewStateService.ViewState>

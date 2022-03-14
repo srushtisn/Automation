@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>958,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>744,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CheckForCanadaInvoice_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -64,8 +64,8 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="CheckForCanadaInvoice" sap:VirtualizedContainerService.HintSize="664,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -84,7 +84,7 @@
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID5</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID5">
+    <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">350,53.6666666666667</av:Point>
@@ -94,10 +94,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\Official\Automation\InvoiceProcessing\Development\Invoice AI Center\Training\DataSet1\133361.pdf" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[PDFData]" />
       <FlowStep.Next>
-        <FlowDecision x:Name="__ReferenceID1" DisplayName="Read Inv Doc? " sap:VirtualizedContainerService.HintSize="84.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-          <FlowDecision.Condition>
-            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="len(PDFData.Trim) = 0" />
-          </FlowDecision.Condition>
+        <FlowDecision x:Name="__ReferenceID1" Condition="[len(PDFData.Trim) = 0]" DisplayName="Read Inv Doc? " sap:VirtualizedContainerService.HintSize="84.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -110,7 +107,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
-            <FlowStep x:Name="__ReferenceID2">
+            <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">10,223.666666666667</av:Point>
@@ -135,10 +132,7 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ReadPDFWithOCR>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID3" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                  <FlowDecision.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="len(PDFData.Trim) = 0" />
-                  </FlowDecision.Condition>
+                <FlowDecision x:Name="__ReferenceID3" Condition="[len(PDFData.Trim) = 0]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -151,7 +145,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <FlowDecision.True>
-                    <FlowStep x:Name="__ReferenceID4">
+                    <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">10,413.666666666667</av:Point>
@@ -166,7 +160,7 @@
                                 <OutArgument x:TypeArguments="x:String">[out_Currency]</OutArgument>
                               </ui:AssignOperation.To>
                               <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">USD</InArgument>
+                                <InArgument x:TypeArguments="x:String">[trim(in_Config("SAPDefaultCurrency"))]</InArgument>
                               </ui:AssignOperation.Value>
                             </ui:AssignOperation>
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -188,20 +182,20 @@
                     </FlowStep>
                   </FlowDecision.True>
                   <FlowDecision.False>
-                    <FlowStep x:Name="__ReferenceID0">
+                    <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">430,305.333333333333</av:Point>
                           <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Build Regex" sap:VirtualizedContainerService.HintSize="725.333333333333,2961.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                      <Sequence DisplayName="Build Regex" sap:VirtualizedContainerService.HintSize="596.666666666667,981.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_28">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Build Currency Regex" sap:VirtualizedContainerService.HintSize="683.333333333333,1414.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                        <Sequence DisplayName="Build Currency Regex" sap:VirtualizedContainerService.HintSize="554.666666666667,780" sap2010:WorkflowViewState.IdRef="Sequence_23">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:Boolean" Name="isMatched" />
                             <Variable x:TypeArguments="s:String[]" Name="arrCurrency" />
@@ -212,7 +206,7 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Split Currency in array" sap:VirtualizedContainerService.HintSize="641.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_11">
+                          <Assign DisplayName="Split Currency in array" sap:VirtualizedContainerService.HintSize="512.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_11">
                             <Assign.To>
                               <OutArgument x:TypeArguments="s:String[]">[arrCurrency]</OutArgument>
                             </Assign.To>
@@ -220,7 +214,7 @@
                               <InArgument x:TypeArguments="s:String[]">[Split(in_Config("CurrencyList"), ",")]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <If Condition="[arrCurrency.Count() &gt; 0]" DisplayName="Currency Array count" sap:VirtualizedContainerService.HintSize="641.333333333333,1220.66666666667" sap2010:WorkflowViewState.IdRef="If_14">
+                          <If Condition="[arrCurrency.Count() &gt; 0]" DisplayName="Currency Array count" sap:VirtualizedContainerService.HintSize="512.666666666667,586" sap2010:WorkflowViewState.IdRef="If_14">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -228,7 +222,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence DisplayName="Check Currency in List " sap:VirtualizedContainerService.HintSize="604.666666666667,1026" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                              <Sequence DisplayName="Check Currency in List " sap:VirtualizedContainerService.HintSize="476,391.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="x:String" Name="Currency" />
                                 </Sequence.Variables>
@@ -238,16 +232,17 @@
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Currency in list" sap:VirtualizedContainerService.HintSize="562.666666666667,729.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[arrCurrency]">
+                                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Currency in list" sap:VirtualizedContainerService.HintSize="434,197.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[arrCurrency]">
                                   <ui:ForEach.Body>
                                     <ActivityAction x:TypeArguments="x:Object">
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                                       </ActivityAction.Argument>
-                                      <Sequence DisplayName="Body - Currency RegEx" sap:VirtualizedContainerService.HintSize="526,601.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                      <Sequence DisplayName="Body - Currency RegEx" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <ui:IsMatch BuilderPattern="\s*(?:USD)*\s*" DisplayName="RegEx to check Currency" sap:VirtualizedContainerService.HintSize="484,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_5" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;WHITESP&quot;,&quot;OperationName&quot;:&quot;Whitespace&quot;,&quot;OperationValue&quot;:&quot;\\s&quot;,&quot;QuantifierFirstValue&quot;:&quot;*&quot;,&quot;QuantifierID&quot;:&quot;ANY&quot;,&quot;QuantifierName&quot;:&quot;Any (0 or more)&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:1,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;USD&quot;,&quot;QuantifierFirstValue&quot;:&quot;*&quot;,&quot;QuantifierID&quot;:&quot;ANY&quot;,&quot;QuantifierName&quot;:&quot;Any (0 or more)&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:2,&quot;OperationID&quot;:&quot;WHITESP&quot;,&quot;OperationName&quot;:&quot;Whitespace&quot;,&quot;OperationValue&quot;:&quot;\\s&quot;,&quot;QuantifierFirstValue&quot;:&quot;*&quot;,&quot;QuantifierID&quot;:&quot;ANY&quot;,&quot;QuantifierName&quot;:&quot;Any (0 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[trim(item.ToString)]" RegexOption="IgnoreCase, Singleline, RightToLeft" Result="[isMatched]">
@@ -294,20 +289,19 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:ForEach>
-                                <Assign DisplayName="Assign out_currency variable" sap:VirtualizedContainerService.HintSize="562.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                <Assign DisplayName="Assign out_currency variable" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_13">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[out_Currency]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[Currency]</InArgument>
+                                    <InArgument x:TypeArguments="x:String">[if(len(trim(in_Config("SAPDefaultCurrency")))=0,Currency,in_Config("SAPDefaultCurrency"))]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562.666666666667,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;Currentcy = &quot; + Currency]" />
                               </Sequence>
                             </If.Then>
                           </If>
                         </Sequence>
-                        <Sequence DisplayName="Build Country Regex" sap:VirtualizedContainerService.HintSize="683.333333333333,1414.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                        <Sequence DisplayName="Build Country Regex" sap:VirtualizedContainerService.HintSize="554.666666666667,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_27">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:Boolean" Name="isMatched" />
                             <Variable x:TypeArguments="s:String[]" Name="arrCountry" />
@@ -315,11 +309,11 @@
                           </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Split Country in array" sap:VirtualizedContainerService.HintSize="641.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_14">
+                          <Assign DisplayName="Split Country in array" sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_14">
                             <Assign.To>
                               <OutArgument x:TypeArguments="s:String[]">[arrCountry]</OutArgument>
                             </Assign.To>
@@ -327,7 +321,7 @@
                               <InArgument x:TypeArguments="s:String[]">[Split(in_Config("CountryList"), ",")]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <If Condition="[arrCountry.Count() &gt; 0]" DisplayName="Country Array count" sap:VirtualizedContainerService.HintSize="641.333333333333,1220.66666666667" sap2010:WorkflowViewState.IdRef="If_16">
+                          <If Condition="[arrCountry.Count() &gt; 0]" DisplayName="Country Array count" sap:VirtualizedContainerService.HintSize="484,264" sap2010:WorkflowViewState.IdRef="If_16">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -335,27 +329,27 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence DisplayName="Check Country in List " sap:VirtualizedContainerService.HintSize="604.666666666667,1026" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                              <Sequence DisplayName="Check Country in List " sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Country in list" sap:VirtualizedContainerService.HintSize="562.666666666667,729.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[arrCountry]">
+                                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each Country in list" sap:VirtualizedContainerService.HintSize="262,52.6666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[arrCountry]">
                                   <ui:ForEach.Body>
                                     <ActivityAction x:TypeArguments="x:Object">
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                                       </ActivityAction.Argument>
-                                      <Sequence DisplayName="Body - Country RegEx" sap:VirtualizedContainerService.HintSize="526,601.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                      <Sequence DisplayName="Body - Country RegEx" sap:VirtualizedContainerService.HintSize="376,243.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:IsMatch BuilderPattern="Toronto" DisplayName="RegEx to check Country" sap:VirtualizedContainerService.HintSize="484,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_6" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;Toronto&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[trim(item.ToString)]" RegexOption="IgnoreCase" Result="[isMatched]">
+                                        <ui:IsMatch BuilderPattern="Toronto" DisplayName="RegEx to check Country" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_6" Input="[PDFData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;Toronto&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[trim(item.ToString)]" RegexOption="IgnoreCase" Result="[isMatched]">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -363,10 +357,10 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:IsMatch>
-                                        <If Condition="[isMatched]" DisplayName="Check Country exist in invoice" sap:VirtualizedContainerService.HintSize="484,410.666666666667" sap2010:WorkflowViewState.IdRef="If_15">
+                                        <If Condition="[isMatched]" DisplayName="Check Country exist in invoice" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_15">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
@@ -394,12 +388,12 @@
                                   </ui:ForEach.Body>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:ForEach>
-                                <Assign DisplayName="Assign out_CanadaInvoive variable" sap:VirtualizedContainerService.HintSize="562.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                <Assign DisplayName="Assign out_CanadaInvoive variable" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_16">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Boolean">[out_CanadaInvoice]</OutArgument>
                                   </Assign.To>
@@ -407,7 +401,7 @@
                                     <InArgument x:TypeArguments="x:Boolean">[if(String.IsNullOrEmpty(trim(Country)), False, True)]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="562.666666666667,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;Country = &quot; + Country + &quot; Flag = &quot; + out_CanadaInvoice.ToString]" />
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;Country = &quot; + Country + &quot; Flag = &quot; + out_CanadaInvoice.ToString]" />
                               </Sequence>
                             </If.Then>
                           </If>

@@ -1,7 +1,7 @@
 {
   "name": "SAPInvPosting",
   "description": "SAP Invoice Posting Process",
-  "main": "Sequence.xaml",
+  "main": "Flowchart.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.PDF.Activities": "[3.5.0-preview]",
@@ -92,6 +92,12 @@
     {
       "filePath": "Sequence.xaml",
       "uniqueId": "4d14c365-2e28-422d-866e-a33bf4c31a96",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Flowchart.xaml",
+      "uniqueId": "5df86f80-0a9c-4cea-b763-104c0c061cdd",
       "input": [],
       "output": []
     }

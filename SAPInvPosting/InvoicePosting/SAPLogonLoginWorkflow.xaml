@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>958,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>649.333333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Workflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -66,6 +66,11 @@
       <AssemblyReference>UiPath.SAP.BAPI.Activities</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="SAP Login/Logon Process" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -90,15 +95,15 @@
     <Flowchart.StartNode>
       <x:Reference>__ReferenceID3</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID2">
+    <FlowStep x:Name="__ReferenceID1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,233.666666666667</av:Point>
+          <av:Point x:Key="ShapeLocation">190,303.666666666667</av:Point>
           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">400,260 470,260 470,313.666666666667</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">290,356.333333333333 290,386.333333333333 310,386.333333333333 310,403.666666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ucas:Logon ConnectionName="S4 HANA DEV" DelayBetweenRetries="500" DisplayName="SAP Logon" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Logon_1" Retries="5" SAPLogonPath="[SAPLogonPath]" Window="[SAPLogon]">
+      <ucas:Logon ConnectionName="[SAPConnName]" DelayBetweenRetries="500" DisplayName="SAP Logon" sap:VirtualizedContainerService.HintSize="334,140" sap2010:WorkflowViewState.IdRef="Logon_1" Retries="2" SAPLogonPath="[SAPLogonPath]" Window="[SAPLogon]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -109,57 +114,38 @@
         <FlowStep x:Name="__ReferenceID0">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">370,313.666666666667</av:Point>
+              <av:Point x:Key="ShapeLocation">210,403.666666666667</av:Point>
               <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">470,366.333333333333 470,430 410,430</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SAPCredentials" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[SAPPassword]" Username="[SAPUserName]">
+          <ucas:Login Password="{x:Null}" Client="[SAPClient]" DisplayName="SAP Login 'saplogon.exe  SAP'" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Login_3" IsSecure="True" Language="[SAPLanguage]" MultiLogonOptionToChoose="Single" SecurePassword="[SAPPassword]" Timeout="5000" Username="[SAPUserName]" Window="[SAPLogon]">
+            <ucas:Login.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ebe4aba7-dca9-4be9-aaf9-8e19f4f59eb5" InformativeScreenshot="3415360e9752c3d9e03d65f02698cecd" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ucas:Login.Target>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:GetRobotCredential>
-          <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID1">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">210,403.666666666667</av:Point>
-                  <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ucas:Login Password="{x:Null}" Client="[SAPClient]" DisplayName="SAP Login 'saplogon.exe  SAP'" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Login_3" IsSecure="True" Language="[SAPLanguage]" MultiLogonOptionToChoose="Single" SecurePassword="[SAPPassword]" Timeout="5000" Username="[SAPUserName]" Window="[SAPLogon]">
-                <ucas:Login.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ebe4aba7-dca9-4be9-aaf9-8e19f4f59eb5" InformativeScreenshot="fc87b2879345cbf4540151cf855367e0" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ucas:Login.Target>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ucas:Login>
-            </FlowStep>
-          </FlowStep.Next>
+          </ucas:Login>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
-    <x:Reference>__ReferenceID1</x:Reference>
     <FlowStep x:Name="__ReferenceID3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,124.02</av:Point>
           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,176.686666666667 300,233.666666666667</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,176.686666666667 300,206.686666666667 290,206.686666666667 290,213.666666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
@@ -206,8 +192,27 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID2</x:Reference>
+        <FlowStep x:Name="__ReferenceID2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">190,213.666666666667</av:Point>
+              <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">290,266.333333333333 290,303.666666666667</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SAPCredentials" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[SAPPassword]" Username="[SAPUserName]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:GetRobotCredential>
+          <FlowStep.Next>
+            <x:Reference>__ReferenceID1</x:Reference>
+          </FlowStep.Next>
+        </FlowStep>
       </FlowStep.Next>
     </FlowStep>
+    <x:Reference>__ReferenceID2</x:Reference>
   </Flowchart>
 </Activity>
