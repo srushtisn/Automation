@@ -15,7 +15,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.1-alpha.5",
+  "projectVersion": "1.0.1-alpha.9",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -46,7 +46,8 @@
         "Framework/40_TrainClassifiers.xaml",
         "Framework/55_ExtractionBussinessRuleValidation.xaml",
         "ExtractInvoice.xaml",
-        "Data/Config.xlsx"
+        "Data/Config.xlsx",
+        "Flowchart.xaml"
       ]
     },
     "fileInfoCollection": [],
