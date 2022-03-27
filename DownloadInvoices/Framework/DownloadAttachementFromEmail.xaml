@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>883.333333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_05_DownloadInvoiceFromEmail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="41">
@@ -432,7 +432,7 @@
                                               <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
                                             </Assign.To>
                                             <Assign.Value>
-                                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[FileName + "," + TargetFolder + "," + MatchedStatus + "," + InvSource  + "," + MailFrom  + "," +  MailDateTime]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[path.GetFileName(FileName).replace(",", "") + "," + TargetFolder + "," + MatchedStatus + "," + InvSource  + "," + MailFrom  + "," +  MailDateTime]</InArgument>
                                             </Assign.Value>
                                           </Assign>
                                           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LogMessage Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
