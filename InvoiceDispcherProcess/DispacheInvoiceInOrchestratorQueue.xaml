@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>890,837.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>838,837.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetItemFromExcelAndProcess_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -45,7 +45,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -71,7 +71,6 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="GetItemFromExcelAndProcess" sap:VirtualizedContainerService.HintSize="644,772.666666666667" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -104,7 +103,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,266.333333333333 300,305.333333333333</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Read Data From Excel" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_FilePath]">
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Read Data From Excel" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_FilePath]">
         <ui:ExcelApplicationScope.Body>
           <ActivityAction x:TypeArguments="ui:WorkbookApplication">
             <ActivityAction.Argument>
@@ -169,7 +168,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign-Simple Fields" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign DisplayName="Assign-Simple Fields" sap:VirtualizedContainerService.HintSize="520.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataTable">[dt_FinalHeader]</OutArgument>
               </Assign.To>
@@ -177,7 +176,7 @@
                 <InArgument x:TypeArguments="sd:DataTable">[dt_Header.Clone]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign - Items" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign DisplayName="Assign - Items" sap:VirtualizedContainerService.HintSize="520.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataTable">[dt_FinalItems]</OutArgument>
               </Assign.To>
@@ -185,16 +184,16 @@
                 <InArgument x:TypeArguments="sd:DataTable">[dt_Items.Clone]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each- For Header" sap:VirtualizedContainerService.HintSize="434,188" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[dt_FinalHeader.Columns]">
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each- For Header" sap:VirtualizedContainerService.HintSize="520.666666666667,382.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[dt_FinalHeader.Columns]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                   </ActivityAction.Argument>
-                  <If Condition="[item.ToString.ToLower.Contains(&quot;confidence&quot;)]" DisplayName="If- &quot;Confidence&quot; Column name" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If Condition="[item.ToString.ToLower.Contains(&quot;confidence&quot;)]" DisplayName="If- &quot;Confidence&quot; Column name" sap:VirtualizedContainerService.HintSize="484,254.666666666667" sap2010:WorkflowViewState.IdRef="If_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -218,16 +217,16 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each - For Items" sap:VirtualizedContainerService.HintSize="434,188" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[dt_FinalItems.Columns]">
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each - For Items" sap:VirtualizedContainerService.HintSize="520.666666666667,512.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[dt_FinalItems.Columns]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                   </ActivityAction.Argument>
-                  <If Condition="[item.ToString.ToLower.Contains(&quot;confidence&quot;)]" DisplayName="If- Check &quot;Confidence&quot; Column Name" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_7">
+                  <If Condition="[item.ToString.ToLower.Contains(&quot;confidence&quot;)]" DisplayName="If- Check &quot;Confidence&quot; Column Name" sap:VirtualizedContainerService.HintSize="484,384.666666666667" sap2010:WorkflowViewState.IdRef="If_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -261,11 +260,12 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,474.666666666667 290,474.666666666667 290,503.666666666667</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Add invoice to Queue" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence DisplayName="Add invoice to Queue" sap:VirtualizedContainerService.HintSize="304,522" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="jsnHeader" />
                   <Variable x:TypeArguments="x:String" Name="jsnItems" />
                   <Variable x:TypeArguments="x:String" Name="strReference" />
+                  <Variable x:TypeArguments="x:String" Name="InvFileName" />
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -288,6 +288,14 @@
                     <InArgument x:TypeArguments="x:String">[JsonConvert.SerializeObject(dt_Items)]</InArgument>
                   </Assign.Value>
                 </Assign>
+                <Assign DisplayName="Assign - Inv File Name" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_11">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[InvFileName]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_FilePath.ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
                 <Assign DisplayName="Assign - Queue Reference" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_8">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[strReference]</OutArgument>
@@ -298,8 +306,15 @@
                 </Assign>
                 <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue in Orchestrator" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_QueueName]" Reference="[strReference]">
                   <ui:AddQueueItem.ItemInformation>
-                    <InArgument x:TypeArguments="x:String" x:Key="InvoiceHeader">[jsnHeader]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="invoiceItems">[jsnItems]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="InvoiceHeader">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsnHeader" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="invoiceItems">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="jsnItems" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="InvFileName">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="InvFileName" />
+                    </InArgument>
                   </ui:AddQueueItem.ItemInformation>
                 </ui:AddQueueItem>
               </Sequence>
@@ -314,18 +329,10 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move Inv to Folder" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
-                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="config" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:Boolean" x:Key="in_SuccessFlag">
-                        <Literal x:TypeArguments="x:Boolean" Value="True" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FilePath" />
-                      </InArgument>
-                      <OutArgument x:TypeArguments="x:String" x:Key="out_TargetFolder">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="TargetFolder" />
-                      </OutArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
+                      <InArgument x:TypeArguments="x:Boolean" x:Key="in_SuccessFlag">True</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[in_FilePath]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_TargetFolder">[TargetFolder]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -381,7 +388,7 @@
           <av:PointCollection x:Key="ConnectorLocation">290,181 290,211 300,211 300,213.666666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign DisplayName="Assign - Config File" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_10">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[config]</OutArgument>
         </Assign.To>
