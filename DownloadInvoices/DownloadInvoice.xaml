@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Mail_ReadEmail" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="752,700.666666666667" sap2010:WorkflowViewState.IdRef="Mail_ReadEmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umao="clr-namespace:UiPath.Mail.Activities.Outlook;assembly=UiPath.Mail.Activities" xmlns:umat="clr-namespace:UiPath.Mail.Activities.Triggers;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Mail_ReadEmail" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="908,700.666666666667" sap2010:WorkflowViewState.IdRef="Mail_ReadEmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umao="clr-namespace:UiPath.Mail.Activities.Outlook;assembly=UiPath.Mail.Activities" xmlns:umat="clr-namespace:UiPath.Mail.Activities.Triggers;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="19">
       <x:String>System.Activities</x:String>
@@ -23,7 +23,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -83,7 +83,7 @@
           <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Download Invoice from email" sap:VirtualizedContainerService.HintSize="608.666666666667,2075.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence DisplayName="Download Invoice from email" sap:VirtualizedContainerService.HintSize="608.666666666667,2256" sap2010:WorkflowViewState.IdRef="Sequence_4">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="ConfigFilePath" />
           <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
@@ -94,7 +94,10 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <TryCatch DisplayName="Try Catch - Download Invoice" sap:VirtualizedContainerService.HintSize="566.666666666667,1983.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+        <TryCatch DisplayName="Try Catch - Download Invoice" sap:VirtualizedContainerService.HintSize="566.666666666667,2164" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch.Variables>
+            <Variable x:TypeArguments="x:String" Name="SystemLogFilePath" />
+          </TryCatch.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -102,7 +105,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <TryCatch.Try>
-            <Sequence DisplayName="Read all existing emails" sap:VirtualizedContainerService.HintSize="528,1745.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Read all existing emails" sap:VirtualizedContainerService.HintSize="528,1926" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="ConfigFileSheetNames" />
               </Sequence.Variables>
@@ -120,7 +123,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
-              <Sequence DisplayName="Read Asset" sap:VirtualizedContainerService.HintSize="486,413.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <Sequence DisplayName="Read Asset" sap:VirtualizedContainerService.HintSize="486,594" sap2010:WorkflowViewState.IdRef="Sequence_9">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -141,6 +144,17 @@
                 <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="ConfigSheet_DownloadInv" DisplayName="Get Asset - Config File Sheet Names" sap:VirtualizedContainerService.HintSize="444,140.666666666667" sap2010:WorkflowViewState.IdRef="GetRobotAsset_4">
                   <ui:GetRobotAsset.Value>
                     <OutArgument x:TypeArguments="x:String">[ConfigFileSheetNames]</OutArgument>
+                  </ui:GetRobotAsset.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:GetRobotAsset>
+                <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="SystemLogFilePath_DownloadInv" DisplayName="Get Asset - System Log File Path" sap:VirtualizedContainerService.HintSize="444,140.666666666667" sap2010:WorkflowViewState.IdRef="GetRobotAsset_5">
+                  <ui:GetRobotAsset.Value>
+                    <OutArgument x:TypeArguments="x:String">[SystemLogFilePath]</OutArgument>
                   </ui:GetRobotAsset.Value>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -231,10 +245,18 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke System Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Framework\SystemLogMessage.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_logType">Error</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_LogHeader">Date,LogType, LogMessage</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_LogPath">C:\Automation\Invoice Processing\DownloadInvoices</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Exception">[ex.Message]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_logType">
+                        <Literal x:TypeArguments="x:String">Error</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_LogHeader">
+                        <Literal x:TypeArguments="x:String">Date,LogType, LogMessage</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_LogPath">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SystemLogFilePath" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Exception">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ex.Message" />
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:LogMessage DisplayName="End of extract invoice process" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Error" Message="[&quot;Download Invoice Process Failed...&quot;]">
