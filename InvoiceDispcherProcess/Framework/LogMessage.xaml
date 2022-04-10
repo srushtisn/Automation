@@ -71,7 +71,6 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:Annotation.AnnotationText="This module creates log file in .csv format. The log file can be created in two below frequency, &#xA;1. in_LogFileFrequency - &#xA;      Daily [True] - This mode will create current year folder (For e.g 2022) under base log folder path and under year folder it will create current Month folder (for e.g - Jan-2022) and daily log file will be created under month folder. File name will be passed as input parameter appended with date and timestamp&#xA;      Monthly [False] - This mode will create current year folder (For e.g 2022) under base log folder path and under year folder it will create monthly one log file. File name will be passed as input parameter appended with month - year (&lt;File Name&gt;_Jan-2022)&#xA;2. in_LogType - &quot;Error/Info/Warning&quot;&#xA;3. in_LogFilePath - Full path of log file to be stored. This excluding file name.&#xA;4. in_LogFileName - Name of the log file&#xA;5. in_LogHeader - This will be header column name of log file. for e.g - &quot;Date,message,type&quot; etc." DisplayName="LogMessage" sap:VirtualizedContainerService.HintSize="982.666666666667,1471.33333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -153,7 +152,7 @@
                 <OutArgument x:TypeArguments="x:String">[LogMessage]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[datetime.Now.ToString("dd-MM-yyyy hh:mm:ss") + "," + LogType + "," + in_LogMessage]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_LogMessage]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
