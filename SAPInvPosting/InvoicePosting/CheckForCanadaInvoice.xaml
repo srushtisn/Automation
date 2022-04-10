@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>744,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>700,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CheckForCanadaInvoice_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -65,7 +65,6 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="CheckForCanadaInvoice" sap:VirtualizedContainerService.HintSize="664,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -92,7 +91,7 @@
           <av:PointCollection x:Key="ConnectorLocation">450,106.333333333333 450,136.333333333333 353,136.333333333333 353,146.666666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\Official\Automation\InvoiceProcessing\Development\Invoice AI Center\Training\DataSet1\133361.pdf" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[PDFData]" />
+      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[in_DocumentPath]" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[PDFData]" />
       <FlowStep.Next>
         <FlowDecision x:Name="__ReferenceID1" Condition="[len(PDFData.Trim) = 0]" DisplayName="Read Inv Doc? " sap:VirtualizedContainerService.HintSize="84.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
           <sap:WorkflowViewStateService.ViewState>
@@ -112,7 +111,7 @@
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">10,223.666666666667</av:Point>
                   <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">210,250 250,250 250,306.666666666667</av:PointCollection>
+                  <av:PointCollection x:Key="ConnectorLocation">210,250 263.666666666667,250 263.666666666667,306.666666666667</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:ReadPDFWithOCR DegreeOfParallelism="-1" DisplayName="Read PDF With OCR" FileName="[in_DocumentPath]" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_3" ImageDpi="150" Range="All" Text="[PDFData]">
@@ -132,13 +131,13 @@
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ReadPDFWithOCR>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID3" Condition="[len(PDFData.Trim) = 0]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.6666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                <FlowDecision x:Name="__ReferenceID3" Condition="[len(PDFData.Trim) = 0]" DisplayName="PDF File Not Read?" sap:VirtualizedContainerService.HintSize="106,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <av:Point x:Key="ShapeLocation">210.666666666667,306.666666666667</av:Point>
-                      <av:Size x:Key="ShapeSize">78.6666666666667,86.6666666666667</av:Size>
-                      <av:PointCollection x:Key="FalseConnector">289.333333333333,350 319.333333333333,350 319.333333333333,340 430,340</av:PointCollection>
+                      <av:Size x:Key="ShapeSize">106,86.6666666666667</av:Size>
+                      <av:PointCollection x:Key="FalseConnector">316.666666666667,350 346.666666666667,350 346.666666666667,340 430,340</av:PointCollection>
                       <x:String x:Key="FalseLabel">False - Read</x:String>
                       <x:String x:Key="TrueLabel">True - Not Read</x:String>
                       <av:PointCollection x:Key="TrueConnector">210.666666666667,350 110,350 110,413.666666666667</av:PointCollection>
@@ -152,7 +151,7 @@
                           <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                      <ui:MultipleAssign DisplayName="Out Parameter Assignment" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                         <ui:MultipleAssign.AssignOperations>
                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -189,7 +188,7 @@
                           <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Build Regex" sap:VirtualizedContainerService.HintSize="596.666666666667,981.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                      <Sequence DisplayName="Build Regex" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_28">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>

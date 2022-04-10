@@ -1,14 +1,16 @@
 {
   "name": "SAPInvPosting",
   "description": "SAP Invoice Posting Process",
-  "main": "Flowchart.xaml",
+  "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.11.4]",
+    "UiPath.GoogleVision.Activities": "[1.3.0-preview]",
     "UiPath.PDF.Activities": "[3.5.0-preview]",
     "UiPath.SAP.BAPI.Activities": "[2.2.5]",
     "UiPath.System.Activities": "[21.10.3]",
     "UiPath.Testing.Activities": "[1.4.4]",
-    "UiPath.UIAutomation.Activities": "[21.10.4]"
+    "UiPath.UIAutomation.Activities": "[21.10.4]",
+    "UipathTeam.String.Activities": "[1.0.0]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -39,7 +41,9 @@
       "privateWorkflows": []
     },
     "processOptions": {
-      "ignoredFiles": []
+      "ignoredFiles": [
+        "Flowchart.xaml"
+      ]
     },
     "fileInfoCollection": [
       {
@@ -91,13 +95,7 @@
     },
     {
       "filePath": "Sequence.xaml",
-      "uniqueId": "4d14c365-2e28-422d-866e-a33bf4c31a96",
-      "input": [],
-      "output": []
-    },
-    {
-      "filePath": "Flowchart.xaml",
-      "uniqueId": "5df86f80-0a9c-4cea-b763-104c0c061cdd",
+      "uniqueId": "2fe8c6fc-704f-4d2d-a713-51056083fa28",
       "input": [],
       "output": []
     }
