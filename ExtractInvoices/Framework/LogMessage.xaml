@@ -112,7 +112,7 @@
           <av:PointCollection x:Key="ConnectorLocation">330,40 369,40</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign DisplayName="Multiple Assign - Log Message" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+      <ui:MultipleAssign DisplayName="Multiple Assign - Log Message" sap:VirtualizedContainerService.HintSize="430.666666666667,314" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
         <ui:MultipleAssign.AssignOperations>
           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
@@ -144,7 +144,7 @@
                 <OutArgument x:TypeArguments="x:String">[LogMessage]</OutArgument>
               </ui:AssignOperation.To>
               <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="x:String">[datetime.Now.ToString("dd-MM-yyyy hh:mm:ss") + "," + in_LogMessage]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_LogMessage]</InArgument>
               </ui:AssignOperation.Value>
             </ui:AssignOperation>
             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">

@@ -16,7 +16,7 @@
           "FieldId": "Invoices.Financial.Invoice.Name",
           "FieldName": "Vendor Name",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": "Name",
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": [],
@@ -90,12 +90,7 @@
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": [],
-          "Metadata": [
-            {
-              "Key": "Color",
-              "Value": "#b37710"
-            }
-          ]
+          "Metadata": []
         },
         {
           "FieldId": "Invoices.Financial.Invoice.NetAmount",
