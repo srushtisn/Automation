@@ -42,7 +42,8 @@
     },
     "processOptions": {
       "ignoredFiles": [
-        "Flowchart.xaml"
+        "Flowchart.xaml",
+        "Sequence.xaml"
       ]
     },
     "fileInfoCollection": [
@@ -90,12 +91,6 @@
     {
       "filePath": "Main.xaml",
       "uniqueId": "cee404ef-1eba-42a8-99b9-9a67e83c5d02",
-      "input": [],
-      "output": []
-    },
-    {
-      "filePath": "Sequence.xaml",
-      "uniqueId": "2fe8c6fc-704f-4d2d-a713-51056083fa28",
       "input": [],
       "output": []
     }
