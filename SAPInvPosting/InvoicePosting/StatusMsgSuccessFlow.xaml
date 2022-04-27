@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>625.333333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>946,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>StatusMsgSuccessFlow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -69,8 +69,8 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="StatusMsgSuccessFlow" sap:VirtualizedContainerService.HintSize="635.333333333333,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -99,12 +99,12 @@
           <av:PointCollection x:Key="ConnectorLocation">329,470 230,470</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="AppMsg - Success - BusinessExceptionHandker " sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign DisplayName="App Message -Success - BusinessExceptionHandker " sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_StartDateTime + "," + in_EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + path.GetFileName(in_InvFileName) + "," + "Info" + "," + in_SAPStatusBarMsgText + "," + DocNo + "," + "Success"]</InArgument>
+          <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_StartDateTime + "," + in_EndDateTime + "," + path.GetFileName(in_InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," +  in_dt_HeaderData.rows(0).item("InvoiceDate").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Info" + "," + in_config("LogMessage_PostingSuccess") + "," +  in_SAPStatusBarMsgText + "," + DocNo + "," + "Success"]</InArgument>
         </Assign.Value>
       </Assign>
       <FlowStep.Next>
@@ -162,12 +162,12 @@
           <av:PointCollection x:Key="ConnectorLocation">140,401 140,431 130,431 130,443.666666666667</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="AppMsg - Success - BusinessExceptionHandker " sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign DisplayName="App Message - Success - BusinessExceptionHandker " sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_StartDateTime + "," + in_EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + path.GetFileName(in_InvFileName) + "," + "Error" + "," + in_SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+          <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_StartDateTime + "," + in_EndDateTime + "," + path.GetFileName(in_InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("InvoiceDate").ToString + "," +  in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," +  "Error" + "," + "Posting Error..." + in_SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
         </Assign.Value>
       </Assign>
       <FlowStep.Next>

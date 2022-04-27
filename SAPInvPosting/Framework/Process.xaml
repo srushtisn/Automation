@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1172.66666666667,1618.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1172.66666666667,1503.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="39">
@@ -93,7 +93,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process - Invoice Posting" sap:VirtualizedContainerService.HintSize="1182.66666666667,1554" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process - Invoice Posting" sap:VirtualizedContainerService.HintSize="1182.66666666667,1438.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="PONumber" />
       <Variable x:TypeArguments="x:Boolean" Name="AGCFlag" />
@@ -131,6 +131,7 @@
     <Flowchart DisplayName="Process - Flow" sap:VirtualizedContainerService.HintSize="1140.66666666667,920.666666666667" sap2010:WorkflowViewState.IdRef="Flowchart_2">
       <Flowchart.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="VendorNameExist" />
+        <Variable x:TypeArguments="x:String" Name="UserMessage" />
       </Flowchart.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -144,9 +145,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID40</x:Reference>
+        <x:Reference>__ReferenceID41</x:Reference>
       </Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID40" sap2010:WorkflowViewState.IdRef="FlowStep_26">
+      <FlowStep x:Name="__ReferenceID41" sap2010:WorkflowViewState.IdRef="FlowStep_26">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">120,23.6666666666667</av:Point>
@@ -824,7 +825,7 @@
                                         <av:Point x:Key="ShapeLocation">220.666666666667,196.666666666667</av:Point>
                                         <av:Size x:Key="ShapeSize">98,86.6666666666667</av:Size>
                                         <av:PointCollection x:Key="TrueConnector">220.666666666667,240 130,240 130,303.666666666667</av:PointCollection>
-                                        <av:PointCollection x:Key="FalseConnector">318.666666666667,240 650,240 650,339</av:PointCollection>
+                                        <av:PointCollection x:Key="FalseConnector">318.666666666667,240 761,240 761,410 731,410</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <FlowDecision.True>
@@ -853,7 +854,7 @@
                                                 <av:Point x:Key="ShapeLocation">260.666666666667,356.666666666667</av:Point>
                                                 <av:Size x:Key="ShapeSize">153.333333333333,86.6666666666667</av:Size>
                                                 <av:PointCollection x:Key="TrueConnector">260.666666666667,400 120,400 120,425.333333333333</av:PointCollection>
-                                                <av:PointCollection x:Key="FalseConnector">414,400 444,400 444,370 519,370</av:PointCollection>
+                                                <av:PointCollection x:Key="FalseConnector">414,400 444,400 444,320 459,320</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                             <FlowDecision.True>
@@ -1108,7 +1109,7 @@
                                                                     <av:Size x:Key="ShapeSize">200,100</av:Size>
                                                                   </scg:Dictionary>
                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                <Sequence sap2010:Annotation.AnnotationText="ress Esc key to cancel posting" DisplayName="Press Cancel key process" sap:VirtualizedContainerService.HintSize="376,319.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_178">
+                                                                <Sequence sap2010:Annotation.AnnotationText="ress Esc key to cancel posting" DisplayName="Press Cancel key process" sap:VirtualizedContainerService.HintSize="200,100" sap2010:WorkflowViewState.IdRef="Sequence_178">
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1261,7 +1262,7 @@
                                                           </sap:WorkflowViewStateService.ViewState>
                                                         </ui:GetValue>
                                                         <FlowStep.Next>
-                                                          <FlowStep x:Name="__ReferenceID13">
+                                                          <FlowStep x:Name="__ReferenceID12">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <av:Point x:Key="ShapeLocation">490,3.66666666666666</av:Point>
@@ -1284,7 +1285,7 @@
                                                               </sap:WorkflowViewStateService.ViewState>
                                                             </ui:InvokeWorkflowFile>
                                                             <FlowStep.Next>
-                                                              <FlowDecision x:Name="__ReferenceID14" Condition="[not out_NetAmountProcessStatus]" DisplayName="NetAmount _ Tax rule" sap:VirtualizedContainerService.HintSize="118,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_15">
+                                                              <FlowDecision x:Name="__ReferenceID13" Condition="[not out_NetAmountProcessStatus]" DisplayName="NetAmount _ Tax rule" sap:VirtualizedContainerService.HintSize="118,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_15">
                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1300,7 +1301,7 @@
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <av:Point x:Key="ShapeLocation">290,193.666666666667</av:Point>
                                                                         <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                                                                        <av:PointCollection x:Key="ConnectorLocation">490,220 620,220 620,273.666666666667</av:PointCollection>
+                                                                        <av:PointCollection x:Key="ConnectorLocation">490,220 610,220 610,243.666666666667</av:PointCollection>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                     <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window Item Table" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="8bc51dc8e4627d2b7c809200649f40a0" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;">
@@ -1346,12 +1347,12 @@
                                                                       </sap:WorkflowViewStateService.ViewState>
                                                                     </ui:WindowScope>
                                                                     <FlowStep.Next>
-                                                                      <FlowStep x:Name="__ReferenceID12" sap2010:WorkflowViewState.IdRef="FlowStep_7">
+                                                                      <FlowStep x:Name="__ReferenceID11" sap2010:WorkflowViewState.IdRef="FlowStep_7">
                                                                         <sap:WorkflowViewStateService.ViewState>
                                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                            <av:Point x:Key="ShapeLocation">520,273.666666666667</av:Point>
+                                                                            <av:Point x:Key="ShapeLocation">510,243.666666666667</av:Point>
                                                                             <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                                                                            <av:PointCollection x:Key="ConnectorLocation">520,300 360,300 360,326.666666666667</av:PointCollection>
+                                                                            <av:PointCollection x:Key="ConnectorLocation">510,270 360,270 360,326.666666666667</av:PointCollection>
                                                                           </scg:Dictionary>
                                                                         </sap:WorkflowViewStateService.ViewState>
                                                                         <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Total Items in PO" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetValue_24">
@@ -1382,40 +1383,46 @@
                                                                                 <av:Point x:Key="ShapeLocation">300.333333333333,326.666666666667</av:Point>
                                                                                 <av:Size x:Key="ShapeSize">119.333333333333,86.6666666666667</av:Size>
                                                                                 <av:PointCollection x:Key="TrueConnector">300.333333333333,370 270.333333333333,370 270.333333333333,710 290,710</av:PointCollection>
-                                                                                <av:PointCollection x:Key="FalseConnector">419.666666666667,370 570,370 570,403.666666666667</av:PointCollection>
+                                                                                <av:PointCollection x:Key="FalseConnector">419.666666666666,370 449.666666666666,370 449.666666666666,360 510,360</av:PointCollection>
                                                                               </scg:Dictionary>
                                                                             </sap:WorkflowViewStateService.ViewState>
                                                                             <FlowDecision.False>
-                                                                              <FlowStep x:Name="__ReferenceID11" sap2010:WorkflowViewState.IdRef="FlowStep_6">
+                                                                              <FlowStep x:Name="__ReferenceID15">
                                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                                    <av:Point x:Key="ShapeLocation">470,403.666666666667</av:Point>
+                                                                                    <av:Point x:Key="ShapeLocation">510,333.666666666667</av:Point>
                                                                                     <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-                                                                                    <av:PointCollection x:Key="ConnectorLocation">470,430 440,430 440,476.666666666667</av:PointCollection>
+                                                                                    <av:PointCollection x:Key="ConnectorLocation">610,386.333333333334 610,416.333333333334 440,416.333333333334 440,476.666666666667</av:PointCollection>
                                                                                   </scg:Dictionary>
                                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Select All'" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
-                                                                                  <ui:Click.CursorPosition>
-                                                                                    <ui:CursorPosition Position="Center">
-                                                                                      <ui:CursorPosition.OffsetX>
-                                                                                        <InArgument x:TypeArguments="x:Int32" />
-                                                                                      </ui:CursorPosition.OffsetX>
-                                                                                      <ui:CursorPosition.OffsetY>
-                                                                                        <InArgument x:TypeArguments="x:Int32" />
-                                                                                      </ui:CursorPosition.OffsetY>
-                                                                                    </ui:CursorPosition>
-                                                                                  </ui:Click.CursorPosition>
-                                                                                  <ui:Click.Target>
-                                                                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="db1625f8-15a4-40b5-b393-ad05ef74b10c" InformativeScreenshot="3cb5a3a73165804b2ad0dc96c9f38c60" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: Company Code 1100' /&gt;&lt;sap id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_PO/ssubTABS:SAPLMR1M:6020/subITEM:SAPLMR1M:6310/btnSELECT_ALL' /&gt;">
-                                                                                      <ui:Target.TimeoutMS>
-                                                                                        <InArgument x:TypeArguments="x:Int32" />
-                                                                                      </ui:Target.TimeoutMS>
-                                                                                      <ui:Target.WaitForReady>
-                                                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                                                                                      </ui:Target.WaitForReady>
-                                                                                    </ui:Target>
-                                                                                  </ui:Click.Target>
-                                                                                </ui:Click>
+                                                                                <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                                                                                  <ui:CommentOut.Body>
+                                                                                    <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_197">
+                                                                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Header Button" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                                                        <ui:Click.CursorPosition>
+                                                                                          <ui:CursorPosition Position="Center">
+                                                                                            <ui:CursorPosition.OffsetX>
+                                                                                              <InArgument x:TypeArguments="x:Int32" />
+                                                                                            </ui:CursorPosition.OffsetX>
+                                                                                            <ui:CursorPosition.OffsetY>
+                                                                                              <InArgument x:TypeArguments="x:Int32" />
+                                                                                            </ui:CursorPosition.OffsetY>
+                                                                                          </ui:CursorPosition>
+                                                                                        </ui:Click.CursorPosition>
+                                                                                        <ui:Click.Target>
+                                                                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e24df1d8-c2e6-4ab0-ae54-b8ad3edaf4c4" InformativeScreenshot="bb0318e216c90f782ff29d0be3d9c295" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap id='usr/btnRM08M-HEADER_COLLAPSE' /&gt;">
+                                                                                            <ui:Target.TimeoutMS>
+                                                                                              <InArgument x:TypeArguments="x:Int32" />
+                                                                                            </ui:Target.TimeoutMS>
+                                                                                            <ui:Target.WaitForReady>
+                                                                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                                            </ui:Target.WaitForReady>
+                                                                                          </ui:Target>
+                                                                                        </ui:Click.Target>
+                                                                                      </ui:Click>
+                                                                                    </Sequence>
+                                                                                  </ui:CommentOut.Body>
+                                                                                </ui:CommentOut>
                                                                                 <FlowStep.Next>
                                                                                   <x:Reference>__ReferenceID7</x:Reference>
                                                                                 </FlowStep.Next>
@@ -1428,7 +1435,7 @@
                                                                   </FlowStep>
                                                                 </FlowDecision.True>
                                                                 <FlowDecision.False>
-                                                                  <FlowStep x:Name="__ReferenceID15">
+                                                                  <FlowStep x:Name="__ReferenceID14">
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <av:Point x:Key="ShapeLocation">729,179</av:Point>
@@ -1484,7 +1491,7 @@
                                                             <av:Point x:Key="ShapeLocation">345,666.666666666667</av:Point>
                                                             <av:Size x:Key="ShapeSize">70,86.6666666666667</av:Size>
                                                             <av:PointCollection x:Key="Default">415,688.333333333333 481.333333333333,688.333333333333 481.333333333333,550 550,550</av:PointCollection>
-                                                            <av:PointCollection x:Key="CANCELINVOICEConnector">415,710 445,710 445,660 530,660</av:PointCollection>
+                                                            <av:PointCollection x:Key="CANCELINVOICEConnector">415,710 445,710 445,650 590,650</av:PointCollection>
                                                             <av:PointCollection x:Key="PARTIALINVOICEConnector">415,731.666666666667 445,731.666666666667 445,760 550,760</av:PointCollection>
                                                             <av:PointCollection x:Key="ESCINVOICEConnector">397.5,753.333333333333 397.5,840 510,840</av:PointCollection>
                                                             <av:PointCollection x:Key="POSTINVOICEConnector">362.5,753.333333333333 362.5,783.333333333333 270,783.333333333333 270,815.333333333333</av:PointCollection>
@@ -1493,11 +1500,11 @@
                                                         <FlowStep x:Key="CANCELINVOICE" x:Name="__ReferenceID36" sap2010:WorkflowViewState.IdRef="FlowStep_11">
                                                           <sap:WorkflowViewStateService.ViewState>
                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                              <av:Point x:Key="ShapeLocation">530,625.333333333333</av:Point>
+                                                              <av:Point x:Key="ShapeLocation">590,615.333333333333</av:Point>
                                                               <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Sequence - Cancel Invoice Sequence" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_183">
+                                                          <Sequence DisplayName="Sequence - Cancel Invoice Sequence" sap:VirtualizedContainerService.HintSize="784.666666666667,820.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_183">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1560,12 +1567,12 @@
                                                                       <InArgument x:TypeArguments="x:String">[Now.ToString]</InArgument>
                                                                     </Assign.Value>
                                                                   </Assign>
-                                                                  <Assign DisplayName="AppMsg Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_79">
+                                                                  <Assign DisplayName="App Message - Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_79">
                                                                     <Assign.To>
                                                                       <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
                                                                     </Assign.To>
                                                                     <Assign.Value>
-                                                                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + path.GetFileName(in_InvFileName) + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+                                                                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + path.GetFileName(in_InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("InvoiceDate").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Error" + "," + in_Config("LogMessage_GRNotReceived") + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
                                                                     </Assign.Value>
                                                                   </Assign>
                                                                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
@@ -1626,12 +1633,12 @@
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
                                                                     <ui:LogMessage DisplayName="Log Message - Cancel Invoice" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_74" Level="Trace" Message="[&quot;Cancel Invoice process started...&quot;]" />
-                                                                    <Assign DisplayName="AppMsg Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_81">
+                                                                    <Assign DisplayName="App Message - Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_81">
                                                                       <Assign.To>
                                                                         <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
                                                                       </Assign.To>
                                                                       <Assign.Value>
-                                                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + path.GetFileName(in_InvFileName) + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + path.GetFileName(in_InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("InvoiceDate").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Error" + "," + UserMessage + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
                                                                       </Assign.Value>
                                                                     </Assign>
                                                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
@@ -1710,20 +1717,20 @@
                                                             </Flowchart>
                                                             <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="742.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                                                               <ui:CommentOut.Body>
-                                                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="418,541.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_194">
+                                                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="460,976.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_194">
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                     </scg:Dictionary>
                                                                   </sap:WorkflowViewStateService.ViewState>
-                                                                  <Sequence sap:VirtualizedContainerService.HintSize="391.333333333333,417.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_193">
+                                                                  <Sequence sap:VirtualizedContainerService.HintSize="376,417.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_193">
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <Assign DisplayName="Assign - EndDateTime" sap:VirtualizedContainerService.HintSize="349.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_70">
+                                                                    <Assign DisplayName="Assign - EndDateTime" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_70">
                                                                       <Assign.To>
                                                                         <OutArgument x:TypeArguments="x:String">[EndDateTime]</OutArgument>
                                                                       </Assign.To>
@@ -1731,7 +1738,7 @@
                                                                         <InArgument x:TypeArguments="x:String">[Now.ToString]</InArgument>
                                                                       </Assign.Value>
                                                                     </Assign>
-                                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="InvokeWorkflowFile  - Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="349.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="InvoicePosting\CancelInvoiceProcess.xaml">
+                                                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="InvokeWorkflowFile  - Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="InvoicePosting\CancelInvoiceProcess.xaml">
                                                                       <ui:InvokeWorkflowFile.Arguments>
                                                                         <OutArgument x:TypeArguments="x:String" x:Key="out_DocNo">[DocNo]</OutArgument>
                                                                         <InArgument x:TypeArguments="x:String" x:Key="in_SAPStatusBarMsgText">[SAPStatusBarMsgText]</InArgument>
@@ -1748,12 +1755,12 @@
                                                                         </scg:Dictionary>
                                                                       </sap:WorkflowViewStateService.ViewState>
                                                                       <ui:LogMessage DisplayName="Log Message - Cancel Invoice" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_68" Level="Trace" Message="[&quot;Cancel Invoice process started...&quot;]" />
-                                                                      <Assign DisplayName="AppMsg Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_71">
+                                                                      <Assign DisplayName="App Message - Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_71">
                                                                         <Assign.To>
                                                                           <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
                                                                         </Assign.To>
                                                                         <Assign.Value>
-                                                                          <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + path.GetFileName(InvFileName) + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+                                                                          <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + path.GetFileName(InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
                                                                         </Assign.Value>
                                                                       </Assign>
                                                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
@@ -1792,7 +1799,7 @@
                                                               <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Partial Invoice" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_187">
+                                                          <Sequence DisplayName="Partial Invoice" sap:VirtualizedContainerService.HintSize="882,1128" sap2010:WorkflowViewState.IdRef="Sequence_187">
                                                             <Sequence.Variables>
                                                               <Variable x:TypeArguments="x:Boolean" Name="PartialInvoiceStatus" />
                                                             </Sequence.Variables>
@@ -1871,12 +1878,12 @@
                                                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <Assign DisplayName="AppMsg - Partial Inv -&gt; Cencelled Inv process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_73">
+                                                                    <Assign DisplayName="App Message - Partial Inv -&gt; Cencelled Inv process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_73">
                                                                       <Assign.To>
                                                                         <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
                                                                       </Assign.To>
                                                                       <Assign.Value>
-                                                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + path.GetFileName(InvFileName) + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+                                                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + path.GetFileName(InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("InvoiceDate").ToString + "," +  in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Error" + "," + in_config("LogMessage_PartialInvoiceMsg") + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
                                                                       </Assign.Value>
                                                                     </Assign>
                                                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
@@ -1908,7 +1915,7 @@
                                                               <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Sequence - Esc sequence" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_188">
+                                                          <Sequence DisplayName="Sequence - Esc sequence" sap:VirtualizedContainerService.HintSize="376,998.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_188">
                                                             <Sequence.Variables>
                                                               <Variable x:TypeArguments="x:String" Name="AppMsg" />
                                                             </Sequence.Variables>
@@ -1940,12 +1947,12 @@
                                                                 <InArgument x:TypeArguments="x:String">[Now.ToString]</InArgument>
                                                               </Assign.Value>
                                                             </Assign>
-                                                            <Assign DisplayName="AppMsg Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_75">
+                                                            <Assign DisplayName="App Message - Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_75">
                                                               <Assign.To>
                                                                 <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
                                                               </Assign.To>
                                                               <Assign.Value>
-                                                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + InvFileName + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+                                                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + path.GetFileName(InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("InvoiceDate").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Error" + "," + in_config("LogMessage_GRNotReceived") + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
                                                               </Assign.Value>
                                                             </Assign>
                                                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
@@ -2001,20 +2008,20 @@
                                               </FlowStep>
                                             </FlowDecision.True>
                                             <FlowDecision.False>
-                                              <FlowStep x:Name="__ReferenceID23" sap2010:WorkflowViewState.IdRef="FlowStep_17">
+                                              <FlowStep x:Name="__ReferenceID40">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <av:Point x:Key="ShapeLocation">519,339</av:Point>
+                                                    <av:Point x:Key="ShapeLocation">459,289</av:Point>
                                                     <av:Size x:Key="ShapeSize">262,62</av:Size>
-                                                    <av:PointCollection x:Key="ConnectorLocation">650,401 650,473.333333333333 380,473.333333333333 380,666.666666666667</av:PointCollection>
+                                                    <av:PointCollection x:Key="ConnectorLocation">590,351 590,379 600,379</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <Assign DisplayName="CANCELINVOICE" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_77">
+                                                <Assign DisplayName="Vendor Name message" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_84">
                                                   <Assign.To>
-                                                    <OutArgument x:TypeArguments="x:String">[PostingStatus]</OutArgument>
+                                                    <OutArgument x:TypeArguments="x:String">[UserMessage]</OutArgument>
                                                   </Assign.To>
                                                   <Assign.Value>
-                                                    <InArgument x:TypeArguments="x:String">CANCELINVOICE</InArgument>
+                                                    <InArgument x:TypeArguments="x:String">[in_Config("LogMessage_VendorNameError")]</InArgument>
                                                   </Assign.Value>
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -2023,7 +2030,31 @@
                                                   </sap:WorkflowViewStateService.ViewState>
                                                 </Assign>
                                                 <FlowStep.Next>
-                                                  <x:Reference>__ReferenceID22</x:Reference>
+                                                  <FlowStep x:Name="__ReferenceID23" sap2010:WorkflowViewState.IdRef="FlowStep_17">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <av:Point x:Key="ShapeLocation">469,379</av:Point>
+                                                        <av:Size x:Key="ShapeSize">262,62</av:Size>
+                                                        <av:PointCollection x:Key="ConnectorLocation">600,441 600,471 380,471 380,666.666666666667</av:PointCollection>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Assign DisplayName="CANCELINVOICE" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_77">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[PostingStatus]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String">CANCELINVOICE</InArgument>
+                                                      </Assign.Value>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </Assign>
+                                                    <FlowStep.Next>
+                                                      <x:Reference>__ReferenceID22</x:Reference>
+                                                    </FlowStep.Next>
+                                                  </FlowStep>
                                                 </FlowStep.Next>
                                               </FlowStep>
                                             </FlowDecision.False>
@@ -2067,8 +2098,9 @@
       <x:Reference>__ReferenceID38</x:Reference>
       <x:Reference>__ReferenceID39</x:Reference>
       <x:Reference>__ReferenceID23</x:Reference>
+      <x:Reference>__ReferenceID40</x:Reference>
     </Flowchart>
-    <Sequence DisplayName="PO Reference Tab" sap:VirtualizedContainerService.HintSize="1140.66666666667,422.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <Sequence DisplayName="PO Reference Tab" sap:VirtualizedContainerService.HintSize="1140.66666666667,307.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="BalanceAmt" />
         <Variable x:TypeArguments="x:Boolean" Name="PartialInvoiceStatus" />
@@ -2079,8 +2111,8 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Trim(UCase(PostingStatus))]" sap:VirtualizedContainerService.HintSize="496.666666666667,330.666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_2">
-        <Sequence x:Key="POSTINVOICE" sap:VirtualizedContainerService.HintSize="376,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_139">
+      <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Trim(UCase(PostingStatus))]" sap:VirtualizedContainerService.HintSize="496.666666666667,215.333333333333" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+        <Sequence x:Key="POSTINVOICE" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_139">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -2099,7 +2131,7 @@
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
-        <Sequence x:Key="CANCELINVOICE" DisplayName="Sequence - Cancel Invoice Sequence" sap:VirtualizedContainerService.HintSize="418,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_128">
+        <Sequence x:Key="CANCELINVOICE" DisplayName="Sequence - Cancel Invoice Sequence" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_128">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -2131,12 +2163,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message - Cancel Invoice" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_48" Level="Trace" Message="[&quot;Cancel Invoice process started...&quot;]" />
-            <Assign DisplayName="AppMsg Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_49">
+            <Assign DisplayName="App Message - Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_49">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + InvFileName + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + path.GetFileName(InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
@@ -2157,45 +2189,29 @@
             <Throw Exception="[New BusinessRuleException(SAPStatusBarMsgText)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_11" />
           </Sequence>
         </Sequence>
-        <Sequence x:Key="PARTIALINVOICE" sap:VirtualizedContainerService.HintSize="376,298.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_135">
+        <Sequence x:Key="PARTIALINVOICE" sap:VirtualizedContainerService.HintSize="882,1160" sap2010:WorkflowViewState.IdRef="Sequence_135">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="InvokeWorkflowFile  - Partial Invoice Process" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="InvoicePosting\PartialInvoiceProcess.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="InvokeWorkflowFile  - Partial Invoice Process" sap:VirtualizedContainerService.HintSize="840,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="InvoicePosting\PartialInvoiceProcess.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
-                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_Config" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_PartialInvoiceStatus">
-                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="PartialInvoiceStatus" />
-              </OutArgument>
-              <InArgument x:TypeArguments="x:Int32" x:Key="in_ItemTotal">
-                <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Cint(itemTotal)" />
-              </InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPOItem">
-                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtPOItem" />
-              </InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtInvItem">
-                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_ItemData" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Tax">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Tax" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:Boolean" x:Key="in_BBFlag">
-                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="BBFlag" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_NetAmount">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="NetAmount" />
-              </InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[in_Config]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_PartialInvoiceStatus">[PartialInvoiceStatus]</OutArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_ItemTotal">[Cint(itemTotal)]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPOItem">[dtPOItem]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtInvItem">[in_dt_ItemData]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Tax">[Tax]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="in_BBFlag">[BBFlag]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_NetAmount">[NetAmount]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <If Condition="[PartialInvoiceStatus]" DisplayName="Check Partial Invoice Status" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_21">
+          <If Condition="[PartialInvoiceStatus]" DisplayName="Check Partial Invoice Status" sap:VirtualizedContainerService.HintSize="840,882" sap2010:WorkflowViewState.IdRef="If_21">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -2249,12 +2265,12 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign DisplayName="AppMsg - Partial Inv -&gt; Cencelled Inv process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_52">
+                  <Assign DisplayName="App Message - Partial Inv -&gt; Cencelled Inv process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_52">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + InvFileName + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + path.GetFileName(InvFileName) + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
@@ -2278,13 +2294,13 @@
             </If.Else>
           </If>
         </Sequence>
-        <Sequence x:Key="ESCINVOICE" DisplayName="Sequence - Esc sequence" sap:VirtualizedContainerService.HintSize="376,998.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_146">
+        <Sequence x:Key="ESCINVOICE" DisplayName="Sequence - Esc sequence" sap:VirtualizedContainerService.HintSize="376,1030.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_146">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="AppMsg" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -2310,12 +2326,12 @@
               <InArgument x:TypeArguments="x:String">[Now.ToString]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="AppMsg Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_54">
+          <Assign DisplayName="App Message - Cancel Invoice Process" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_54">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + path.GetFileName(InvFileName) + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[StartDateTime + "," + EndDateTime + "," + path.GetFileName(InvFileName) + "," +  in_dt_HeaderData.rows(0).item("Vendor Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Billing Name").ToString.Replace(",", "") + "," + in_dt_HeaderData.rows(0).item("Invoice Number").ToString + "," + in_dt_HeaderData.rows(0).item("PO Number").ToString  + "," + "Error" + "," + SAPStatusBarMsgText + "," + DocNo + "," + "Cancelled"]</InArgument>
             </Assign.Value>
           </Assign>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Log Message Workflow File" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="Framework\LogMessage.xaml">
