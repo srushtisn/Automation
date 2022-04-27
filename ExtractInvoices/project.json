@@ -15,12 +15,12 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.1-alpha.22",
+  "projectVersion": "1.0.5",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
     "isPausable": true,
-    "isAttended": false,
+    "isAttended": true,
     "requiresUserInteraction": false,
     "supportsPersistence": false,
     "excludedLoggedData": [
