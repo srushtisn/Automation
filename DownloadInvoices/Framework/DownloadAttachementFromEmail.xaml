@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>800,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>819.333333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_05_DownloadInvoiceFromEmail_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="41">
@@ -243,13 +243,13 @@
                   <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Mail in mail box" sap:VirtualizedContainerService.HintSize="698.666666666667,3300.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_15" Values="[OutMailMsg]">
+              <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each Mail in mail box" sap:VirtualizedContainerService.HintSize="670,3115.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_15" Values="[OutMailMsg]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="snm:MailMessage">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="item" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body - Check mail attachment" sap:VirtualizedContainerService.HintSize="662,3172.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                    <Sequence DisplayName="Body - Check mail attachment" sap:VirtualizedContainerService.HintSize="633.333333333333,2987.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_63">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="Attachments" />
                       </Sequence.Variables>
@@ -259,7 +259,7 @@
                           <x:Boolean x:Key="IsPinned">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign - Read Start Datetime" sap:VirtualizedContainerService.HintSize="620,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign DisplayName="Assign - Read Start Datetime" sap:VirtualizedContainerService.HintSize="591.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_4">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[StartDateTime]</OutArgument>
                         </Assign.To>
@@ -267,7 +267,7 @@
                           <InArgument x:TypeArguments="x:String">[Now.ToString]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <If Condition="[item.Attachments.Any]" DisplayName="Check if email has attachments" sap:VirtualizedContainerService.HintSize="620,2978.66666666667" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If Condition="[item.Attachments.Any]" DisplayName="Check if email has attachments" sap:VirtualizedContainerService.HintSize="591.333333333333,2793.33333333333" sap2010:WorkflowViewState.IdRef="If_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -275,7 +275,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <Sequence DisplayName="Save attachment process" sap:VirtualizedContainerService.HintSize="583.333333333333,2784" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                          <Sequence DisplayName="Save attachment process" sap:VirtualizedContainerService.HintSize="554.666666666667,2598.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_73">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="MailSubject" />
                               <Variable x:TypeArguments="x:String" Name="MailFrom" />
@@ -288,7 +288,7 @@
                                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:MultipleAssign DisplayName="Assign mail properties" sap:VirtualizedContainerService.HintSize="541.333333333333,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                            <ui:MultipleAssign DisplayName="Assign mail properties" sap:VirtualizedContainerService.HintSize="512.666666666667,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
                               <ui:MultipleAssign.AssignOperations>
                                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_41">
@@ -340,7 +340,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:MultipleAssign>
-                            <ui:SaveMailAttachments Attachments="[Attachments]" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" Filter="[AttachmentFilter]" FolderPath="[ImportFolder]" sap:VirtualizedContainerService.HintSize="541.333333333333,93.3333333333333" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_12" Message="[item]" OverwriteExisting="False">
+                            <ui:SaveMailAttachments Attachments="[Attachments]" DisplayName="Save Email Attachments" ExcludeInlineAttachments="False" Filter="[AttachmentFilter]" FolderPath="[ImportFolder]" sap:VirtualizedContainerService.HintSize="512.666666666667,93.3333333333333" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_12" Message="[item]" OverwriteExisting="False">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -348,7 +348,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:SaveMailAttachments>
-                            <If Condition="[Attachments.Count() &gt; 0]" DisplayName="check any attachment saved in folder" sap:VirtualizedContainerService.HintSize="541.333333333333,2296.66666666667" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If Condition="[Attachments.Count() &gt; 0]" DisplayName="check any attachment saved in folder" sap:VirtualizedContainerService.HintSize="512.666666666667,2111.33333333333" sap2010:WorkflowViewState.IdRef="If_3">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -356,7 +356,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <Sequence DisplayName="Sequence - Read SAP attachement" sap:VirtualizedContainerService.HintSize="504.666666666667,2102" sap2010:WorkflowViewState.IdRef="Sequence_81">
+                                <Sequence DisplayName="Sequence - Read SAP attachement" sap:VirtualizedContainerService.HintSize="476,1916.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_81">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:String" Name="FileName" />
                                   </Sequence.Variables>
@@ -366,7 +366,7 @@
                                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="Read email for invoice attachments" sap:VirtualizedContainerService.HintSize="462.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[string.format(in_config(&quot;LogMessage_ReadEmail&quot;), item.DateAsDateTime)]">
+                                  <ui:LogMessage DisplayName="Read email for invoice attachments" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[string.format(in_config(&quot;LogMessage_ReadEmail&quot;), item.DateAsDateTime)]">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -374,7 +374,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:LogMessage>
-                                  <Assign DisplayName="Get SAP file name from path to check attachment" sap:VirtualizedContainerService.HintSize="462.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                  <Assign DisplayName="Get SAP file name from path to check attachment" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_3">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">[FileName]</OutArgument>
                                     </Assign.To>
@@ -382,7 +382,7 @@
                                       <InArgument x:TypeArguments="x:String">[Path.GetFileName(ImportFolder)]</InArgument>
                                     </Assign.Value>
                                   </Assign>
-                                  <ui:LogMessage DisplayName="Saved all attachments" sap:VirtualizedContainerService.HintSize="462.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[String.format(in_config(&quot;LogMessage_SaveAttachment&quot;), item.Attachments.Count.ToString, FileName)]">
+                                  <ui:LogMessage DisplayName="Saved all attachments" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[String.format(in_config(&quot;LogMessage_SaveAttachment&quot;), item.Attachments.Count.ToString, FileName)]">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -390,13 +390,13 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:LogMessage>
-                                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Check valid SAP Inv and Move to target folder" sap:VirtualizedContainerService.HintSize="462.666666666667,1133.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_16" Values="[Attachments]">
+                                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Check valid SAP Inv and Move to target folder" sap:VirtualizedContainerService.HintSize="434,948" sap2010:WorkflowViewState.IdRef="ForEach`1_16" Values="[Attachments]">
                                     <ui:ForEach.Body>
                                       <ActivityAction x:TypeArguments="x:Object">
                                         <ActivityAction.Argument>
                                           <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                                         </ActivityAction.Argument>
-                                        <Sequence DisplayName="Body - Check valid SAP Inv" sap:VirtualizedContainerService.HintSize="426,1005.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                                        <Sequence DisplayName="Body - Check valid SAP Inv" sap:VirtualizedContainerService.HintSize="376,820" sap2010:WorkflowViewState.IdRef="Sequence_72">
                                           <Sequence.Variables>
                                             <Variable x:TypeArguments="x:String" Name="MatchedStatus" />
                                             <Variable x:TypeArguments="x:String" Name="TargetFolder" />
@@ -408,7 +408,7 @@
                                               <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Assign DisplayName="Get SAP file name from path to check" sap:VirtualizedContainerService.HintSize="384,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                          <Assign DisplayName="Get SAP file name from path to check" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_2">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:String">[FileName]</OutArgument>
                                             </Assign.To>
@@ -416,14 +416,7 @@
                                               <InArgument x:TypeArguments="x:String">[Path.GetFileName(item.ToString)]</InArgument>
                                             </Assign.Value>
                                           </Assign>
-                                          <ui:RenameFileX DisplayName="Rename File" FilePath="[Path.GetFullPath(FileName)]" sap:VirtualizedContainerService.HintSize="384,145.333333333333" sap2010:WorkflowViewState.IdRef="RenameFileX_1" KeepExtension="True" NewName="[FileName.Replace(&quot;,&quot;, &quot;&quot;)]">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                          </ui:RenameFileX>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Check for SAP Invoice" sap:VirtualizedContainerService.HintSize="384,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Framework\CheckValidPOInvoice.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Check for SAP Invoice" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Framework\CheckValidPOInvoice.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[item.ToString]</InArgument>
                                               <OutArgument x:TypeArguments="x:String" x:Key="out_MatchStatus">[MatchedStatus]</OutArgument>
@@ -436,7 +429,7 @@
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                           </ui:InvokeWorkflowFile>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Move Inv to Target Folder" sap:VirtualizedContainerService.HintSize="384,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Move Inv to Target Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_isSAPInv">[MatchedStatus]</InArgument>
                                               <InArgument x:TypeArguments="x:String" x:Key="in_SAPInvFolder">[SAPInvFolder]</InArgument>
