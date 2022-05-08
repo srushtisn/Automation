@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>745.333333333333,2187.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,2187.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_70_Export_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -154,7 +154,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[UCase(trim(ExtractionDataTable.TableName)).Replace(&quot; &quot;, &quot;&quot;) = &quot;SIMPLEFIELDS&quot;]" DisplayName="Check the datatable with name SIMPLE FIELDS" sap:VirtualizedContainerService.HintSize="484,552.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[UCase(trim(ExtractionDataTable.TableName)).Replace(&quot; &quot;, &quot;&quot;) = &quot;SIMPLEFIELDS&quot;]" DisplayName="Check the datatable with name SIMPLE FIELDS" sap:VirtualizedContainerService.HintSize="484,549.333333333333" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
                       <Sequence DisplayName="Sequence - Update valoe 0.00 if null" sap:VirtualizedContainerService.HintSize="304,358" sap2010:WorkflowViewState.IdRef="Sequence_5">
                         <Sequence.Variables>
@@ -203,7 +203,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:WriteRange AddHeaders="True" DataTable="[ExtractionDataTable]" DisplayName="Create output invoice file" sap:VirtualizedContainerService.HintSize="484,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[ExtractionDataTable.TableName]" StartingCell="A1" WorkbookPath="[ExportFilePath + &quot;\&quot; + path.GetFileNameWithoutExtension(in_DocumentPath) + &quot;.xlsx&quot;]" />
+                  <ui:WriteRange AddHeaders="True" DataTable="[ExtractionDataTable]" DisplayName="Create output invoice file" sap:VirtualizedContainerService.HintSize="484,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[ExtractionDataTable.TableName]" StartingCell="A1" WorkbookPath="[ExportFilePath + &quot;\&quot; + path.GetFileNameWithoutExtension(in_DocumentPath).Replace(&quot;,&quot;,&quot;&quot;) + &quot;.xlsx&quot;]" />
                 </Sequence>
               </ActivityAction>
             </ui:ForEach.Body>
