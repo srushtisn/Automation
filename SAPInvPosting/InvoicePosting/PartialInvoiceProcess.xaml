@@ -8,6 +8,7 @@
     <x:Property Name="in_Tax" Type="InArgument(x:String)" />
     <x:Property Name="in_BBFlag" Type="InArgument(x:Boolean)" />
     <x:Property Name="in_NetAmount" Type="InArgument(x:String)" />
+    <x:Property Name="in_InvTotal" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -84,6 +85,8 @@
   <Flowchart DisplayName="PartialInvoiceProcess" sap:VirtualizedContainerService.HintSize="1046,1253.33333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="BalanceAmt" />
+      <Variable x:TypeArguments="x:Double" Name="PPVAmt" />
+      <Variable x:TypeArguments="x:Double" Name="TenPerOfInvAmt" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -96,9 +99,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID14</x:Reference>
+      <x:Reference>__ReferenceID17</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID14" sap2010:WorkflowViewState.IdRef="FlowStep_12">
+    <FlowStep x:Name="__ReferenceID17" sap2010:WorkflowViewState.IdRef="FlowStep_12">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">100,123.666666666667</av:Point>
@@ -288,7 +291,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <FlowDecision.True>
-                                <FlowStep x:Name="__ReferenceID13" sap2010:WorkflowViewState.IdRef="FlowStep_6">
+                                <FlowStep x:Name="__ReferenceID12" sap2010:WorkflowViewState.IdRef="FlowStep_6">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">300,623.666666666667</av:Point>
@@ -493,7 +496,7 @@
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       <av:Point x:Key="ShapeLocation">137.333333333333,826.666666666667</av:Point>
                                                       <av:Size x:Key="ShapeSize">105.333333333333,86.6666666666667</av:Size>
-                                                      <av:PointCollection x:Key="FalseConnector">242.666666666667,870 400,870 400,953.666666666667</av:PointCollection>
+                                                      <av:PointCollection x:Key="FalseConnector">242.666666666666,870 420,870 420,915.333333333333</av:PointCollection>
                                                       <av:PointCollection x:Key="TrueConnector">137.333333333333,870 110,870 110,919 140,919 140,949</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
@@ -521,27 +524,93 @@
                                                     </FlowStep>
                                                   </FlowDecision.True>
                                                   <FlowDecision.False>
-                                                    <FlowStep x:Name="__ReferenceID12" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                                                    <FlowStep x:Name="__ReferenceID14">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                          <av:Point x:Key="ShapeLocation">300,953.666666666667</av:Point>
-                                                          <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+                                                          <av:Point x:Key="ShapeLocation">320,915.333333333333</av:Point>
+                                                          <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
+                                                          <av:PointCollection x:Key="ConnectorLocation">420,984.666666666667 420,1026.66666666667</av:PointCollection>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
-                                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NetAmount + Tax Process" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="InvoicePosting\NetAmountProcess.xaml">
-                                                        <ui:InvokeWorkflowFile.Arguments>
-                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_NetAmountStatus">[out_PartialInvoiceStatus]</OutArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_BalanceAmt">[BalanceAmt]</InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_Tax">[in_Tax]</InArgument>
-                                                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_BBFlag">[in_BBFlag]</InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_NetAmount">[in_NetAmount]</InArgument>
-                                                        </ui:InvokeWorkflowFile.Arguments>
+                                                      <Sequence DisplayName="PPV Calculation" sap:VirtualizedContainerService.HintSize="376,206" sap2010:WorkflowViewState.IdRef="Sequence_37">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                      </ui:InvokeWorkflowFile>
+                                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke - PPV Calculation flow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="InvoicePosting\PPVCalculation.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_InvTotal">
+                                                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_InvTotal" />
+                                                            </InArgument>
+                                                            <OutArgument x:TypeArguments="x:Double" x:Key="out_PPVAmt">
+                                                              <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="PPVAmt" />
+                                                            </OutArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                      </Sequence>
+                                                      <FlowStep.Next>
+                                                        <FlowDecision x:Name="__ReferenceID15" DisplayName="BalanceAmt = 0.00" sap:VirtualizedContainerService.HintSize="105.333333333333,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
+                                                          <FlowDecision.Condition>
+                                                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="CDbl(BalanceAmt) &lt;= CDbl(PPVAmt)" />
+                                                          </FlowDecision.Condition>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <av:Point x:Key="ShapeLocation">367.333333333333,1026.66666666667</av:Point>
+                                                              <av:Size x:Key="ShapeSize">105.333333333333,86.6666666666667</av:Size>
+                                                              <av:PointCollection x:Key="FalseConnector">472.666666666667,1070 610,1070 610,1129</av:PointCollection>
+                                                              <av:PointCollection x:Key="TrueConnector">367.333333333333,1070 310,1070 310,1129</av:PointCollection>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <FlowDecision.True>
+                                                            <FlowStep x:Name="__ReferenceID13">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">179,1129</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">262,62</av:Size>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <Assign DisplayName="PPV is true .. Post Inv" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:Boolean">[out_PartialInvoiceStatus]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                                </Assign.Value>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </Assign>
+                                                            </FlowStep>
+                                                          </FlowDecision.True>
+                                                          <FlowDecision.False>
+                                                            <FlowStep x:Name="__ReferenceID16">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <av:Point x:Key="ShapeLocation">479,1129</av:Point>
+                                                                  <av:Size x:Key="ShapeSize">262,62</av:Size>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <Assign DisplayName="Partial Invoice Status = False" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:Boolean">[out_PartialInvoiceStatus]</OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                                                </Assign.Value>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </Assign>
+                                                            </FlowStep>
+                                                          </FlowDecision.False>
+                                                        </FlowDecision>
+                                                      </FlowStep.Next>
                                                     </FlowStep>
                                                   </FlowDecision.False>
                                                 </FlowDecision>
@@ -604,8 +673,11 @@
     <x:Reference>__ReferenceID9</x:Reference>
     <x:Reference>__ReferenceID10</x:Reference>
     <x:Reference>__ReferenceID11</x:Reference>
-    <x:Reference>__ReferenceID12</x:Reference>
     <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID12</x:Reference>
     <x:Reference>__ReferenceID13</x:Reference>
+    <x:Reference>__ReferenceID14</x:Reference>
+    <x:Reference>__ReferenceID15</x:Reference>
+    <x:Reference>__ReferenceID16</x:Reference>
   </Flowchart>
 </Activity>

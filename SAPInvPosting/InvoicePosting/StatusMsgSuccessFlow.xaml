@@ -6,11 +6,12 @@
     <x:Property Name="in_InvFileName" Type="InArgument(x:String)" />
     <x:Property Name="in_StartDateTime" Type="InArgument(x:String)" />
     <x:Property Name="in_EndDateTime" Type="InArgument(x:String)" />
+    <x:Property Name="out_DocNo" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>946,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>805.333333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>StatusMsgSuccessFlow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -70,12 +71,15 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="StatusMsgSuccessFlow" sap:VirtualizedContainerService.HintSize="635.333333333333,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="StatusMsgSuccessFlow" sap:VirtualizedContainerService.HintSize="644.666666666667,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
-      <Variable x:TypeArguments="x:String" Name="DocNo" />
+      <Variable x:TypeArguments="x:String" Name="DocNo">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:String" Name="AppMsg" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="RegexResult" />
     </Flowchart.Variables>
@@ -84,19 +88,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,74.6666666666667</av:Size>
-        <x:Double x:Key="Width">601</x:Double>
+        <x:Double x:Key="Width">611</x:Double>
         <av:PointCollection x:Key="ConnectorLocation">300,77.1666666666667 300,107.166666666667 321.641666666667,107.166666666667 321.641666666667,127.166666666667</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID6</x:Reference>
+      <x:Reference>__ReferenceID7</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">329,439</av:Point>
+          <av:Point x:Key="ShapeLocation">319,509</av:Point>
           <av:Size x:Key="ShapeSize">262,62</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">329,470 230,470</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">319,540 289,540 289,470 230,470</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Assign DisplayName="App Message -Success - BusinessExceptionHandker " sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
@@ -139,7 +143,7 @@
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">339,329</av:Point>
           <av:Size x:Key="ShapeSize">262,62</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">470,391 470,421 460,421 460,439</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">470,391 450,391 450,419</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Assign DisplayName="Get Doc No from Status Message" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
@@ -151,7 +155,26 @@
         </Assign.Value>
       </Assign>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID1</x:Reference>
+        <FlowStep x:Name="__ReferenceID6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">319,419</av:Point>
+              <av:Size x:Key="ShapeSize">262,62</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">450,481 450,509</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Return Doc No " sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_DocNo]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[DocNo]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <FlowStep.Next>
+            <x:Reference>__ReferenceID1</x:Reference>
+          </FlowStep.Next>
+        </FlowStep>
       </FlowStep.Next>
     </FlowStep>
     <FlowStep x:Name="__ReferenceID3">
@@ -205,7 +228,7 @@
         <x:Reference>__ReferenceID3</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <FlowDecision x:Name="__ReferenceID6" Condition="[in_SAPStatusBarMsgText.Contains(in_Config(&quot;PostingMsg&quot;))]" DisplayName="Check status message" sap:VirtualizedContainerService.HintSize="122,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1" True="{x:Reference __ReferenceID4}" False="{x:Reference __ReferenceID5}">
+    <FlowDecision x:Name="__ReferenceID7" Condition="[in_SAPStatusBarMsgText.Contains(in_Config(&quot;PostingMsg&quot;))]" DisplayName="Check status message" sap:VirtualizedContainerService.HintSize="122,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1" True="{x:Reference __ReferenceID4}" False="{x:Reference __ReferenceID5}">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -216,5 +239,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </FlowDecision>
+    <x:Reference>__ReferenceID6</x:Reference>
   </Flowchart>
 </Activity>

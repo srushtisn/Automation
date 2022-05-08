@@ -6,11 +6,12 @@
     <x:Property Name="out_SAPStatusBarMsgText" Type="OutArgument(x:String)" />
     <x:Property Name="out_SAPStatusBarMsgType" Type="OutArgument(x:String)" />
     <x:Property Name="in_dt_HeaderData" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="out_DocNo" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>967.333333333333,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>BusinessExceptionHandler_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -48,7 +49,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="27">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -212,7 +213,7 @@
                       <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Switch x:TypeArguments="x:String" DisplayName="Switch - Check StatusBar Message  " Expression="[SAPStatusBarMsgType]" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                  <Switch x:TypeArguments="x:String" DisplayName="Switch - Check StatusBar Message  " Expression="[SAPStatusBarMsgType]" sap:VirtualizedContainerService.HintSize="496.666666666667,680.666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -229,21 +230,11 @@
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="337.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Trace" Message="[&quot;In BusinessExecptionHandler -&gt; Status E&quot;]" />
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke StatusMsgErrorProcess" sap:VirtualizedContainerService.HintSize="337.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="InvoicePosting\StatusMsgErrorProcess.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_SAPStatusBarMsgText">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SAPStatusBarMsgText" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">
-                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_Config" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_InvFileName" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_HeaderData">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_HeaderData" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StartDateTime">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StartDateTime" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SAPStatusBarMsgText">[SAPStatusBarMsgText]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[in_Config]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[in_InvFileName]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_HeaderData">[in_dt_HeaderData]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_StartDateTime">[in_StartDateTime]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -268,7 +259,7 @@
                         </ui:SendHotkey.Target>
                       </ui:SendHotkey>
                     </Sequence>
-                    <Sequence x:Key="S" DisplayName="Sequence - Status Msg Success Flow" sap:VirtualizedContainerService.HintSize="379.333333333333,340.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                    <Sequence x:Key="S" DisplayName="Sequence - Status Msg Success Flow" sap:VirtualizedContainerService.HintSize="379.333333333333,442.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_44">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,26 +268,23 @@
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="337.333333333333,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Trace" Message="[&quot;In BusinessExecptionHandler -&gt; Status S&quot;]" />
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke StatusMsgSuccessProcess" sap:VirtualizedContainerService.HintSize="337.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="InvoicePosting\StatusMsgSuccessFlow.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="In_SAPStatusBarMsgText">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SAPStatusBarMsgText" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
-                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_Config" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_HeaderData">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_HeaderData" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_InvFileName" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StartDateTime">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StartDateTime" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_EndDateTime">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="EndDateTime" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="In_SAPStatusBarMsgText">[SAPStatusBarMsgText]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[in_Config]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_HeaderData">[in_dt_HeaderData]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[in_InvFileName]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_StartDateTime">[in_StartDateTime]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_EndDateTime">[EndDateTime]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_DocNo">[DocNo]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
+                      <Assign DisplayName="Assign - Return DocNo" sap:VirtualizedContainerService.HintSize="337.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[out_DocNo]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[DocNo]</InArgument>
+                        </Assign.Value>
+                      </Assign>
                     </Sequence>
                   </Switch>
                 </FlowStep>
