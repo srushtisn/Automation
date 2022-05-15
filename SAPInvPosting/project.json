@@ -15,7 +15,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.9",
+  "projectVersion": "1.0.15",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -41,7 +41,8 @@
     },
     "processOptions": {
       "ignoredFiles": [
-        "Sequence.xaml"
+        "Sequence.xaml",
+        "Flowchart.xaml"
       ]
     },
     "fileInfoCollection": [],
@@ -60,18 +61,12 @@
       "uniqueId": "574af2ee-7ce1-4c97-b5ca-ea318b2438c6",
       "input": [],
       "output": []
-    },
-    {
-      "filePath": "Flowchart.xaml",
-      "uniqueId": "6a0ca960-a4a0-449a-87c4-5b8b0c9368ad",
-      "input": [],
-      "output": []
     }
   ],
   "isTemplate": false,
   "templateProjectData": {},
   "publishData": {
-    "iconUrl": ".package/SAPIcon.JPG"
+    "iconUrl": ".package/SAPPosting.JPG"
   },
   "targetFramework": "Legacy"
 }

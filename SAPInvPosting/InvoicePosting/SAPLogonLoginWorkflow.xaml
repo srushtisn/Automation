@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>864,700.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>718,700.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Workflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -169,14 +169,14 @@
                   <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,884" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,562.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <TryCatch.Try>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,646" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,324.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -184,24 +184,41 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <ucas:Logon ConnectionName="[SAPConnName]" DelayBetweenRetries="10000" DisplayName="SAP Logon" sap:VirtualizedContainerService.HintSize="334,140" sap2010:WorkflowViewState.IdRef="Logon_5" Retries="2" SAPLogonPath="[SAPLogonPath]" Window="[SAPLogon]" />
-                    <ucas:Login Password="{x:Null}" Client="[SAPClient]" DisplayName="SAP Login 'saplogon.exe  SAP'" sap:VirtualizedContainerService.HintSize="334,374" sap2010:WorkflowViewState.IdRef="Login_6" IsSecure="True" Language="[SAPLanguage]" MultiLogonOptionToChoose="Single" SecurePassword="[SAPPassword]" Timeout="5000" Username="[SAPUserName]" Window="[SAPLogon]">
-                      <ucas:Login.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ebe4aba7-dca9-4be9-aaf9-8e19f4f59eb5" InformativeScreenshot="3415360e9752c3d9e03d65f02698cecd" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ucas:Login.Target>
+                    <ui:CommentOut DisplayName="Comment - SAP Login" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,466" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ucas:Login Password="{x:Null}" Client="[SAPClient]" DisplayName="SAP Login 'saplogon.exe  SAP'" sap:VirtualizedContainerService.HintSize="334,374" sap2010:WorkflowViewState.IdRef="Login_6" IsSecure="True" Language="[SAPLanguage]" MultiLogonOptionToChoose="Single" SecurePassword="[SAPPassword]" Timeout="5000" Username="[SAPUserName]" Window="[SAPLogon]">
+                            <ucas:Login.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ebe4aba7-dca9-4be9-aaf9-8e19f4f59eb5" InformativeScreenshot="3415360e9752c3d9e03d65f02698cecd" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ucas:Login.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ucas:Login>
+                        </Sequence>
+                      </ui:CommentOut.Body>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                    </ucas:Login>
+                    </ui:CommentOut>
                   </Sequence>
                 </TryCatch.Try>
                 <TryCatch.Catches>
