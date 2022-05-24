@@ -13,7 +13,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.8",
+  "projectVersion": "1.0.10",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -61,7 +61,7 @@
   "isTemplate": false,
   "templateProjectData": {},
   "publishData": {
-    "iconUrl": ".package/Invoice.JPG"
+    "iconUrl": ".package/DownloadInvoice.JPG"
   },
   "targetFramework": "Legacy"
 }
