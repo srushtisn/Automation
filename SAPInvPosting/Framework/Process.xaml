@@ -263,7 +263,7 @@
                           <OutArgument x:TypeArguments="x:String">[InvTotal]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[trim(in_dt_HeaderData.rows(0).item("Total").ToString)]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[trim(in_dt_HeaderData.rows(0).item("Total").ToString).Replace("$", "")]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
@@ -271,7 +271,7 @@
                           <OutArgument x:TypeArguments="x:String">[Tax]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[in_dt_HeaderData.rows(0).item("Tax Amount").ToString]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[in_dt_HeaderData.rows(0).item("Tax Amount").ToString.Replace("$", "")]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
@@ -279,7 +279,7 @@
                           <OutArgument x:TypeArguments="x:String">[ShippingCharges]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[trim(in_dt_HeaderData.rows(0).item("Shipping Charges").ToString)]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[trim(in_dt_HeaderData.rows(0).item("Shipping Charges").ToString).Replace("$","")]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
@@ -311,7 +311,7 @@
                           <OutArgument x:TypeArguments="x:String">[NetAmount]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:String">[trim(in_dt_HeaderData.rows(0).item("Net Amount").ToString)]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[trim(in_dt_HeaderData.rows(0).item("Net Amount").ToString).Replace("$","")]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
@@ -348,7 +348,7 @@
                             <av:PointCollection x:Key="ConnectorLocation">860,130 830,130 830,140 820,140</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Sequence - Basic Data Tab" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <Sequence DisplayName="Sequence - Basic Data Tab" sap:VirtualizedContainerService.HintSize="840,4243.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="getReferenceNo" />
                           </Sequence.Variables>
@@ -555,7 +555,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into Net Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="[in_dt_HeaderData.rows(0).item(&quot;Net Amount&quot;).ToString]">
+                                <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into Net Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_12" Text="[in_dt_HeaderData.rows(0).item(&quot;Net Amount&quot;).ToString.Replace(&quot;$&quot;,&quot;&quot;)]">
                                   <ui:TypeInto.Target>
                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="52d84b63-267b-48b5-b9dc-ed2c133db2a5" InformativeScreenshot="fc836310e8c8915c5e29a9301c10e0aa" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_TOTAL/ssubHEADER_SCREEN:SAPLFDCB:0010/txtINVFO-WRBTR' /&gt;">
                                       <ui:Target.TimeoutMS>
@@ -582,7 +582,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into Total" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[in_dt_HeaderData.rows(0).item(&quot;Total&quot;).ToString]">
+                                <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into Total" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[in_dt_HeaderData.rows(0).item(&quot;Total&quot;).ToString.Replace(&quot;$&quot;,&quot;&quot;)]">
                                   <ui:TypeInto.Target>
                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="52d84b63-267b-48b5-b9dc-ed2c133db2a5" InformativeScreenshot="fc836310e8c8915c5e29a9301c10e0aa" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_TOTAL/ssubHEADER_SCREEN:SAPLFDCB:0010/txtINVFO-WRBTR' /&gt;">
                                       <ui:Target.TimeoutMS>
@@ -1685,7 +1685,7 @@
                                                               <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
-                                                          <Sequence DisplayName="Partial Invoice" sap:VirtualizedContainerService.HintSize="882,1128" sap2010:WorkflowViewState.IdRef="Sequence_187">
+                                                          <Sequence DisplayName="Partial Invoice" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_187">
                                                             <Sequence.Variables>
                                                               <Variable x:TypeArguments="x:Boolean" Name="PartialInvoiceStatus" />
                                                             </Sequence.Variables>
@@ -1729,27 +1729,13 @@
                                                                   </sap:WorkflowViewStateService.ViewState>
                                                                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="InvokeWorkflowFile  - Post Invoice Process" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="InvoicePosting\PostInvoiceProcess.xaml">
                                                                     <ui:InvokeWorkflowFile.Arguments>
-                                                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">
-                                                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="in_Config" />
-                                                                      </InArgument>
-                                                                      <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">
-                                                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="InvFileName" />
-                                                                      </InArgument>
-                                                                      <InArgument x:TypeArguments="x:String" x:Key="in_StartDateTime">
-                                                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StartDateTime" />
-                                                                      </InArgument>
-                                                                      <InArgument x:TypeArguments="x:String" x:Key="out_SAPStatusBarMsgText">
-                                                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SAPStatusBarMsgText" />
-                                                                      </InArgument>
-                                                                      <InArgument x:TypeArguments="x:String" x:Key="out_SAPStatusBarMsgType">
-                                                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SAPStatusBarMsgType" />
-                                                                      </InArgument>
-                                                                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_HeaderData">
-                                                                        <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_HeaderData" />
-                                                                      </InArgument>
-                                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_AttachedInvStatus">
-                                                                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="AttachedInvStatus" />
-                                                                      </OutArgument>
+                                                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[in_Config]</InArgument>
+                                                                      <InArgument x:TypeArguments="x:String" x:Key="in_InvFileName">[InvFileName]</InArgument>
+                                                                      <InArgument x:TypeArguments="x:String" x:Key="in_StartDateTime">[StartDateTime]</InArgument>
+                                                                      <InArgument x:TypeArguments="x:String" x:Key="out_SAPStatusBarMsgText">[SAPStatusBarMsgText]</InArgument>
+                                                                      <InArgument x:TypeArguments="x:String" x:Key="out_SAPStatusBarMsgType">[SAPStatusBarMsgType]</InArgument>
+                                                                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_HeaderData">[in_dt_HeaderData]</InArgument>
+                                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_AttachedInvStatus">[AttachedInvStatus]</OutArgument>
                                                                     </ui:InvokeWorkflowFile.Arguments>
                                                                   </ui:InvokeWorkflowFile>
                                                                 </Sequence>
