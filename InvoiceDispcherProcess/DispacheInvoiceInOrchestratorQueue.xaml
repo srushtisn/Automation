@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>836,837.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,837.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetItemFromExcelAndProcess_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -74,6 +74,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -212,7 +213,7 @@
               <av:Size x:Key="ShapeSize">200,69.3333333333333</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Add invoice to Queue" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Add invoice to Queue" sap:VirtualizedContainerService.HintSize="936.666666666667,1321.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="jsnHeader" />
               <Variable x:TypeArguments="x:String" Name="jsnItems" />
@@ -275,15 +276,21 @@
                       <OutArgument x:TypeArguments="x:Int64">[dtDiff]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Int64">[DateDiff(DateInterval.Day,InvoiceDate,now)]</InArgument>
+                      <InArgument x:TypeArguments="x:Int64">[DateDiff(DateInterval.Day, convert.ToDateTime(now), convert.ToDateTime(InvoiceDate))]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <If Condition="[dtDiff&gt;CInt(in_Config(&quot;InvoicePostingDelay&quot;).ToString)]" DisplayName="If-Check diff is greater than 10" sap:VirtualizedContainerService.HintSize="894.666666666667,936.666666666667" sap2010:WorkflowViewState.IdRef="If_9">
+            <If Condition="[dtDiff&gt;CInt(in_Config(&quot;InvoicePostingDelay&quot;).ToString) OrElse dtDiff&lt;0]" DisplayName="If-Check diff is greater than days defined in config file [10 or 15]" sap:VirtualizedContainerService.HintSize="894.666666666667,936.666666666667" sap2010:WorkflowViewState.IdRef="If_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="472.666666666667,772.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Sequence sap:VirtualizedContainerService.HintSize="472.666666666667,772.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="SourceInvPath" />
                     <Variable x:TypeArguments="x:String" Name="TargetInvPath" />
@@ -293,14 +300,14 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Item in Queue" sap:VirtualizedContainerService.HintSize="430.666666666667,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_4" Priority="Normal" QueueType="[in_Config(&quot;QueueName&quot;)]" Reference="[strReference]">
+                  <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Item in Queue" sap:VirtualizedContainerService.HintSize="430.666666666667,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_5" Priority="Normal" QueueType="[in_Config(&quot;QueueName&quot;)]" Reference="[strReference]">
                     <ui:AddQueueItem.ItemInformation>
                       <InArgument x:TypeArguments="x:String" x:Key="InvoiceHeader">[jsnHeader]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="invoiceItems">[jsnItems]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="InvFileName">[xlsFileName]</InArgument>
                     </ui:AddQueueItem.ItemInformation>
                   </ui:AddQueueItem>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move xls to Folder" sap:VirtualizedContainerService.HintSize="430.666666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move xls to Folder" sap:VirtualizedContainerService.HintSize="430.666666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_SuccessFlag">Success</InArgument>
@@ -315,10 +322,10 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
-                  <ui:MultipleAssign DisplayName="Move invoice PDF file Assignments" sap:VirtualizedContainerService.HintSize="430.666666666667,160.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                  <ui:MultipleAssign DisplayName="Move invoice PDF file Assignments" sap:VirtualizedContainerService.HintSize="430.666666666667,160.666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                        <ui:AssignOperation sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AssignOperation_10">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[InvFileName]</OutArgument>
                           </ui:AssignOperation.To>
@@ -326,7 +333,7 @@
                             <InArgument x:TypeArguments="x:String">[trim(path.GetFileNameWithoutExtension(xlsFileName)) + ".pdf"]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[SourceInvPath]</OutArgument>
                           </ui:AssignOperation.To>
@@ -334,7 +341,7 @@
                             <InArgument x:TypeArguments="x:String">[in_config("BasePath") + "\" + in_Config("SAPInvSourceFolder") + "\" + InvFileName]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
                           <ui:AssignOperation.To>
                             <OutArgument x:TypeArguments="x:String">[TargetInvPath]</OutArgument>
                           </ui:AssignOperation.To>
@@ -345,8 +352,8 @@
                       </scg:List>
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
-                  <ui:MoveFile ContinueOnError="{x:Null}" Destination="[TargetInvPath]" DisplayName="Move Invoice PDF File" sap:VirtualizedContainerService.HintSize="430.666666666667,162" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="False" Path="[SourceInvPath]" />
-                  <Assign DisplayName="Assign - Success Flag" sap:VirtualizedContainerService.HintSize="430.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_14">
+                  <ui:MoveFile ContinueOnError="{x:Null}" Destination="[TargetInvPath]" DisplayName="Move Invoice PDF File" sap:VirtualizedContainerService.HintSize="430.666666666667,162" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="True" Path="[SourceInvPath]" />
+                  <Assign DisplayName="Assign - Success Flag" sap:VirtualizedContainerService.HintSize="430.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_17">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[out_SuccessFlag]</OutArgument>
                     </Assign.To>
@@ -357,14 +364,14 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Pending Case" sap:VirtualizedContainerService.HintSize="376,442.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <Sequence DisplayName="Pending Case" sap:VirtualizedContainerService.HintSize="376,442.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Display Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_Config(&quot;LogMessage_InvoicePostingDelay&quot;)]">
+                  <ui:LogMessage DisplayName="Display Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_Config(&quot;LogMessage_InvoicePostingDelay&quot;)]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -372,7 +379,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:LogMessage>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move Inv to Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post-extraction &amp;&#xA;Data Export" DisplayName="Move Inv to Folder" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework\MoveInvToFolder.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_config">[config]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_SuccessFlag">Pending</InArgument>
@@ -386,7 +393,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
-                  <Assign DisplayName="Assign - Success Flag" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_15">
+                  <Assign DisplayName="Assign - Success Flag" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_18">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[out_SuccessFlag]</OutArgument>
                     </Assign.To>
@@ -432,7 +439,7 @@
               <av:PointCollection x:Key="ConnectorLocation">290,295.333333333333 290,335.333333333333</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Read Data From Excel" sap:VirtualizedContainerService.HintSize="508,1305.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Read Data From Excel" sap:VirtualizedContainerService.HintSize="200,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
