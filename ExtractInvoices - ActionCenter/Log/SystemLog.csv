@@ -1,0 +1,22 @@
+﻿Date,LogType, LogMessage
+02/26/2022 11:25:07,Error,The request to the server was invalid. This might indicate an incorrect activity configuration.
+03/04/2022 08:32:27,Error,The process cannot access the file 'C:\Automation\Invoice Processing\Extract Invoices\Log\2022\Mar-2022\ExtractInvoices_ApplicationLog_04-Mar-2022.csv' because it is being used by another process.
+03/04/2022 16:35:06,Error,The given key was not present in the dictionary.
+03/04/2022 19:23:15,Error,Can't find ML Skill with name: Invoice_Skills_04032022
+03/04/2022 20:14:47,Error,Error validating document: 37824479_20220120110335.294_X. Reason: 
+03/05/2022 15:45:19,Error,Input document not found: C:\Automation\Invoice Processing\Shared Folder\SAP Invoices\Inv_20210537_from_RICKTEL_Communications_Inc._12984_20220120105541.156_X.pdf
+03/07/2022 16:08:04,Error,Error validating document: 161906M3993447_1_20220120093223.272_X. Reason: 
+03/07/2022 16:09:09,Error,Error validating document: 161906M3993447_1_20220120093223.272_X. Reason: 
+03/07/2022 16:09:59,Error,Error validating document: 161906M3993447_1_20220120093223.272_X. Reason: 
+03/07/2022 16:11:08,Error,Error validating document: 161906M3993447_1_20220120093223.272_X. Reason: 
+03/08/2022 17:59:23,Error,Error validating document: Accu-Tech. Reason: 
+03/08/2022 18:03:30,Error,The process cannot access the file 'C:\Automation\Invoice Processing\Extract Invoices\Data\Config_ExtractInv.xlsx' because it is being used by another process.
+03/08/2022 18:09:24,Error,Error validating document: Accu-Tech. Reason: 
+03/08/2022 18:18:48,Error,Error validating document: Accu-Tech. Reason: 
+03/09/2022 09:48:50,Error,The process cannot access the file 'C:\Automation\Invoice Processing\Extract Invoices\Log\2022\Mar-2022\ExtractInvoices_ApplicationLog_09-Mar-2022.csv' because it is being used by another process.
+03/09/2022 10:42:49,Error,Error validating document: 32531. Reason: Wronge document
+03/09/2022 10:59:54,Error,Error validating document: 32531. Reason: 
+03/16/2022 12:29:19,Error,Error validating document: 0898496-IN_20220120105423.669_X. Reason: 
+03/16/2022 15:16:54,Error,Error validating document: 15BLACKBOX_SO_0918051IN_DUP_20211220_000_20220120105503.525_X. Reason: 
+03/23/2022 12:15:44,Error,Error validating document: Platinum voice and data. Reason: 
+03/26/2022 12:58:26,Error,The process cannot access the file because it is being used by another process.
