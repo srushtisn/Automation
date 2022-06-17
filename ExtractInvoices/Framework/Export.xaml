@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1153.33333333333,2187.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>899.333333333333,2187.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>_70_Export_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -172,7 +172,7 @@
                             <OutArgument x:TypeArguments="x:Object">[ExtractionDataTable.Rows(0).Item("Shipping Charges")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty(ExtractionDataTable.Rows(0).Item("Shipping Charges").ToString), "0.00", trim(ExtractionDataTable.Rows(0).Item("Shipping Charges").ToString))]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty(ExtractionDataTable.Rows(0).Item("Shipping Charges").ToString), "0.00", trim(ExtractionDataTable.Rows(0).Item("Shipping Charges").ToString).Replace("$", ""))]</InArgument>
                           </Assign.Value>
                         </Assign>
                         <Assign DisplayName="Assign - Tax Amount with 0.00 if null" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
@@ -180,7 +180,7 @@
                             <OutArgument x:TypeArguments="x:Object">[ExtractionDataTable.Rows(0).Item("Tax Amount")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty(ExtractionDataTable.Rows(0).Item("Tax Amount").ToString), "0.00", trim(ExtractionDataTable.Rows(0).Item("Tax Amount").ToString))]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty(ExtractionDataTable.Rows(0).Item("Tax Amount").ToString), "0.00", trim(ExtractionDataTable.Rows(0).Item("Tax Amount").ToString).Replace("$",""))]</InArgument>
                           </Assign.Value>
                         </Assign>
                         <Assign DisplayName="Assign - Net Amount with 0.00 if nullt " sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
@@ -188,20 +188,11 @@
                             <OutArgument x:TypeArguments="x:Object">[ExtractionDataTable.Rows(0).Item("Net Amount")]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty(ExtractionDataTable.Rows(0).Item("Net Amount").ToString), "0.00", trim(ExtractionDataTable.Rows(0).Item("Net Amount").ToString))]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty(ExtractionDataTable.Rows(0).Item("Net Amount").ToString), "0.00", trim(ExtractionDataTable.Rows(0).Item("Net Amount").ToString).Replace("$",""))]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
                     </If.Then>
-                    <If.Else>
-                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Sequence>
-                    </If.Else>
                   </If>
                   <ui:WriteRange AddHeaders="True" DataTable="[ExtractionDataTable]" DisplayName="Create output invoice file" sap:VirtualizedContainerService.HintSize="484,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[ExtractionDataTable.TableName]" StartingCell="A1" WorkbookPath="[ExportFilePath + &quot;\&quot; + path.GetFileNameWithoutExtension(in_DocumentPath).Replace(&quot;,&quot;,&quot;&quot;) + &quot;.xlsx&quot;]" />
                 </Sequence>
