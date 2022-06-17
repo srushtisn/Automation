@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SAPGLAccount" this:SAPGLAccount.GLAccNo="57021100" this:SAPGLAccount.FrieghtAmount="29.15" this:SAPGLAccount.BusinessArea="0001" this:SAPGLAccount.CostCenter="USB0000000" this:SAPGLAccount.TaxJurisdctnCode="2405314800" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SAPGLAccount" this:SAPGLAccount.GLAccNo="57021100" this:SAPGLAccount.FrieghtAmount="29.15" this:SAPGLAccount.BusinessArea="0001" this:SAPGLAccount.CostCenter="USB0000000" this:SAPGLAccount.TaxJurisdctnCode="2405314800" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="GLAccNo" Type="InArgument(x:String)" />
     <x:Property Name="FrieghtAmount" Type="InArgument(x:String)" />
@@ -9,10 +9,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>904,1480.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>625.333333333333,1988</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SAPGLAccount_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="27">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -40,10 +40,10 @@
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,15 +70,18 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GLAccountProcess" sap:VirtualizedContainerService.HintSize="400.666666666667,1416" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GLAccountProcess" sap:VirtualizedContainerService.HintSize="476,1923.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="RowIndex" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select G/L Account" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="G/L Account">
+    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select G/L Account" sap:VirtualizedContainerService.HintSize="434,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="G/L Account">
       <ui:SelectItem.Items>
         <scg:List x:TypeArguments="x:String" Capacity="4">
           <x:String>PO Reference</x:String>
@@ -96,9 +99,87 @@
         </ui:Target>
       </ui:SelectItem.Target>
     </ui:SelectItem>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into G/L account" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[Trim(GLAccNo)]">
-      <ui:TypeInto.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8318d73c-3687-4d8c-936a-9702bf743786" InformativeScreenshot="e6c5a83a34ded235b1479236a50c7a99" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' omit:title='Enter Incoming Invoice: Company Code 1100' /&gt;&lt;sap colTooltip='G/L Account' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6006/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='0' /&gt;">
+    <ui:CellScope UiElement="{x:Null}" ColumnName="G/L Account" DisplayName="Table Cell Scope 'TextField Amount'" sap:VirtualizedContainerService.HintSize="434,375.333333333333" sap2010:WorkflowViewState.IdRef="CellScope_1" RowNumber="First Empty Row" TableRow="[RowIndex]">
+      <ui:CellScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </ActivityAction>
+      </ui:CellScope.Body>
+      <ui:CellScope.ColumnNames>
+        <scg:List x:TypeArguments="x:String" Capacity="60">
+          <x:String></x:String>
+          <x:String>G/L Account</x:String>
+          <x:String>Short Text</x:String>
+          <x:String>Debit/Credit ind</x:String>
+          <x:String>Amount</x:String>
+          <x:String>Amt.in loc.cur.</x:String>
+          <x:String>Tax Code</x:String>
+          <x:String>Tax Jurisdiction</x:String>
+          <x:String>W/o Cash Dscnt</x:String>
+          <x:String>Assignment</x:String>
+          <x:String>Text</x:String>
+          <x:String>Company Code</x:String>
+          <x:String>Business Area</x:String>
+          <x:String>Trading Part.BA</x:String>
+          <x:String>Cost Center</x:String>
+          <x:String>Order</x:String>
+          <x:String>Sales document</x:String>
+          <x:String>Sales Document Item</x:String>
+          <x:String>Smart Number</x:String>
+          <x:String>Profit Center</x:String>
+          <x:String>WBS Element</x:String>
+          <x:String>FM Area</x:String>
+          <x:String>Funds center</x:String>
+          <x:String>Commitment item</x:String>
+          <x:String>Fund</x:String>
+          <x:String>Grant</x:String>
+          <x:String></x:String>
+          <x:String>Cost Object</x:String>
+          <x:String>Network</x:String>
+          <x:String>Activity</x:String>
+          <x:String>Quantity</x:String>
+          <x:String>Base Unit of Measure</x:String>
+          <x:String>Activity Type</x:String>
+          <x:String>Controlling Area</x:String>
+          <x:String>Personnel Number</x:String>
+          <x:String>Earmarked funds</x:String>
+          <x:String>Document item</x:String>
+          <x:String>Set to 'Done'</x:String>
+          <x:String>Functional Area</x:String>
+          <x:String>Business Process</x:String>
+          <x:String>Business Entity</x:String>
+          <x:String>Building</x:String>
+          <x:String>Land</x:String>
+          <x:String>Rental Unit</x:String>
+          <x:String>Lease-Out</x:String>
+          <x:String>Service Charge Key</x:String>
+          <x:String>Settlement Unit</x:String>
+          <x:String>Reference date</x:String>
+          <x:String>Management Contract</x:String>
+          <x:String>Contract Number</x:String>
+          <x:String>Joint venture</x:String>
+          <x:String>Equity group</x:String>
+          <x:String>Partner</x:String>
+          <x:String>Recovery Indicator</x:String>
+          <x:String>Production Month</x:String>
+          <x:String>Segment</x:String>
+          <x:String>Partner Segment</x:String>
+          <x:String>Work Item ID</x:String>
+          <x:String></x:String>
+          <x:String></x:String>
+        </scg:List>
+      </ui:CellScope.ColumnNames>
+      <ui:CellScope.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="07e51b8c-2576-44cf-bf07-d1c27765ac97" InformativeScreenshot="ceaf3cad24ca2d80a326162475d75ebc" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap id='usr/subHEADER_AND_ITEMS:SAPLMR1M:600*/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -106,57 +187,76 @@
             <InArgument x:TypeArguments="ui:WaitForReady" />
           </ui:Target.WaitForReady>
         </ui:Target>
-      </ui:TypeInto.Target>
-    </ui:TypeInto>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into Frieght Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[Trim(FrieghtAmount)]">
-      <ui:TypeInto.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc708096-0ae0-41d7-9d2f-cb259407877e" InformativeScreenshot="7b1f02fa4e520a197e9fdc94c434b99d" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' omit:title='Enter Incoming Invoice: Company Code 1100' /&gt;&lt;sap colTooltip='Amount' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6006/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='0' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:TypeInto.Target>
-    </ui:TypeInto>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into Tax Jurisdiction Code " EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[Trim(TaxJurisdctnCode)]">
-      <ui:TypeInto.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6b076a4b-9ce6-431a-9bfe-1d012fb8740f" InformativeScreenshot="491cbf7c8fbaf8653514a29e461a49e9" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' omit:title='Enter Incoming Invoice: Company Code 1100' /&gt;&lt;sap colTooltip='Tax Jurisdiction' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6006/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='0' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:TypeInto.Target>
-    </ui:TypeInto>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into Business Area'" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[Trim(BusinessArea)]">
-      <ui:TypeInto.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f97f4dbe-4b2b-49db-96a7-90b79346fcd4" InformativeScreenshot="1cf407107c0f1a792768c1084fb0b9db" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' omit:title='Enter Incoming Invoice: Company Code 1100' /&gt;&lt;sap colTooltip='Business Area' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6006/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='0' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:TypeInto.Target>
-    </ui:TypeInto>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into  Cost Center" EmptyField="True" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[Trim(CostCenter) + &quot;[k(enter)]&quot;]">
-      <ui:TypeInto.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0b9e2640-a395-4e5f-94a7-4f617c5ac850" InformativeScreenshot="21a203755e3ec8152f73be8cc5b4e788" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: Company Code 1100' /&gt;&lt;sap colTooltip='Cost Center' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6006/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='0' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:TypeInto.Target>
-    </ui:TypeInto>
-    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select PO Reference" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="PO Reference">
+      </ui:CellScope.Target>
+    </ui:CellScope>
+    <Sequence DisplayName="GL Account Fields" sap:VirtualizedContainerService.HintSize="434,922" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into G/L account" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[Trim(GLAccNo)]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8318d73c-3687-4d8c-936a-9702bf743786" InformativeScreenshot="9fc5a134b0b04ea1136c6030f4f89f78" Selector="[String.Format(&quot;&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap colTooltip='G/L Account' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:*/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='{0}' /&gt;&quot;, RowIndex)]">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into Frieght Amount" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[Trim(FrieghtAmount)]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc708096-0ae0-41d7-9d2f-cb259407877e" InformativeScreenshot="275c3a9649585430eb8e783c27b6f2f9" Selector="[String.Format(&quot;&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap colTooltip='Amount' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:*/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='{0}' /&gt;&quot;, RowIndex)]">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into Tax Jurisdiction Code " EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[Trim(TaxJurisdctnCode)]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6b076a4b-9ce6-431a-9bfe-1d012fb8740f" InformativeScreenshot="a310ed85bd5d4ec97874db507a6153f6" Selector="[String.Format(&quot;&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap colTooltip='Tax Jurisdiction' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:*/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='{0}' /&gt;&quot;, RowIndex)]">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into Business Area'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[Trim(BusinessArea)]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f97f4dbe-4b2b-49db-96a7-90b79346fcd4" InformativeScreenshot="e39d4f6e9a4528f81a697ba6ea0afee0" Selector="[String.Format(&quot;&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap colTooltip='Business Area' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:*/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='{0}' /&gt;&quot;, RowIndex)]">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+      <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBetweenKeys="50" DisplayName="Type Into  Cost Center" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[Trim(CostCenter) + &quot;[k(enter)]&quot;]">
+        <ui:TypeInto.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0b9e2640-a395-4e5f-94a7-4f617c5ac850" InformativeScreenshot="9d7861f61e75e3d908e7a8118d1a6c60" Selector="[String.Format(&quot;&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap colTooltip='Cost Center' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:*/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_G/L/ssubTABS:SAPLMR1M:6040/ssubSACHKONTO:SAPLFSKB:0100/tblSAPLFSKBTABLE' tableRow='{0}' /&gt;&quot;, RowIndex)]">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TypeInto.Target>
+      </ui:TypeInto>
+    </Sequence>
+    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select PO Reference" sap:VirtualizedContainerService.HintSize="434,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="PO Reference">
       <ui:SelectItem.Items>
         <scg:List x:TypeArguments="x:String" Capacity="4">
           <x:String>PO Reference</x:String>
@@ -174,7 +274,7 @@
         </ui:Target>
       </ui:SelectItem.Target>
     </ui:SelectItem>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'CTextField  Item'" sap:VirtualizedContainerService.HintSize="358.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'CTextField  Item'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>

@@ -15,7 +15,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1045.33333333333,1502</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1153.33333333333,1502</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PartialInvoiceProcess_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -82,6 +82,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="PartialInvoiceProcess" sap:VirtualizedContainerService.HintSize="1055.33333333333,1437.33333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -350,7 +351,7 @@
                                           <av:PointCollection x:Key="ConnectorLocation">300,650 210,650</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:AddDataColumn x:TypeArguments="x:Int32" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Status" DataTable="[in_dtPOItem]" DefaultValue="0" DisplayName="Add Status Column to in_dtPOItem" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3" />
+                                      <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Status" DataTable="[in_dtPOItem]" DefaultValue="N" DisplayName="Add Status Column to in_dtPOItem" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_4" />
                                       <FlowStep.Next>
                                         <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_5">
                                           <sap:WorkflowViewStateService.ViewState>
@@ -360,7 +361,7 @@
                                               <av:PointCollection x:Key="ConnectorLocation">110,676.333333333334 110,713.666666666667</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dtInvItem]" DisplayName="For Each Row in InvItem table" sap:VirtualizedContainerService.HintSize="588.666666666667,1938.66666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+                                          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dtInvItem]" DisplayName="For Each Row in InvItem table" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
                                             <ui:ForEachRow.Body>
                                               <ActivityAction x:TypeArguments="sd:DataRow">
                                                 <ActivityAction.Argument>
@@ -420,7 +421,7 @@
                                                             <InArgument x:TypeArguments="x:String">["Status"]</InArgument>
                                                           </ui:FilterOperationArgument.Column>
                                                           <ui:FilterOperationArgument.Operand>
-                                                            <InArgument x:TypeArguments="x:String">["1"]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String">["Y"]</InArgument>
                                                           </ui:FilterOperationArgument.Operand>
                                                         </ui:FilterOperationArgument>
                                                       </scg:List>
@@ -490,7 +491,7 @@
                                                           </sap:WorkflowViewStateService.ViewState>
                                                         </ui:Check>
                                                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;PO Amount = &quot; + tempDTPO.Rows(0)(&quot;Amount&quot;).ToString + &quot;    PO Qty = &quot; + &quot;PO Amount = &quot; + tempDTPO.Rows(0)(&quot;Quantity&quot;).ToString + &quot; PO Item No = &quot; + POItemNo.ToString]" />
-                                                        <Assign DisplayName="Assign POItemNo" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                                        <Assign DisplayName="Assign POItemNo" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_27">
                                                           <Assign.To>
                                                             <OutArgument x:TypeArguments="x:Int32">[POItemNo]</OutArgument>
                                                           </Assign.To>
@@ -511,7 +512,7 @@
                                                             </scg:Dictionary>
                                                           </sap:WorkflowViewStateService.ViewState>
                                                         </Assign>
-                                                        <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="Status" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="434,195.333333333333" sap2010:WorkflowViewState.IdRef="UpdateRowItem_1" Row="[inDataRow]" Value="[1]" />
+                                                        <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="Status" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="434,195.333333333333" sap2010:WorkflowViewState.IdRef="UpdateRowItem_1" Row="[inDataRow]" Value="[&quot;Y&quot;]" />
                                                       </Sequence>
                                                     </If.Then>
                                                   </If>
@@ -611,7 +612,7 @@
                                                         </FlowStep>
                                                       </FlowDecision.True>
                                                       <FlowDecision.False>
-                                                        <FlowDecision x:Name="__ReferenceID19" Condition="[(CDbl(in_dt_HeaderData.Rows(0)(&quot;Shipping Charges&quot;)) &gt; 0.00) andalso (CDbl(in_dt_HeaderData.Rows(0)(&quot;Shipping Charges&quot;)) = CDbl(BalanceAmt))]" DisplayName="Frieght &gt; 0" sap:VirtualizedContainerService.HintSize="70,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                                                        <FlowDecision x:Name="__ReferenceID19" Condition="[(CDbl(in_dt_HeaderData.Rows(0)(&quot;Shipping Charges&quot;)) &gt; 0.00)]" DisplayName="Frieght &gt; 0" sap:VirtualizedContainerService.HintSize="70,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                                                           <sap:WorkflowViewStateService.ViewState>
                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -632,10 +633,10 @@
                                                               </sap:WorkflowViewStateService.ViewState>
                                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow - GL accoount Process" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="InvoicePosting\GLAccountProcess.xaml">
                                                                 <ui:InvokeWorkflowFile.Arguments>
-                                                                  <InArgument x:TypeArguments="x:String" x:Key="GLAccNo">57021100</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="GLAccNo">[in_config("GLAccNo")]</InArgument>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="FrieghtAmount">[in_dt_HeaderData.Rows(0)("Shipping Charges").ToString]</InArgument>
-                                                                  <InArgument x:TypeArguments="x:String" x:Key="BusinessArea">0001</InArgument>
-                                                                  <InArgument x:TypeArguments="x:String" x:Key="CostCenter">USB0000000</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="BusinessArea">[in_config("BusinessArea")]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="CostCenter">[in_config("CostCenter")]</InArgument>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="TaxJurisdctnCode">[dtPOItem.Rows(0)("Jurisd. Code").ToString]</InArgument>
                                                                 </ui:InvokeWorkflowFile.Arguments>
                                                                 <sap:WorkflowViewStateService.ViewState>
