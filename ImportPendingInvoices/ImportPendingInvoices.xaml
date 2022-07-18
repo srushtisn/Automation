@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="PendingToExports" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1204.66666666667,4264.66666666667" sap2010:WorkflowViewState.IdRef="PendingToExports_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="PendingToExports" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1154.66666666667,4290" sap2010:WorkflowViewState.IdRef="PendingToExports_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
       <x:String>System.Activities</x:String>
@@ -67,6 +67,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -75,7 +76,7 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="ImportPendingInvoices" sap:VirtualizedContainerService.HintSize="1214.66666666667,4200" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ImportPendingInvoices" sap:VirtualizedContainerService.HintSize="1164.66666666667,4225.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="pendingInvoice" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="conDict" />
@@ -94,7 +95,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Sequence-Read All Asset" sap:VirtualizedContainerService.HintSize="1172.66666666667,548" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Sequence-Read All Asset" sap:VirtualizedContainerService.HintSize="1122.66666666667,548" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -112,7 +113,7 @@
       </ui:GetRobotAsset>
       <ui:LogMessage DisplayName="Log Message-Reading Asset" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Read All Assets&quot;]" />
     </Sequence>
-    <Sequence DisplayName="Sequence-Configuration for Config File" sap:VirtualizedContainerService.HintSize="1172.66666666667,733.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="Sequence-Configuration for Config File" sap:VirtualizedContainerService.HintSize="1122.66666666667,733.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -159,7 +160,7 @@
       </ui:ForEachRow>
       <ui:LogMessage DisplayName="Log Message-About Dictionary" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Create and Initialize Dictionary&quot;]" />
     </Sequence>
-    <Assign DisplayName="Assign-Getting All Files" sap:VirtualizedContainerService.HintSize="1172.66666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign-Getting All Files" sap:VirtualizedContainerService.HintSize="1122.66666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[pendingInvoice]</OutArgument>
       </Assign.To>
@@ -167,8 +168,8 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(conDict("BasePath").ToString + "\" + conDict("PendingInvoicePath").ToString)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message-Getting all files" sap:VirtualizedContainerService.HintSize="1172.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Getting all files from Pending Folder&quot;]" />
-    <If Condition="[pendingInvoice.Length&gt;0]" DisplayName="If-check file is exist or not" sap:VirtualizedContainerService.HintSize="1172.66666666667,1523.33333333333" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:LogMessage DisplayName="Log Message-Getting all files" sap:VirtualizedContainerService.HintSize="1122.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Getting all files from Pending Folder&quot;]" />
+    <If Condition="[pendingInvoice.Length&gt;0]" DisplayName="If-check file is exist or not" sap:VirtualizedContainerService.HintSize="1122.66666666667,1548.66666666667" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -176,13 +177,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each-Iteration all data in ConfigFile one by one" sap:VirtualizedContainerService.HintSize="926.666666666667,1359.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[pendingInvoice]">
+        <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each-Iteration all data in ConfigFile one by one" sap:VirtualizedContainerService.HintSize="876.666666666667,1384.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[pendingInvoice]">
           <ui:ForEach.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="890,1231.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="840,1256.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="AppMsg" />
                 </Sequence.Variables>
@@ -191,7 +192,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtPendingInv]" DisplayName="Read Config with SheetName &quot;Simple_Fields&quot;" sap:VirtualizedContainerService.HintSize="848,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Simple Fields" WorkbookPath="[item.ToString]">
+                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtPendingInv]" DisplayName="Read Config with SheetName &quot;Simple_Fields&quot;" sap:VirtualizedContainerService.HintSize="798,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Simple Fields" WorkbookPath="[item.ToString]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -199,7 +200,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ReadRange>
-                <Assign DisplayName="Assign-InvoiceDate by ConfigFile" sap:VirtualizedContainerService.HintSize="848,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign DisplayName="Assign-InvoiceDate by ConfigFile" sap:VirtualizedContainerService.HintSize="798,62" sap2010:WorkflowViewState.IdRef="Assign_6">
                   <Assign.To>
                     <OutArgument x:TypeArguments="s:DateTime">[InvoiceDate]</OutArgument>
                   </Assign.To>
@@ -207,15 +208,15 @@
                     <InArgument x:TypeArguments="s:DateTime">[CDate(dtPendingInv.Rows(0)("InvoiceDate").ToString)]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign DisplayName="Assign-Date Difference" sap:VirtualizedContainerService.HintSize="848,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign DisplayName="Assign-Date Difference" sap:VirtualizedContainerService.HintSize="798,62" sap2010:WorkflowViewState.IdRef="Assign_5">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Int64">[dtDiff]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:Int64">[DateDiff(DateInterval.Day,Now, InvoiceDate)]</InArgument>
+                    <InArgument x:TypeArguments="x:Int64">[DateDiff(DateInterval.Day, InvoiceDate,Now)]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <If Condition="[dtDiff&gt;CInt(conDict(&quot;DateDifference&quot;).ToString)]" DisplayName="If-Checking difference date is 10 Days" sap:VirtualizedContainerService.HintSize="848,654.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+                <If Condition="[(dtDiff&gt;CInt(conDict(&quot;DateDifference&quot;).ToString)) or dtDiff&lt;0]" DisplayName="If-Checking difference date is 10 Days" sap:VirtualizedContainerService.HintSize="798,545.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -223,22 +224,22 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence DisplayName="Sequence- Moving File" sap:VirtualizedContainerService.HintSize="426,490.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <Sequence DisplayName="Sequence- Moving File" sap:VirtualizedContainerService.HintSize="376,381.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MoveFile ContinueOnError="{x:Null}" Destination="[conDict(&quot;BasePath&quot;).ToString +&quot;\&quot;+ conDict(&quot;ExportFilePath&quot;).ToString]" DisplayName="Move to File" sap:VirtualizedContainerService.HintSize="384,162" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[item.ToString]">
+                      <ui:MoveFile ContinueOnError="{x:Null}" Destination="[conDict(&quot;BasePath&quot;).ToString +&quot;\&quot;+ conDict(&quot;ExportFilePath&quot;).ToString]" DisplayName="Move to File" sap:VirtualizedContainerService.HintSize="334,52.6666666666667" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[item.ToString]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:MoveFile>
-                      <ui:LogMessage DisplayName="Log Message-Moving Files" sap:VirtualizedContainerService.HintSize="384,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[Path.GetFileName(item.ToString)+&quot;File Moved to Exports Folder&quot;]">
+                      <ui:LogMessage DisplayName="Log Message-Moving Files" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[Path.GetFileName(item.ToString)+&quot;File Moved to Exports Folder&quot;]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -246,7 +247,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
-                      <Assign DisplayName="Assign - Log Message" sap:VirtualizedContainerService.HintSize="384,62" sap2010:WorkflowViewState.IdRef="Assign_7">
+                      <Assign DisplayName="Assign - Log Message" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_7">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[AppMsg]</OutArgument>
                         </Assign.To>
@@ -275,7 +276,7 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LogMessage workflow" sap:VirtualizedContainerService.HintSize="848,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="LogMessage.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LogMessage workflow" sap:VirtualizedContainerService.HintSize="798,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="LogMessage.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_LogMessage">[AppMsg]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_LogType">
@@ -290,6 +291,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InvokeWorkflowFile>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="798,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Log File is Created Successfully&quot;]" />
               </Sequence>
             </ActivityAction>
           </ui:ForEach.Body>
@@ -312,7 +314,7 @@
         </ui:LogMessage>
       </If.Else>
     </If>
-    <ui:MultipleAssign DisplayName="Multiple Assign - Full Path" sap:VirtualizedContainerService.HintSize="1172.66666666667,130" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign - Full Path" sap:VirtualizedContainerService.HintSize="1122.66666666667,130" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -337,17 +339,17 @@ DateAndTime.Now.ToString("dd-MMM-yyyy").ToString+".csv"]</InArgument>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dtFinalStatus]" Delimitator="Comma" DisplayName="Read CSV from File" FilePath="[strLogFilePath]" sap:VirtualizedContainerService.HintSize="1172.66666666667,156.666666666667" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1172.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Read all data from Log File&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke EmailTemplate workflow" sap:VirtualizedContainerService.HintSize="1172.66666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="EmailTemplate.xaml">
+    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dtFinalStatus]" Delimitator="Comma" DisplayName="Read CSV from File" FilePath="[strLogFilePath]" sap:VirtualizedContainerService.HintSize="1122.66666666667,156.666666666667" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1122.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Read all data from Log File&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke EmailTemplate workflow" sap:VirtualizedContainerService.HintSize="1122.66666666667,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="EmailTemplate.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_ConDictionay">[conDict]</InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_LogTable">[dtFinalStatus]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_MailBody">[strMailBody]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1172.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Sent Email Successfully&quot;]" />
-    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[strMailBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="1172.66666666667,156.666666666667" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[conDict(&quot;Subject&quot;).ToString]" To="[conDict(&quot;Mail To&quot;).ToString]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1122.66666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Sent Email Successfully&quot;]" />
+    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[strMailBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="1122.66666666667,156.666666666667" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[conDict(&quot;Subject&quot;).ToString]" To="[conDict(&quot;Mail To&quot;).ToString]">
       <ui:SendOutlookMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
       </ui:SendOutlookMail.Files>
