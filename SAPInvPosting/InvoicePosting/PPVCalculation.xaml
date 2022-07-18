@@ -113,10 +113,7 @@
             </Assign.Value>
           </Assign>
           <FlowStep.Next>
-            <FlowDecision x:Name="__ReferenceID1" DisplayName="Balance Amt &lt;= PPV Amt?" sap:VirtualizedContainerService.HintSize="146,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-              <FlowDecision.Condition>
-                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_BalanceAmt &lt;= out_PPVAmt" />
-              </FlowDecision.Condition>
+            <FlowDecision x:Name="__ReferenceID1" Condition="[in_BalanceAmt &lt;= out_PPVAmt]" DisplayName="Balance Amt &lt;= PPV Amt?" sap:VirtualizedContainerService.HintSize="146,86.6666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -170,7 +167,7 @@
                         <InArgument x:TypeArguments="x:Double">[(CDbl(RowAmount)) + (CDbl(in_BalanceAmt))]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'Amount' Field" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[finalValue.ToString+ &quot;[k(enter)]&quot;]">
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'Amount' Field" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[finalValue.ToString+ &quot;[k(enter)]&quot;]">
                       <ui:TypeInto.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f83624a-8d0d-4c12-a4ee-0457951b3db1" InformativeScreenshot="7bb0143856f5a7bab7bea8341f7f90a6" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: *' /&gt;&lt;sap colTooltip='Amount' id='usr/subHEADER_AND_ITEMS:SAPLMR1M:*/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_PO/ssubTABS:SAPLMR1M:6020/subITEM:SAPLMR1M:6310/tblSAPLMR1MTC_MR1M' tableRow='0' /&gt;">
                           <ui:Target.TimeoutMS>
