@@ -12,7 +12,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.5.0",
-  "projectVersion": "1.0.10",
+  "projectVersion": "2.0.2",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -37,9 +37,7 @@
       "privateWorkflows": []
     },
     "processOptions": {
-      "ignoredFiles": [
-        "Sequence.xaml"
-      ]
+      "ignoredFiles": []
     },
     "fileInfoCollection": [],
     "modernBehavior": true
@@ -61,8 +59,6 @@
   ],
   "isTemplate": false,
   "templateProjectData": {},
-  "publishData": {
-    "iconUrl": ".package/InvoiceDispatcher.JPG"
-  },
+  "publishData": {},
   "targetFramework": "Legacy"
 }
